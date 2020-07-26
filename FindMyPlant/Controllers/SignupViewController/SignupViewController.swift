@@ -37,12 +37,11 @@ class SignupViewController: UIViewController {
         lastNameTextField.delegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
-        
-        //navigationItem.hidesBackButton = true
-
     }
     
     @IBAction func registerAccount(_ sender: Any) {
+        
+        //TO-DO Check fields and show Alert
         
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)

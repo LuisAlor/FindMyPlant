@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("")
+        navigationItem.hidesBackButton = true
     }
     
 

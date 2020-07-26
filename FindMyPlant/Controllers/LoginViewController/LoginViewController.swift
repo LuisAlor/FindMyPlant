@@ -53,7 +53,7 @@ class LoginViewController: UIViewController {
     func configureAuth(){
         handle = Auth.auth().addStateDidChangeListener { (auth, activeUser) in
             if let _ = activeUser {
-            
+            //TO-DO check user is logged in
             }
         }
     }
@@ -72,7 +72,9 @@ class LoginViewController: UIViewController {
     
     //Logins user with credentials (verifies fields are filled and correct).
     @IBAction func login(_ sender: Any) {
-                
+        
+        //TO-DO Check fields before pressing login.
+        
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
