@@ -33,13 +33,13 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         Auth.auth().removeStateDidChangeListener(handle)
-        //self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     //Configures interface upon launch
@@ -59,7 +59,7 @@ class LoginViewController: UIViewController {
     func configureAuth(){
         handle = Auth.auth().addStateDidChangeListener { (auth, activeUser) in
             if let _ = activeUser {
-            //TO-DO check user is logged in
+                self.performSegue(withIdentifier: Constants.StoryboardSegueID.loginToHome.identifier, sender: nil)
             }
         }
     }
