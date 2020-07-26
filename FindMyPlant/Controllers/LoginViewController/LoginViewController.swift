@@ -16,7 +16,6 @@ class LoginViewController: UIViewController {
     //Firestore Properties
     var db: Firestore!
     var ref: DocumentReference? = nil
-    var handle:AuthStateDidChangeListenerHandle!
     
     //IBOutlets
     @IBOutlet weak var emailTextField: UITextField!
@@ -28,7 +27,6 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInterface()
-        configureAuth()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,7 +36,6 @@ class LoginViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        Auth.auth().removeStateDidChangeListener(handle)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
@@ -53,15 +50,6 @@ class LoginViewController: UIViewController {
         //Set TextFields' delegate
         emailTextField.delegate = self
         passwordTextField.delegate = self
-    }
-    
-    //Configures Authentication
-    func configureAuth(){
-        handle = Auth.auth().addStateDidChangeListener { (auth, activeUser) in
-            if let _ = activeUser {
-                self.performSegue(withIdentifier: Constants.StoryboardSegueID.loginToHome.identifier, sender: nil)
-            }
-        }
     }
     
     //Sets sign in status.
