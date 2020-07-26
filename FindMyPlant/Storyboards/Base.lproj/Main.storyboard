@@ -188,7 +188,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ZYp-G9-9bQ" userLabel="Root Stack View">
-                                <rect key="frame" x="37" y="84" width="340" height="470"/>
+                                <rect key="frame" x="37" y="84" width="340" height="530"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="khm-eV-8ul" userLabel="Header Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="340" height="182"/>
@@ -208,7 +208,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lbn-Y1-Xfb" userLabel="Middle Stack View">
-                                        <rect key="frame" x="0.0" y="190" width="340" height="280"/>
+                                        <rect key="frame" x="0.0" y="190" width="340" height="340"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fs4-eW-4k3">
                                                 <rect key="frame" x="0.0" y="0.0" width="340" height="40"/>
@@ -244,6 +244,15 @@
                                                     <action selector="registerAccount:" destination="ylJ-No-tgj" eventType="touchUpInside" id="6xS-0x-Dbt"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKg-iW-sXT">
+                                                <rect key="frame" x="0.0" y="300" width="340" height="40"/>
+                                                <color key="backgroundColor" red="0.63921568630000003" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Cancel"/>
+                                                <connections>
+                                                    <action selector="cancel:" destination="ylJ-No-tgj" eventType="touchUpInside" id="ZS4-hh-Ydl"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -263,6 +272,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="3By-IL-WE7"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancelButton" destination="TKg-iW-sXT" id="29U-oX-AEq"/>
                         <outlet property="emailTextField" destination="E84-Mw-ebH" id="hL0-Hf-oom"/>
                         <outlet property="firstNameTextField" destination="Fs4-eW-4k3" id="UAL-jd-YzQ"/>
                         <outlet property="lastNameTextField" destination="VXf-nG-Pnl" id="tJi-Xx-0zw"/>
@@ -371,7 +381,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9xj-Ge-Wlv"/>
+        <segue reference="jwL-kx-dAV"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Create-account-ico" width="341.33334350585938" height="341.33334350585938"/>

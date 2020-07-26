@@ -15,9 +15,18 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.hidesBackButton = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationController?.navigationItem.hidesBackButton = true // Not working
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+    }
 
 }
+
 

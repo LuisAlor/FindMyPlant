@@ -31,9 +31,15 @@ class LoginViewController: UIViewController {
         configureAuth()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         Auth.auth().removeStateDidChangeListener(handle)
+        //self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     //Configures interface upon launch

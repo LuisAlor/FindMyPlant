@@ -18,6 +18,14 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+    }
+    
     @IBAction func logout(_ sender: Any) {
         do {
             try Auth.auth().signOut()

@@ -30,6 +30,8 @@ class Utilities {
     static func styleFilledButton(_ button:UIButton) {
         button.layer.cornerRadius = 15.0
         button.tintColor = UIColor.white
+        //Force unwrap since we know the button has a titleLabel.
+        button.titleLabel!.font = UIFont.boldSystemFont(ofSize: 15)
     }
     
     //Verifies password that matches the pattern.

@@ -17,6 +17,7 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
 
+    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     
     override func viewDidLoad() {
@@ -24,9 +25,18 @@ class SignupViewController: UIViewController {
         setupInterface()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+           super.viewWillAppear(true)
+       }
+       
+       override func viewWillDisappear(_ animated: Bool) {
+           super.viewWillDisappear(true)
+       }
+    
     fileprivate func setupInterface(){
         
         Utilities.styleFilledButton(registerButton)
+        Utilities.styleFilledButton(cancelButton)
         
         Utilities.styleFormTextField(firstNameTextField, placeholder: "First name")
         Utilities.styleFormTextField(lastNameTextField, placeholder: "Last name")
@@ -46,7 +56,10 @@ class SignupViewController: UIViewController {
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         Auth.auth().createUser(withEmail: email, password: password, completion: createUserHandler(authResult:error:))
-        
+    }
+    
+    @IBAction func cancel(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
     
     //Handle Firebase user creation from completionHandler
