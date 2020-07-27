@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ULa-vY-bfm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Gfg-rn-RRJ">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -54,7 +54,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vYX-5F-ByW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3403" y="141"/>
+            <point key="canvasLocation" x="-4099" y="218"/>
         </scene>
         <!--Favorites View Controller-->
         <scene sceneID="YV7-7U-Erc">
@@ -70,12 +70,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jjN-8J-Mdd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2665" y="141"/>
+            <point key="canvasLocation" x="-3332" y="218"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="Iy1-oY-6OT">
             <objects>
-                <viewController storyboardIdentifier="LoginVC" id="kba-fs-uZ8" customClass="LoginViewController" customModule="FindMyPlant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" modalPresentationStyle="fullScreen" id="kba-fs-uZ8" customClass="LoginViewController" customModule="FindMyPlant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FGn-nF-Z2S">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -144,7 +144,7 @@
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Sign Up"/>
                                                 <connections>
-                                                    <segue destination="ylJ-No-tgj" kind="show" id="5Bl-NH-39b"/>
+                                                    <segue destination="ylJ-No-tgj" kind="show" identifier="loginToRegSegue" id="IqM-xO-nfj"/>
                                                 </connections>
                                             </button>
                                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="SX2-YF-R0W">
@@ -172,12 +172,11 @@
                         <outlet property="loginButton" destination="XO5-87-hR8" id="DNg-vO-OVT"/>
                         <outlet property="passwordTextField" destination="P8G-Rj-GpZ" id="7V0-jR-65M"/>
                         <outlet property="signupButton" destination="WDp-Xt-Dz9" id="uue-aO-ewf"/>
-                        <segue destination="Rv0-2l-VYn" kind="show" identifier="loginToHomeSegue" id="9xj-Ge-Wlv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2TQ-PV-aHz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3401" y="-1352"/>
+            <point key="canvasLocation" x="-4104" y="-1423"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="lxm-hk-FZN">
@@ -278,17 +277,16 @@
                         <outlet property="lastNameTextField" destination="VXf-nG-Pnl" id="tJi-Xx-0zw"/>
                         <outlet property="passwordTextField" destination="oZn-rC-ixs" id="HMO-VN-JvM"/>
                         <outlet property="registerButton" destination="md9-y3-pnk" id="C0g-gd-sr7"/>
-                        <segue destination="Rv0-2l-VYn" kind="show" identifier="regToHomeSegue" id="jwL-kx-dAV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7yN-Ho-to7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2636" y="-1352"/>
+            <point key="canvasLocation" x="-3307" y="-1423"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="c11-tc-Ihu">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="yCC-zX-8GK" customClass="ProfileViewController" customModule="FindMyPlant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yCC-zX-8GK" customClass="ProfileViewController" customModule="FindMyPlant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Plt-Gr-l9y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -315,7 +313,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="60g-q6-4e0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2636" y="-593"/>
+            <point key="canvasLocation" x="-3332" y="-593"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="rWs-Wb-h8h">
@@ -331,14 +329,34 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XcG-NZ-eEV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4122" y="141"/>
+            <point key="canvasLocation" x="-4864" y="218"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tQl-ui-tw2">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UC5-LD-fja" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="navToHome" id="xOc-Kf-ptG" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="gAR-Si-6gG"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zks-jE-zS4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sDJ-CV-H8B">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="Rv0-2l-VYn" kind="relationship" relationship="rootViewController" id="8ko-O3-fb2"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-4888" y="-593"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="dxt-IM-GZj">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarVC" modalPresentationStyle="fullScreen" id="Rv0-2l-VYn" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarVC" id="Rv0-2l-VYn" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Az3-x4-Fzk">
-                        <barButtonItem key="rightBarButtonItem" image="person" catalog="system" id="2L2-Ny-ECa">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="person.circle.fill" catalog="system" id="2L2-Ny-ECa">
                             <color key="tintColor" red="0.1803921568627451" green="0.41176470588235292" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="yCC-zX-8GK" kind="show" identifier="" id="PtC-cU-Vvy"/>
@@ -359,30 +377,27 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YiU-gd-5VO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3404" y="-593"/>
+            <point key="canvasLocation" x="-4099" y="-593"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="LqM-Mq-nom">
+        <scene sceneID="gCy-ff-eqn">
             <objects>
-                <navigationController storyboardIdentifier="mainNavVC" automaticallyAdjustsScrollViewInsets="NO" id="ULa-vY-bfm" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="mainNavBar" automaticallyAdjustsScrollViewInsets="NO" id="Gfg-rn-RRJ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lzr-ct-NJk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QDt-fr-yOb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="kba-fs-uZ8" kind="relationship" relationship="rootViewController" id="HgM-SN-J4V"/>
+                        <segue destination="kba-fs-uZ8" kind="relationship" relationship="rootViewController" id="Ffl-wp-IK5"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="U1O-se-lAi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zXv-g9-Ig6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4157" y="-1352"/>
+            <point key="canvasLocation" x="-4891" y="-1423"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="jwL-kx-dAV"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="Create-account-ico" width="341.33334350585938" height="341.33334350585938"/>
         <image name="FindMyPlant-icon" width="341.33334350585938" height="341.33334350585938"/>
@@ -391,6 +406,6 @@
         <image name="house" catalog="system" width="128" height="110"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="person.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>

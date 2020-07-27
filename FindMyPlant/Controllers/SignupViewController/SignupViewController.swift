@@ -61,7 +61,7 @@ class SignupViewController: UIViewController {
     }
     
     @IBAction func cancel(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     //Handle Firebase user creation from completionHandler
@@ -69,7 +69,6 @@ class SignupViewController: UIViewController {
         if error != nil {
             self.presentAlert(Alert.ofType.accCreationFailed, message: error!.localizedDescription)
         }else{
-           performSegue(withIdentifier: "registrationSegue", sender: nil)
             Auth.auth().signIn(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!, completion: signinHandler(result:error:))
         }
     }
@@ -78,8 +77,6 @@ class SignupViewController: UIViewController {
     func signinHandler(result: AuthDataResult?, error: Error?){
        if error != nil {
            self.presentAlert(Alert.ofType.loginFailed, message: error!.localizedDescription)
-       }else{
-           performSegue(withIdentifier: "regToHomeSegue", sender: nil)
        }
     }
 

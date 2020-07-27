@@ -80,8 +80,6 @@ class LoginViewController: UIViewController {
     func signinHandler(result: AuthDataResult?, error: Error?){
         if error != nil {
             self.presentAlert(Alert.ofType.loginFailed, message: error!.localizedDescription)
-        }else{
-            performSegue(withIdentifier: Constants.StoryboardSegueID.loginToHome.identifier, sender: nil)
         }
     }
 

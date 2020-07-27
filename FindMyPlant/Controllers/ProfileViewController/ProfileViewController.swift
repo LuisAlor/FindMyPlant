@@ -29,7 +29,16 @@ class ProfileViewController: UIViewController {
     @IBAction func logout(_ sender: Any) {
         do {
             try Auth.auth().signOut()
-            navigationController?.popToRootViewController(animated: true)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let loginVC = storyboard.instantiateViewController(identifier: Constants.StoryboardID.loginController.identifier) as! LoginViewController
+            if let window = view.window{
+                window.rootViewController = loginVC
+                UIView.transition(with: window,
+                                  duration: 0.5,
+                                     options: [.transitionFlipFromRight],
+                                     animations: nil,
+                                     completion: nil)
+            }
         } catch {
             print("unable to sign out: \(error)")
         }

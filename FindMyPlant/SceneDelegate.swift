@@ -20,18 +20,34 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        Auth.auth().addStateDidChangeListener { (auth, user) in
-            if user != nil {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let initialViewController = storyboard.instantiateViewController(withIdentifier: Constants.StoryboardID.tabController.identifier) as! UITabBarController
-                if let windowScene = scene as? UIWindowScene {
-                    let window = UIWindow(windowScene: windowScene)
-                    window.rootViewController = initialViewController
-                    self.window = window
+        Auth.auth().addStateDidChangeListener(authListenerHandler(auth:user:))
+    }
+    
+    //Handles addStateDidChangeListener and sets a new Root View as Key
+    func authListenerHandler(auth: Auth, user: User?){
+        if user != nil{
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let navToHomeVC = storyboard.instantiateViewController(withIdentifier: "navToHome") as! UINavigationController
+            if let window = window {
+                if window.rootViewController is LoginViewController {
+                    window.rootViewController = navToHomeVC
                     window.makeKeyAndVisible()
+                    UIView.transition(with: window,
+                                      duration: 0.5,
+                                      options: [.transitionFlipFromLeft],
+                                      animations: nil,
+                                      completion: nil)
+                } else {
+                window.rootViewController = navToHomeVC
+                window.makeKeyAndVisible()
                 }
             }
         }
+    }
+    
+    //Remove auth listener during deinitialization
+    deinit {
+        Auth.auth().removeStateDidChangeListener(handle)
     }
 
 }
