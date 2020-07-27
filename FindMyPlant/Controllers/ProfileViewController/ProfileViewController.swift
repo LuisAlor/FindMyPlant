@@ -35,7 +35,7 @@ class ProfileViewController: UIViewController {
                 window.rootViewController = loginVC
                 UIView.transition(with: window,
                                   duration: 0.5,
-                                     options: [.transitionFlipFromRight],
+                                     options: [.transitionFlipFromLeft],
                                      animations: nil,
                                      completion: nil)
             }

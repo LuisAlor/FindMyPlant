@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Gfg-rn-RRJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kba-fs-uZ8">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -144,7 +144,7 @@
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Sign Up"/>
                                                 <connections>
-                                                    <segue destination="ylJ-No-tgj" kind="show" identifier="loginToRegSegue" id="IqM-xO-nfj"/>
+                                                    <segue destination="ylJ-No-tgj" kind="presentation" identifier="loginToRegSegue" id="IqM-xO-nfj"/>
                                                 </connections>
                                             </button>
                                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="SX2-YF-R0W">
@@ -176,7 +176,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2TQ-PV-aHz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4104" y="-1423"/>
+            <point key="canvasLocation" x="-4888" y="-1405"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="lxm-hk-FZN">
@@ -187,7 +187,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ZYp-G9-9bQ" userLabel="Root Stack View">
-                                <rect key="frame" x="37" y="84" width="340" height="530"/>
+                                <rect key="frame" x="37" y="40" width="340" height="530"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="khm-eV-8ul" userLabel="Header Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="340" height="182"/>
@@ -281,7 +281,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7yN-Ho-to7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3307" y="-1423"/>
+            <point key="canvasLocation" x="-4091" y="-1405"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="c11-tc-Ihu">
@@ -378,24 +378,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YiU-gd-5VO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4099" y="-593"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="gCy-ff-eqn">
-            <objects>
-                <navigationController storyboardIdentifier="mainNavBar" automaticallyAdjustsScrollViewInsets="NO" id="Gfg-rn-RRJ" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QDt-fr-yOb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="kba-fs-uZ8" kind="relationship" relationship="rootViewController" id="Ffl-wp-IK5"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zXv-g9-Ig6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-4891" y="-1423"/>
         </scene>
     </scenes>
     <resources>

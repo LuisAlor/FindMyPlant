@@ -53,15 +53,37 @@ class SignupViewController: UIViewController {
     
     @IBAction func registerAccount(_ sender: Any) {
         
-        //TO-DO Check fields and show Alert
-        
+        let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        guard !firstName.isEmpty else {
+            self.presentAlert(Alert.ofType.accCreationFailed, message: "First name field is empty.")
+            return
+        }
+        guard !lastName.isEmpty else {
+            self.presentAlert(Alert.ofType.accCreationFailed, message: "Last name field is empty.")
+            return
+        }
+        guard !email.isEmpty else {
+            self.presentAlert(Alert.ofType.accCreationFailed, message: "Email field is empty.")
+            return
+        }
+        guard !password.isEmpty else {
+            self.presentAlert(Alert.ofType.accCreationFailed, message: "Password field is empty.")
+            return
+        }
+        guard Utilities.isPasswordValid(password) else {
+            self.presentAlert(Alert.ofType.accCreationFailed, message: "Password must be at least 6 characters long and must include one capital letter and one special character.")
+            return
+        }
+        
         Auth.auth().createUser(withEmail: email, password: password, completion: createUserHandler(authResult:error:))
     }
     
     @IBAction func cancel(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     //Handle Firebase user creation from completionHandler

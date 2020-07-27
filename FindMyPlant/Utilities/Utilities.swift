@@ -38,9 +38,9 @@ class Utilities {
     static func isPasswordValid(_ password : String) -> Bool {
         // (?=.*[A-Z]) Ensures string has one capital letter.
         // (?=.[$@$#!%?&]) - Ensures string has one special character.
-        // {8,} - Ensures password length is 8.
+        // {6,} - Ensures password length is 6.
         // $ - Ends Anchor.
-        let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[A-Z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{6,}")
+        let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[A-Z])[A-Za-z\\d$@$#!%*?&]{6,}")
         return passwordTest.evaluate(with: password)
     }
     
