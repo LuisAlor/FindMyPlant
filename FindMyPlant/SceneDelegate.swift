@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -36,7 +37,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 window.rootViewController = navToHomeVC
                 window.makeKeyAndVisible()
             } else {
-                print("With animation")
                 window.rootViewController = navToHomeVC
                 window.makeKeyAndVisible()
                 UIView.transition(with: window,

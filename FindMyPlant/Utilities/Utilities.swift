@@ -37,11 +37,19 @@ class Utilities {
     //Verifies password that matches the pattern.
     static func isPasswordValid(_ password : String) -> Bool {
         // (?=.*[A-Z]) Ensures string has one capital letter.
-        // (?=.[$@$#!%?&]) - Ensures string has one special character.
         // {6,} - Ensures password length is 6.
         // $ - Ends Anchor.
-        let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[A-Z])[A-Za-z\\d$@$#!%*?&]{6,}")
-        return passwordTest.evaluate(with: password)
+        let passwordRegEx = "^(?=.*[A-Z])[A-Za-z\\d$@$#!%*?&]{6,}"
+        let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegEx)
+        return passwordPredicate.evaluate(with: password)
+    }
+    
+    //Verifies that email is in the correct format and mathes the RegEx pattern
+    static func isEmailValid(_ email: String) -> Bool {
+        
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPredicate.evaluate(with: email)
     }
     
     //Generates a random number from 0 till max of int.

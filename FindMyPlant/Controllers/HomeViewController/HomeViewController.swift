@@ -20,12 +20,14 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         tabBarController?.navigationItem.setHidesBackButton(true, animated: false)
+        //print(Auth.auth().currentUser?.displayName)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
     }
-
+    
+    
 }
 
 

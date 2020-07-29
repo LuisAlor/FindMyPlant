@@ -63,17 +63,29 @@ class LoginViewController: UIViewController {
     func configureDB(){
         db = Firestore.firestore()
     }
-    
+        
     //Logins user with credentials (verifies fields are filled and correct).
     @IBAction func login(_ sender: Any) {
         
-        //TO-DO Check fields before pressing login.
+        var email = emailTextField.text ?? ""
+        var password = passwordTextField.text ?? ""
+
+        email = email.trimmingCharacters(in: .whitespacesAndNewlines)
+        password = password.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        //Sign in the user
-        Auth.auth().signIn(withEmail: email, password: password, completion: signinHandler(result:error:))
+        if email.isEmpty {
+            self.presentAlert(Alert.ofType.loginFailed, message: "The email field is empty")
+        }else if !Utilities.isEmailValid(email){
+            self.presentAlert(Alert.ofType.loginFailed, message: "The email address is badly formatted")
+        }
+        else if password.isEmpty {
+            self.presentAlert(Alert.ofType.loginFailed, message: "The password field is empty")
+        }else {
+            //Sign in the user
+            activityIndicator.startAnimating()
+            loginButton.isEnabled = false
+            Auth.auth().signIn(withEmail: email, password: password, completion: signinHandler(result:error:))
+        }
     }
     
     //Handles user signin and verifies in Firebase servers.
@@ -81,6 +93,8 @@ class LoginViewController: UIViewController {
         if error != nil {
             self.presentAlert(Alert.ofType.loginFailed, message: error!.localizedDescription)
         }
+        activityIndicator.stopAnimating()
+        loginButton.isEnabled = true
     }
 
 }

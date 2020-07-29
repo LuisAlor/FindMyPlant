@@ -17,12 +17,17 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
 
-    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    
+    var db: Firestore!
+    var ref: DocumentReference? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInterface()
+        db = Firestore.firestore()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,33 +58,35 @@ class SignupViewController: UIViewController {
     
     @IBAction func registerAccount(_ sender: Any) {
         
-        let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        var firstName = firstNameTextField.text ?? ""
+        var lastName = lastNameTextField.text ?? ""
+        var email = emailTextField.text ?? ""
+        var password = passwordTextField.text ?? ""
         
-        guard !firstName.isEmpty else {
-            self.presentAlert(Alert.ofType.accCreationFailed, message: "First name field is empty.")
-            return
-        }
-        guard !lastName.isEmpty else {
-            self.presentAlert(Alert.ofType.accCreationFailed, message: "Last name field is empty.")
-            return
-        }
-        guard !email.isEmpty else {
-            self.presentAlert(Alert.ofType.accCreationFailed, message: "Email field is empty.")
-            return
-        }
-        guard !password.isEmpty else {
-            self.presentAlert(Alert.ofType.accCreationFailed, message: "Password field is empty.")
-            return
-        }
-        guard Utilities.isPasswordValid(password) else {
-            self.presentAlert(Alert.ofType.accCreationFailed, message: "Password must be at least 6 characters long and must include one capital letter and one special character.")
-            return
+        firstName = firstName.trimmingCharacters(in: .whitespacesAndNewlines)
+        lastName = lastName.trimmingCharacters(in: .whitespacesAndNewlines)
+        email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        if firstName.isEmpty {
+            self.presentAlert(Alert.ofType.accCreationFailed, message: "First name field is empty")
+        } else if lastName.isEmpty{
+            self.presentAlert(Alert.ofType.accCreationFailed, message: "Last name field is empty")
+        } else if email.isEmpty{
+            self.presentAlert(Alert.ofType.accCreationFailed, message: "Email field is empty")
+        }else if !Utilities.isEmailValid(email){
+            self.presentAlert(Alert.ofType.accCreationFailed, message: "The email address is badly formatted")
+        }else if password.isEmpty{
+            self.presentAlert(Alert.ofType.accCreationFailed, message: "Password field is empty")
+        }else if !Utilities.isPasswordValid(password){
+            self.presentAlert(Alert.ofType.accCreationFailed, message: "Password must be at least 6 characters long and must include one capital letter")
+        }else {
+            registerButton.isEnabled = false
+            cancelButton.isEnabled = false
+            activityIndicator.startAnimating()
+            Auth.auth().createUser(withEmail: email, password: password, completion: createUserHandler(authResult:error:))
         }
         
-        Auth.auth().createUser(withEmail: email, password: password, completion: createUserHandler(authResult:error:))
     }
     
     @IBAction func cancel(_ sender: Any) {
@@ -90,17 +97,40 @@ class SignupViewController: UIViewController {
     func createUserHandler(authResult: AuthDataResult?, error: Error?){
         if error != nil {
             self.presentAlert(Alert.ofType.accCreationFailed, message: error!.localizedDescription)
+            activityIndicator.stopAnimating()
+            registerButton.isEnabled = true
+            cancelButton.isEnabled = true
         }else{
+            ref = db.collection("users").addDocument(data: [
+                "uid": authResult!.user.uid,
+                "firstName": firstNameTextField.text!,
+                "lastName": lastNameTextField.text!,
+                "email": emailTextField.text!,
+            ], completion: userSaveToDBHandler(error:))
+        }
+    }
+    
+    func userSaveToDBHandler(error: Error?) {
+        if error != nil {
+            self.presentAlert(Alert.ofType.accCreationFailed, message: "Something went wrong while saving data!")
+            activityIndicator.stopAnimating()
+            registerButton.isEnabled = true
+            cancelButton.isEnabled = true
+
+        } else{
             Auth.auth().signIn(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!, completion: signinHandler(result:error:))
         }
     }
     
     //Handles user signin and verifies in Firebase servers.
-    func signinHandler(result: AuthDataResult?, error: Error?){
-       if error != nil {
-           self.presentAlert(Alert.ofType.loginFailed, message: error!.localizedDescription)
-       }
-    }
+     func signinHandler(result: AuthDataResult?, error: Error?){
+        if error != nil {
+            self.presentAlert(Alert.ofType.loginFailed, message: error!.localizedDescription)
+            activityIndicator.stopAnimating()
+            registerButton.isEnabled = true
+            cancelButton.isEnabled = true
+        }
+     }
 
 }
 
