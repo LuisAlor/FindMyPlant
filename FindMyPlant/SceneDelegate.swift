@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        Auth.auth().addStateDidChangeListener(authListenerHandler(auth:user:))
+        handle = Auth.auth().addStateDidChangeListener(authListenerHandler(auth:user:))
     }
     
     //Handles addStateDidChangeListener and sets a new Root View as Key
@@ -50,8 +50,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
     
-    //Remove auth listener during deinitialization
-    deinit {
+    func sceneWillResignActive(_ scene: UIScene) {
+        //Removes auth listener during deinitialization
         Auth.auth().removeStateDidChangeListener(handle)
     }
 

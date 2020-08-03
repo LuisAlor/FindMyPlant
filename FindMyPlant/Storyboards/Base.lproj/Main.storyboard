@@ -51,6 +51,10 @@
                     <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" id="3I8-RB-4Lb">
                         <color key="badgeColor" red="0.1803921568627451" green="0.41176470588235292" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="searchBar" destination="quf-im-dWd" id="Vv8-2G-LJS"/>
+                        <outlet property="tableView" destination="6WZ-NT-1M6" id="W9r-iC-AvW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vYX-5F-ByW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

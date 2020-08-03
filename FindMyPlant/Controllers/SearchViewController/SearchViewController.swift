@@ -9,9 +9,18 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-
+    
+    var plantsSearchResult: PlantsSearchResponse!
+    var currentSearchTask: URLSessionTask?
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        searchBar.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
