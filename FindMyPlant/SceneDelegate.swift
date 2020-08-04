@@ -30,14 +30,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let window = self.window else { return }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let navToHomeVC = storyboard.instantiateViewController(withIdentifier: "navToHome") as! UINavigationController
+        let tabToHome = storyboard.instantiateViewController(withIdentifier: "TabBarVC") as! UITabBarController
 
         if user != nil{
             if window.rootViewController is LoginViewController && userLoggedUponLaunch{
-                window.rootViewController = navToHomeVC
+                window.rootViewController = tabToHome
                 window.makeKeyAndVisible()
             } else {
-                window.rootViewController = navToHomeVC
+                window.rootViewController = tabToHome
                 window.makeKeyAndVisible()
                 UIView.transition(with: window,
                                   duration: 0.5,

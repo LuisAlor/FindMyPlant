@@ -11,6 +11,7 @@
 		BD15087424D2AA880067AE81 /* TrefleAPiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15087324D2AA880067AE81 /* TrefleAPiClient.swift */; };
 		BD15087724D560F20067AE81 /* TrefleDistributionLevels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15087624D560F20067AE81 /* TrefleDistributionLevels.swift */; };
 		BD17658424CC41A6006CE73E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD17658324CC41A6006CE73E /* Constants.swift */; };
+		BD2D14F824D88B7700758710 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2D14F724D88B7700758710 /* DetailsViewController.swift */; };
 		BD3C777224C794D70006D16C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C777124C794D70006D16C /* SearchViewController.swift */; };
 		BD3C777424C794F70006D16C /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C777324C794F70006D16C /* FavoritesViewController.swift */; };
 		BD3C777624C795350006D16C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C777524C795350006D16C /* LoginViewController.swift */; };
@@ -42,6 +43,7 @@
 		BD15087324D2AA880067AE81 /* TrefleAPiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrefleAPiClient.swift; sourceTree = "<group>"; };
 		BD15087624D560F20067AE81 /* TrefleDistributionLevels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrefleDistributionLevels.swift; sourceTree = "<group>"; };
 		BD17658324CC41A6006CE73E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BD2D14F724D88B7700758710 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		BD3C777124C794D70006D16C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BD3C777324C794F70006D16C /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		BD3C777524C795350006D16C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,14 @@
 				BD6262D224D57BCC000AE569 /* WGSRPD Levels */,
 			);
 			path = "Trefle.io Client";
+			sourceTree = "<group>";
+		};
+		BD2D14F624D88B3300758710 /* DetailsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BD2D14F724D88B7700758710 /* DetailsViewController.swift */,
+			);
+			path = DetailsViewController;
 			sourceTree = "<group>";
 		};
 		BD6262D224D57BCC000AE569 /* WGSRPD Levels */ = {
@@ -189,6 +199,7 @@
 				BDA5949A24CCA90F00295C9B /* HomeViewController */,
 				BDA5949D24CCA93700295C9B /* ProfileViewController */,
 				BDA5949B24CCA91B00295C9B /* SearchViewController */,
+				BD2D14F624D88B3300758710 /* DetailsViewController */,
 				BDA5949C24CCA92900295C9B /* FavoritesViewController */,
 				BD9FE3AC24CCB7690014FC96 /* Extensions */,
 			);
@@ -438,6 +449,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD6262D524D57C19000AE569 /* L1.swift in Sources */,
+				BD2D14F824D88B7700758710 /* DetailsViewController.swift in Sources */,
 				BD3C777624C795350006D16C /* LoginViewController.swift in Sources */,
 				BD15087424D2AA880067AE81 /* TrefleAPiClient.swift in Sources */,
 				BD15087724D560F20067AE81 /* TrefleDistributionLevels.swift in Sources */,

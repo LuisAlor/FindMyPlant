@@ -18,9 +18,7 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        searchBar.delegate = self
+        setupUIController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,6 +27,15 @@ class SearchViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
+    }
+    
+    //Setups delegation and properties from UI elements
+    fileprivate func setupUIController() {
+          tableView.delegate = self
+          tableView.dataSource = self
+          searchBar.delegate = self
+          
+          searchBar.autocapitalizationType = .none
     }
 
 }

@@ -13,15 +13,15 @@
             <objects>
                 <viewController storyboardIdentifier="SearchVC" modalPresentationStyle="fullScreen" id="aBt-42-1DG" customClass="SearchViewController" customModule="FindMyPlant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="inA-iW-ubD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search for plants" translatesAutoresizingMaskIntoConstraints="NO" id="quf-im-dWd">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6WZ-NT-1M6">
-                                <rect key="frame" x="0.0" y="56" width="414" height="587"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="587"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="searchResultsCell" id="FMQ-Rt-rs2">
@@ -48,33 +48,48 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FeF-lt-u3Y"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" id="3I8-RB-4Lb">
-                        <color key="badgeColor" red="0.1803921568627451" green="0.41176470588235292" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="uPB-rW-Z3l"/>
                     <connections>
                         <outlet property="searchBar" destination="quf-im-dWd" id="Vv8-2G-LJS"/>
                         <outlet property="tableView" destination="6WZ-NT-1M6" id="W9r-iC-AvW"/>
+                        <segue destination="18o-2r-pTc" kind="show" identifier="showDetailsSegue" id="fo7-hX-l1F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vYX-5F-ByW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4099" y="218"/>
+            <point key="canvasLocation" x="-3184.057971014493" y="217.66304347826087"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="rSJ-YZ-rxV">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="18o-2r-pTc" customClass="DetailsViewController" customModule="FindMyPlant" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SeI-bz-c5e">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="2tp-vM-kb9"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gfZ-vt-1aN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hop-lo-wLs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2426.0869565217395" y="217.66304347826087"/>
         </scene>
         <!--Favorites View Controller-->
         <scene sceneID="YV7-7U-Erc">
             <objects>
                 <viewController storyboardIdentifier="FavoritesVC" modalPresentationStyle="fullScreen" id="K5A-lV-pUB" customClass="FavoritesViewController" customModule="FindMyPlant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i12-he-aQs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Zwz-qk-ZVm"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="heart" catalog="system" selectedImage="heart.fill" id="4CM-AE-yjL"/>
+                    <navigationItem key="navigationItem" id="rcp-XH-tsx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jjN-8J-Mdd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3332" y="218"/>
+            <point key="canvasLocation" x="-771.01449275362324" y="217.66304347826087"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="Iy1-oY-6OT">
@@ -308,13 +323,13 @@
         <!--Profile View Controller-->
         <scene sceneID="c11-tc-Ihu">
             <objects>
-                <viewController id="yCC-zX-8GK" customClass="ProfileViewController" customModule="FindMyPlant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="yCC-zX-8GK" customClass="ProfileViewController" customModule="FindMyPlant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Plt-Gr-l9y">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bC-h6-Kwc">
-                                <rect key="frame" x="179.66666666666666" y="331" width="55" height="30"/>
+                                <rect key="frame" x="179.66666666666666" y="353" width="55" height="30"/>
                                 <state key="normal" title="Log Out"/>
                                 <connections>
                                     <action selector="logout:" destination="yCC-zX-8GK" eventType="touchUpInside" id="HGb-ek-K0Y"/>
@@ -335,54 +350,38 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="60g-q6-4e0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3332" y="-593"/>
+            <point key="canvasLocation" x="-5155" y="951"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="rWs-Wb-h8h">
             <objects>
                 <viewController storyboardIdentifier="HomeVC" modalPresentationStyle="fullScreen" id="Waf-iW-avr" customClass="HomeViewController" customModule="FindMyPlant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nBR-4p-oOH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="0nf-0v-sVb"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="house" catalog="system" selectedImage="house.fill" id="Zjg-PP-kOj"/>
+                    <navigationItem key="navigationItem" id="LNP-Sc-XmH">
+                        <barButtonItem key="rightBarButtonItem" image="person.crop.circle.fill" catalog="system" id="5Ji-lv-53Y" userLabel="Profile Button Item">
+                            <color key="tintColor" red="0.18039215689999999" green="0.41176470590000003" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="yCC-zX-8GK" kind="show" id="zju-aA-vL0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XcG-NZ-eEV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4864" y="218"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="tQl-ui-tw2">
-            <objects>
-                <navigationController storyboardIdentifier="navToHome" id="xOc-Kf-ptG" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="gAR-Si-6gG"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="zks-jE-zS4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sDJ-CV-H8B">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="Rv0-2l-VYn" kind="relationship" relationship="rootViewController" id="8ko-O3-fb2"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UC5-LD-fja" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-4888" y="-593"/>
+            <point key="canvasLocation" x="-5155" y="218"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="dxt-IM-GZj">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarVC" id="Rv0-2l-VYn" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarVC" modalPresentationStyle="fullScreen" id="Rv0-2l-VYn" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Az3-x4-Fzk">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="person.circle.fill" catalog="system" id="2L2-Ny-ECa">
                             <color key="tintColor" red="0.1803921568627451" green="0.41176470588235292" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <segue destination="yCC-zX-8GK" kind="show" identifier="" id="PtC-cU-Vvy"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JPz-9D-Dgt">
@@ -392,14 +391,73 @@
                         <color key="selectedImageTintColor" red="0.1803921568627451" green="0.41176470588235292" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Waf-iW-avr" kind="relationship" relationship="viewControllers" id="WdE-ch-baa"/>
-                        <segue destination="aBt-42-1DG" kind="relationship" relationship="viewControllers" id="CqU-6F-9j4"/>
-                        <segue destination="K5A-lV-pUB" kind="relationship" relationship="viewControllers" id="xab-H7-8gg"/>
+                        <segue destination="cYO-df-2gV" kind="relationship" relationship="viewControllers" id="WdE-ch-baa"/>
+                        <segue destination="RfE-ct-biG" kind="relationship" relationship="viewControllers" id="CqU-6F-9j4"/>
+                        <segue destination="TzA-ZG-Y8i" kind="relationship" relationship="viewControllers" id="xab-H7-8gg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YiU-gd-5VO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4099" y="-593"/>
+            <point key="canvasLocation" x="-4888" y="-664"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UA6-Sp-JhT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="RfE-ct-biG" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" id="3I8-RB-4Lb">
+                        <color key="badgeColor" red="0.1803921568627451" green="0.41176470588235292" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YIP-Gw-skX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="aBt-42-1DG" kind="relationship" relationship="rootViewController" id="2FU-Cj-gj2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tud-F6-O12" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3934.7826086956525" y="217.66304347826087"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rxm-D1-y1p">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="TzA-ZG-Y8i" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="heart" catalog="system" selectedImage="heart.fill" id="4CM-AE-yjL"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Fv5-JF-ZDK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="K5A-lV-pUB" kind="relationship" relationship="rootViewController" id="rdj-xC-u96"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nzf-32-muB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1531.8840579710145" y="217.66304347826087"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QPN-ZI-BAQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="cYO-df-2gV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="house" catalog="system" selectedImage="house.fill" id="Zjg-PP-kOj"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wo3-zC-EPS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Waf-iW-avr" kind="relationship" relationship="rootViewController" id="dPs-ed-n02"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UVX-6E-bds" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5991.304347826087" y="217.66304347826087"/>
         </scene>
     </scenes>
     <resources>
@@ -411,5 +469,6 @@
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>

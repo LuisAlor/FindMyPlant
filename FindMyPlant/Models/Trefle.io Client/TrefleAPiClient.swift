@@ -28,6 +28,7 @@ class TrefleAPiClient {
         var stringURL: String {
             switch self {
             case var .searchForPlant(name):
+                name = name.lowercased()
                 name = name.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? ""
                 return Endpoints.baseURL + Endpoints.plantPath + Endpoints.search + Endpoints.myToken + Endpoints.plantParam + "\(name)"
             }
@@ -39,9 +40,7 @@ class TrefleAPiClient {
     
     //MARK: - sendGETRequest: Send GET Request of Generic Type
     class func sendGETRequest<ResponseType:Decodable>(url: URL, response: ResponseType.Type, completionHandler: @escaping (ResponseType?, Error?) -> Void) -> URLSessionTask {
-        
-        print(url)
-        
+                
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard let data = data else {
                 DispatchQueue.main.async {
@@ -54,7 +53,6 @@ class TrefleAPiClient {
                 let response = try decoder.decode(ResponseType.self, from: data)
                 DispatchQueue.main.async {
                     completionHandler(response, nil)
-                    print(response)
                 }
             }
             catch {

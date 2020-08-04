@@ -129,7 +129,7 @@ class SignupViewController: UIViewController {
             activityIndicator.stopAnimating()
             registerButton.isEnabled = true
             cancelButton.isEnabled = true
-        }
+        } 
      }
 
 }

@@ -16,27 +16,21 @@ extension SearchViewController: UISearchBarDelegate {
     }
     
     func searchPlantResultHandler(response: PlantsSearchResponse?, error: Error?){
-        if error != nil {
-            if let response = response{
-                self.plantsSearchResult = response
-                print(response)
-                self.tableView.reloadData()
-            }
-        } 
+        if let response =  response {
+            self.plantsSearchResult = response
+            self.tableView.reloadData()
+        }
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = true
-        print("searchBarTextDidBeginEditing")
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = false
-        print("searchBarTextDidEndEditing")
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(true)
-        print("searchBarCancelButtonClicked")
     }
 }

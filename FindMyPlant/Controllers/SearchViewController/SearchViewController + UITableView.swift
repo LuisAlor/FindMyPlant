@@ -11,12 +11,12 @@ import UIKit
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return plantsSearchResult != nil ? plantsSearchResult.meta.total : 0
+        return plantsSearchResult != nil ? plantsSearchResult.data.count : 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchResultsCell")!
-        cell.textLabel?.text = plantsSearchResult.data[indexPath.row].commonName
+        cell.textLabel?.text = plantsSearchResult.data[indexPath.row].scientificName
         return cell
     }
     

@@ -11,14 +11,14 @@ import Foundation
 struct PlantInfo: Codable {
     let id: Int
     let slug: String
-    let commonName: String
+    let commonName: String?
     let scientificName: String
-    let yearRegistered: String
-    let bibliography: String
-    let author: String
+    let yearRegistered: Int?
+    let bibliography: String?
+    let author: String?
     let status: String
     let rank: String
-    let familyCommonName: String
+    let familyCommonName: String?
     let genusID: Int
     let imageURL: String?
     let synonyms: [String]
