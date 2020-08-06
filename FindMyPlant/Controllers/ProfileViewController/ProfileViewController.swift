@@ -19,29 +19,20 @@ class ProfileViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
+        super.viewWillDisappear(animated)
     }
     
     @IBAction func logout(_ sender: Any) {
-        do {
-            try Auth.auth().signOut()
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let loginVC = storyboard.instantiateViewController(identifier: Constants.StoryboardID.loginController.identifier) as! LoginViewController
-            if let window = view.window{
-                window.rootViewController = loginVC
-                UIView.transition(with: window,
-                                  duration: 0.5,
-                                     options: [.transitionFlipFromLeft],
-                                     animations: nil,
-                                     completion: nil)
-            }
-        } catch {
-            print("unable to sign out: \(error)")
-        }
+        
+        //We do not care about error handling for user during logout.
+        try? Auth.auth().signOut()
+        //Pop back to home and then dismiss the controller for always return to the home screen and not to profile.
+        self.navigationController?.popViewController(animated: false)
+        dismiss(animated: true, completion: nil)
     }
 
 }

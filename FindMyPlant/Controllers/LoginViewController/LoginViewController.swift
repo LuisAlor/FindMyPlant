@@ -30,12 +30,12 @@ class LoginViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
+        super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
@@ -50,13 +50,6 @@ class LoginViewController: UIViewController {
         //Set TextFields' delegate
         emailTextField.delegate = self
         passwordTextField.delegate = self
-    }
-    
-    //Sets sign in status.
-    func signedInStatus(isSignedIn:Bool){
-        if isSignedIn{
-            configureDB()
-        }
     }
     
     //Configures FireStore DB.

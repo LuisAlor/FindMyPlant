@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kba-fs-uZ8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rv0-2l-VYn">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -163,7 +163,7 @@
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Sign Up"/>
                                                 <connections>
-                                                    <segue destination="ylJ-No-tgj" kind="presentation" identifier="loginToRegSegue" id="IqM-xO-nfj"/>
+                                                    <segue destination="ylJ-No-tgj" kind="show" identifier="" id="IqM-xO-nfj"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -174,7 +174,7 @@
                                 </constraints>
                             </stackView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="SX2-YF-R0W">
-                                <rect key="frame" x="188.66666666666666" y="679" width="37" height="37"/>
+                                <rect key="frame" x="188.66666666666666" y="630" width="37" height="37"/>
                                 <color key="color" red="0.18039215689999999" green="0.41176470590000003" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                         </subviews>
@@ -198,7 +198,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2TQ-PV-aHz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4888" y="-1405"/>
+            <point key="canvasLocation" x="-3032" y="-686"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="lxm-hk-FZN">
@@ -208,8 +208,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="ZYp-G9-9bQ" userLabel="Root Stack View">
-                                <rect key="frame" x="37" y="40" width="340" height="582"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ZYp-G9-9bQ" userLabel="Root Stack View">
+                                <rect key="frame" x="37" y="84" width="340" height="482"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="khm-eV-8ul" userLabel="Header Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="340" height="182"/>
@@ -229,7 +229,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lbn-Y1-Xfb" userLabel="Middle Stack View">
-                                        <rect key="frame" x="0.0" y="222" width="340" height="220"/>
+                                        <rect key="frame" x="0.0" y="202" width="340" height="220"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fs4-eW-4k3">
                                                 <rect key="frame" x="0.0" y="0.0" width="340" height="40"/>
@@ -257,7 +257,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="JfJ-ya-zsr" userLabel="Buttons Stack View">
-                                        <rect key="frame" x="0.0" y="482" width="340" height="100"/>
+                                        <rect key="frame" x="0.0" y="442" width="340" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="md9-y3-pnk">
                                                 <rect key="frame" x="0.0" y="0.0" width="340" height="40"/>
@@ -272,16 +272,6 @@
                                                     <action selector="registerAccount:" destination="ylJ-No-tgj" eventType="touchUpInside" id="6xS-0x-Dbt"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKg-iW-sXT">
-                                                <rect key="frame" x="0.0" y="60" width="340" height="40"/>
-                                                <color key="backgroundColor" red="0.63921568630000003" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Cancel"/>
-                                                <connections>
-                                                    <action selector="cancel:" destination="ylJ-No-tgj" eventType="touchUpInside" id="ZS4-hh-Ydl"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -290,7 +280,7 @@
                                 </constraints>
                             </stackView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="VTh-ih-j7W">
-                                <rect key="frame" x="369" y="8" width="37" height="37"/>
+                                <rect key="frame" x="369" y="52" width="37" height="37"/>
                                 <color key="color" red="0.18039215689999999" green="0.41176470590000003" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                         </subviews>
@@ -308,7 +298,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="VTh-ih-j7W" id="WD0-xx-LKN"/>
-                        <outlet property="cancelButton" destination="TKg-iW-sXT" id="29U-oX-AEq"/>
                         <outlet property="emailTextField" destination="E84-Mw-ebH" id="hL0-Hf-oom"/>
                         <outlet property="firstNameTextField" destination="Fs4-eW-4k3" id="UAL-jd-YzQ"/>
                         <outlet property="lastNameTextField" destination="VXf-nG-Pnl" id="tJi-Xx-0zw"/>
@@ -318,7 +307,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7yN-Ho-to7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4091" y="-1405"/>
+            <point key="canvasLocation" x="-2178" y="-686"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="c11-tc-Ihu">
@@ -370,6 +359,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="D70-pD-YSJ" kind="show" identifier="modalLoginSegue" id="ljm-TO-acv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XcG-NZ-eEV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -398,7 +390,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YiU-gd-5VO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4888" y="-664"/>
+            <point key="canvasLocation" x="-4888" y="-686"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UA6-Sp-JhT">
@@ -458,6 +450,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UVX-6E-bds" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-5991.304347826087" y="217.66304347826087"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JvH-Ml-xnN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="D70-pD-YSJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="YGT-HJ-ZQm"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wnW-d5-aGs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kba-fs-uZ8" kind="relationship" relationship="rootViewController" id="F4j-EN-fsn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rlb-Hu-2Up" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3883" y="-686"/>
         </scene>
     </scenes>
     <resources>

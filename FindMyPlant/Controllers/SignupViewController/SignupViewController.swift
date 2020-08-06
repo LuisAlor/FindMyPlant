@@ -31,19 +31,13 @@ class SignupViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-    }
-       
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.backItem?.title = ""
     }
     
     fileprivate func setupInterface(){
         
         Utilities.styleFilledButton(registerButton)
-        Utilities.styleFilledButton(cancelButton)
         
         Utilities.styleFormTextField(firstNameTextField, placeholder: "First name")
         Utilities.styleFormTextField(lastNameTextField, placeholder: "Last name")
@@ -89,10 +83,6 @@ class SignupViewController: UIViewController {
         
     }
     
-    @IBAction func cancel(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
     //Handle Firebase user creation from completionHandler
     func createUserHandler(authResult: AuthDataResult?, error: Error?){
         if error != nil {
@@ -129,7 +119,9 @@ class SignupViewController: UIViewController {
             activityIndicator.stopAnimating()
             registerButton.isEnabled = true
             cancelButton.isEnabled = true
-        } 
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
      }
 
 }

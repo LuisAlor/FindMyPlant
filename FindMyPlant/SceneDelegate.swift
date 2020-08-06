@@ -21,38 +21,38 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
-        
-        handle = Auth.auth().addStateDidChangeListener(authListenerHandler(auth:user:))
+    
+//        handle = Auth.auth().addStateDidChangeListener(authListenerHandler(auth:user:))
     }
     
     //Handles addStateDidChangeListener and sets a new Root View as Key
-    func authListenerHandler(auth: Auth, user: User?){
-        
-        guard let window = self.window else { return }
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let tabToHome = storyboard.instantiateViewController(withIdentifier: "TabBarVC") as! UITabBarController
-
-        if user != nil{
-            if window.rootViewController is LoginViewController && userLoggedUponLaunch{
-                window.rootViewController = tabToHome
-                window.makeKeyAndVisible()
-            } else {
-                window.rootViewController = tabToHome
-                window.makeKeyAndVisible()
-                UIView.transition(with: window,
-                                  duration: 0.5,
-                                  options: [.transitionFlipFromRight],
-                                  animations: nil,
-                                  completion: nil)
-            }
-        }else {
-            userLoggedUponLaunch = false
-        }
-    }
+//    func authListenerHandler(auth: Auth, user: User?){
+//
+//        guard let window = self.window else { return }
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let tabToHome = storyboard.instantiateViewController(withIdentifier: "TabBarVC") as! UITabBarController
+//
+//        if user != nil{
+//            if window.rootViewController is LoginViewController && userLoggedUponLaunch{
+//                window.rootViewController = tabToHome
+//                window.makeKeyAndVisible()
+//            } else {
+//                window.rootViewController = tabToHome
+//                window.makeKeyAndVisible()
+//                UIView.transition(with: window,
+//                                  duration: 0.5,
+//                                  options: [.transitionFlipFromRight],
+//                                  animations: nil,
+//                                  completion: nil)
+//            }
+//        }else {
+//            userLoggedUponLaunch = false
+//        }
+//    }
     
     func sceneWillResignActive(_ scene: UIScene) {
         //Removes auth listener during deinitialization
-        Auth.auth().removeStateDidChangeListener(handle)
+//        Auth.auth().removeStateDidChangeListener(handle)
     }
 
 }
