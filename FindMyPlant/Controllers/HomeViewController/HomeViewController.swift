@@ -15,18 +15,20 @@ class HomeViewController: UIViewController {
     
     var handle: AuthStateDidChangeListenerHandle!
     var userLoggedUponLaunch = true
-
+    var usersRef: CollectionReference!
+    
+    var db: Firestore!
+    var ref: DocumentReference? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureDB()
         handle = Auth.auth().addStateDidChangeListener(authListenerHandler(auth:user:))
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    fileprivate func configureDB() {
+        db = Firestore.firestore()
+        usersRef = db.collection("users")
     }
     
     deinit {
@@ -34,9 +36,23 @@ class HomeViewController: UIViewController {
         Auth.auth().removeStateDidChangeListener(handle)
     }
     
+    //Check if user is still in db if not remove session by logging out
+    fileprivate func isUserSessionValid(user: User?){
+        if let currentUserUID = user?.uid {
+            usersRef.whereField("uid", isEqualTo: currentUserUID).getDocuments { (querySnapshot, error) in
+                if error == nil, querySnapshot?.documents.first == nil {
+                    try? Auth.auth().signOut()
+                }
+            }
+        }
+    }
+    
     //Handles addStateDidChangeListener and sets a new Root View as Key
     func authListenerHandler(auth: Auth, user: User?){
         if user != nil {
+            
+            isUserSessionValid(user: user)
+            
             //Check if user was logged in upon launch if not dismiss after successful login
             if !userLoggedUponLaunch {
                 dismiss(animated: true, completion: nil)

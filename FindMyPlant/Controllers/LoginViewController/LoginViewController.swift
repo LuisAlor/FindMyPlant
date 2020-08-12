@@ -13,10 +13,6 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
-    //Firestore Properties
-    var db: Firestore!
-    var ref: DocumentReference? = nil
-    
     //IBOutlets
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -50,11 +46,6 @@ class LoginViewController: UIViewController {
         //Set TextFields' delegate
         emailTextField.delegate = self
         passwordTextField.delegate = self
-    }
-    
-    //Configures FireStore DB.
-    func configureDB(){
-        db = Firestore.firestore()
     }
         
     //Logins user with credentials (verifies fields are filled and correct).

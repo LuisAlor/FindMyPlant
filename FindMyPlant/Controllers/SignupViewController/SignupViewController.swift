@@ -19,7 +19,6 @@ class SignupViewController: UIViewController {
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var registerButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
     
     var db: Firestore!
     var ref: DocumentReference? = nil
@@ -27,7 +26,7 @@ class SignupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInterface()
-        db = Firestore.firestore()
+        configDB()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,6 +47,10 @@ class SignupViewController: UIViewController {
         lastNameTextField.delegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
+    }
+    
+    fileprivate func configDB() {
+           db = Firestore.firestore()
     }
     
     @IBAction func registerAccount(_ sender: Any) {
@@ -76,7 +79,6 @@ class SignupViewController: UIViewController {
             self.presentAlert(Alert.ofType.accCreationFailed, message: "Password must be at least 6 characters long and must include one capital letter")
         }else {
             registerButton.isEnabled = false
-            cancelButton.isEnabled = false
             activityIndicator.startAnimating()
             Auth.auth().createUser(withEmail: email, password: password, completion: createUserHandler(authResult:error:))
         }
@@ -89,7 +91,6 @@ class SignupViewController: UIViewController {
             self.presentAlert(Alert.ofType.accCreationFailed, message: error!.localizedDescription)
             activityIndicator.stopAnimating()
             registerButton.isEnabled = true
-            cancelButton.isEnabled = true
         }else{
             ref = db.collection("users").addDocument(data: [
                 "uid": authResult!.user.uid,
@@ -105,7 +106,6 @@ class SignupViewController: UIViewController {
             self.presentAlert(Alert.ofType.accCreationFailed, message: "Something went wrong while saving data!")
             activityIndicator.stopAnimating()
             registerButton.isEnabled = true
-            cancelButton.isEnabled = true
 
         } else{
             Auth.auth().signIn(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!, completion: signinHandler(result:error:))
@@ -118,7 +118,6 @@ class SignupViewController: UIViewController {
             self.presentAlert(Alert.ofType.loginFailed, message: error!.localizedDescription)
             activityIndicator.stopAnimating()
             registerButton.isEnabled = true
-            cancelButton.isEnabled = true
         } else {
             dismiss(animated: true, completion: nil)
         }
