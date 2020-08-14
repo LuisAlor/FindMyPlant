@@ -68,7 +68,6 @@ class HomeViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets.zero
         layout.minimumLineSpacing = 5
-        
         layout.minimumInteritemSpacing = space
         layout.itemSize = CGSize(width: dimension, height: dimension)
         layout.scrollDirection = scrollDirectionType

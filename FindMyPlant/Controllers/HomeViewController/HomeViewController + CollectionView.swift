@@ -18,6 +18,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return 20
         }
     }
+    
     //Format cells for each collection view and populate them with proper data
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.randomPlantsCollectionView {
@@ -26,14 +27,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.titleLabel.text = "Plant"
             cell.layer.borderColor = UIColor.gray.cgColor
             cell.layer.borderWidth = 1
-         
+            cell.layer.backgroundColor = UIColor.green.cgColor
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.ReuseCellID.homeHeaderCell.identifier, for: indexPath) as! HeaderCollectionViewCell
             cell.imageView.image = #imageLiteral(resourceName: "welcome_banner")
-            cell.imageView.layer.cornerRadius = 10
-            cell.layer.borderColor = UIColor.gray.cgColor
-            cell.layer.borderWidth = 1
+            cell.imageView.layer.cornerRadius = 10.0
             return cell
         }
     }
