@@ -52,9 +52,4 @@ class Utilities {
         return emailPredicate.evaluate(with: email)
     }
     
-    //Generates a random number from 0 till max of int.
-    static func genRandomNumber() -> Int {
-        return Int.random(in: 0 ... Int.max)
-    }
-    
 }

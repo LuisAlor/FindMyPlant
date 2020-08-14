@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rv0-2l-VYn">
-    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,22 +14,22 @@
             <objects>
                 <viewController storyboardIdentifier="SearchVC" modalPresentationStyle="fullScreen" id="aBt-42-1DG" customClass="SearchViewController" customModule="FindMyPlant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="inA-iW-ubD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search for plants" translatesAutoresizingMaskIntoConstraints="NO" id="quf-im-dWd">
-                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6WZ-NT-1M6">
-                                <rect key="frame" x="0.0" y="100" width="414" height="587"/>
+                                <rect key="frame" x="0.0" y="100" width="375" height="518"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="searchResultsCell" id="FMQ-Rt-rs2">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchResultsCell" id="FMQ-Rt-rs2">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FMQ-Rt-rs2" id="Owm-eK-iKG">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -64,7 +65,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="18o-2r-pTc" customClass="DetailsViewController" customModule="FindMyPlant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SeI-bz-c5e">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="2tp-vM-kb9"/>
@@ -80,7 +81,7 @@
             <objects>
                 <viewController storyboardIdentifier="FavoritesVC" modalPresentationStyle="fullScreen" id="K5A-lV-pUB" customClass="FavoritesViewController" customModule="FindMyPlant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i12-he-aQs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Zwz-qk-ZVm"/>
@@ -94,13 +95,13 @@
         <!--Login View Controller-->
         <scene sceneID="Iy1-oY-6OT">
             <objects>
-                <viewController storyboardIdentifier="LoginVC" modalPresentationStyle="fullScreen" id="kba-fs-uZ8" customClass="LoginViewController" customModule="FindMyPlant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="kba-fs-uZ8" customClass="LoginViewController" customModule="FindMyPlant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FGn-nF-Z2S">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="EpO-uU-2Jf" userLabel="Root Stack View">
-                                <rect key="frame" x="37" y="139" width="340" height="458"/>
+                                <rect key="frame" x="17.5" y="104.5" width="340" height="458"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oHd-Oa-u1y" userLabel="Header Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="340" height="178"/>
@@ -112,7 +113,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Welcome to FindMyPlant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p1j-DK-iuZ">
-                                                <rect key="frame" x="53.333333333333329" y="158" width="233.33333333333337" height="20"/>
+                                                <rect key="frame" x="53.5" y="158" width="233.5" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="F9v-Jj-OK2"/>
                                                 </constraints>
@@ -174,7 +175,7 @@
                                 </constraints>
                             </stackView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="SX2-YF-R0W">
-                                <rect key="frame" x="188.66666666666666" y="630" width="37" height="37"/>
+                                <rect key="frame" x="169" y="561" width="37" height="37"/>
                                 <color key="color" red="0.18039215689999999" green="0.41176470590000003" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                         </subviews>
@@ -205,11 +206,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="ylJ-No-tgj" customClass="SignupViewController" customModule="FindMyPlant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dml-2h-lLu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ZYp-G9-9bQ" userLabel="Root Stack View">
-                                <rect key="frame" x="37" y="84" width="340" height="482"/>
+                                <rect key="frame" x="17.5" y="84" width="340" height="482"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="khm-eV-8ul" userLabel="Header Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="340" height="182"/>
@@ -280,7 +281,7 @@
                                 </constraints>
                             </stackView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="VTh-ih-j7W">
-                                <rect key="frame" x="369" y="52" width="37" height="37"/>
+                                <rect key="frame" x="330" y="52" width="37" height="37"/>
                                 <color key="color" red="0.18039215689999999" green="0.41176470590000003" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                         </subviews>
@@ -314,11 +315,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="yCC-zX-8GK" customClass="ProfileViewController" customModule="FindMyPlant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Plt-Gr-l9y">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bC-h6-Kwc">
-                                <rect key="frame" x="179.66666666666666" y="353" width="55" height="30"/>
+                                <rect key="frame" x="160" y="318.5" width="55" height="30"/>
                                 <state key="normal" title="Log Out"/>
                                 <connections>
                                     <action selector="logout:" destination="yCC-zX-8GK" eventType="touchUpInside" id="HGb-ek-K0Y"/>
@@ -344,11 +345,122 @@
         <!--Home View Controller-->
         <scene sceneID="rWs-Wb-h8h">
             <objects>
-                <viewController storyboardIdentifier="HomeVC" modalPresentationStyle="fullScreen" id="Waf-iW-avr" customClass="HomeViewController" customModule="FindMyPlant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Waf-iW-avr" customClass="HomeViewController" customModule="FindMyPlant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nBR-4p-oOH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="35W-68-8hh" userLabel="Root Stack View">
+                                <rect key="frame" x="0.0" y="52" width="375" height="566"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hSf-D8-IEg" userLabel="Header Collection View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="pwn-Iu-nyo"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8TI-98-YOk">
+                                            <size key="itemSize" width="0.0" height="0.0"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeaderCell" id="Kbz-aZ-S4E" customClass="HeaderCollectionViewCell" customModule="FindMyPlant" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="shC-Pk-ROE">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JZh-jj-Lbg">
+                                                            <rect key="frame" x="20" y="20" width="335" height="160"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="JZh-jj-Lbg" secondAttribute="bottom" constant="20" symbolic="YES" id="KBd-XW-fYu"/>
+                                                        <constraint firstItem="JZh-jj-Lbg" firstAttribute="top" secondItem="shC-Pk-ROE" secondAttribute="top" constant="20" symbolic="YES" id="LJU-11-Vix"/>
+                                                        <constraint firstItem="JZh-jj-Lbg" firstAttribute="leading" secondItem="shC-Pk-ROE" secondAttribute="leading" constant="20" symbolic="YES" id="Ph0-Mn-o2b"/>
+                                                        <constraint firstAttribute="trailing" secondItem="JZh-jj-Lbg" secondAttribute="trailing" constant="20" symbolic="YES" id="Wri-aR-wkL"/>
+                                                    </constraints>
+                                                </collectionViewCellContentView>
+                                                <size key="customSize" width="375" height="200"/>
+                                                <connections>
+                                                    <outlet property="imageView" destination="JZh-jj-Lbg" id="3tV-y2-Zm7"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nPn-sK-hMo" userLabel="Random Plants Collection View">
+                                        <rect key="frame" x="0.0" y="208" width="375" height="358"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KK9-gu-y78">
+                                            <size key="itemSize" width="200" height="250"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RandomPlantCell" id="J3W-Hc-iyR" customClass="RandomPlantsCollectionViewCell" customModule="FindMyPlant" customModuleProvider="target">
+                                                <rect key="frame" x="87.5" y="0.0" width="200" height="250"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="YaD-Rx-IPc">
+                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fH5-wa-LqY">
+                                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="200" id="Afc-dn-sQF"/>
+                                                                <constraint firstAttribute="width" constant="200" id="BRS-4d-PPO"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hkW-9T-lKD">
+                                                            <rect key="frame" x="0.0" y="200" width="200" height="50"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="50" id="lQx-8s-8Ge"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="hkW-9T-lKD" secondAttribute="trailing" id="4O7-WE-3vr"/>
+                                                        <constraint firstItem="fH5-wa-LqY" firstAttribute="leading" secondItem="YaD-Rx-IPc" secondAttribute="leading" id="DYc-Ty-Nq9"/>
+                                                        <constraint firstItem="hkW-9T-lKD" firstAttribute="top" secondItem="fH5-wa-LqY" secondAttribute="bottom" id="DsY-Pf-dPY"/>
+                                                        <constraint firstAttribute="bottom" secondItem="hkW-9T-lKD" secondAttribute="bottom" id="GoZ-7k-kqt"/>
+                                                        <constraint firstItem="hkW-9T-lKD" firstAttribute="leading" secondItem="YaD-Rx-IPc" secondAttribute="leading" id="KkV-nx-lR2"/>
+                                                        <constraint firstAttribute="trailing" secondItem="fH5-wa-LqY" secondAttribute="trailing" id="TvC-B3-uh9"/>
+                                                        <constraint firstItem="fH5-wa-LqY" firstAttribute="top" secondItem="YaD-Rx-IPc" secondAttribute="top" id="ZNt-4a-oKA"/>
+                                                    </constraints>
+                                                </collectionViewCellContentView>
+                                                <size key="customSize" width="200" height="250"/>
+                                                <connections>
+                                                    <outlet property="imageView" destination="fH5-wa-LqY" id="MKh-Sg-G2O"/>
+                                                    <outlet property="titleLabel" destination="hkW-9T-lKD" id="gbx-gE-4dm"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="hSf-D8-IEg" firstAttribute="top" secondItem="35W-68-8hh" secondAttribute="top" id="8ew-I0-UOA"/>
+                                    <constraint firstAttribute="bottom" secondItem="nPn-sK-hMo" secondAttribute="bottom" id="Lad-cd-fzn"/>
+                                    <constraint firstAttribute="trailing" secondItem="nPn-sK-hMo" secondAttribute="trailing" id="O3n-1W-V9k"/>
+                                    <constraint firstItem="hSf-D8-IEg" firstAttribute="leading" secondItem="35W-68-8hh" secondAttribute="leading" id="bnR-Fc-ehr"/>
+                                    <constraint firstItem="nPn-sK-hMo" firstAttribute="leading" secondItem="35W-68-8hh" secondAttribute="leading" id="vam-yW-4zd"/>
+                                    <constraint firstAttribute="trailing" secondItem="hSf-D8-IEg" secondAttribute="trailing" id="y0U-x3-A40"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="35W-68-8hh" firstAttribute="top" secondItem="0nf-0v-sVb" secondAttribute="top" constant="8" id="1Kw-j7-LUU"/>
+                            <constraint firstItem="35W-68-8hh" firstAttribute="bottom" secondItem="0nf-0v-sVb" secondAttribute="bottom" id="Lmu-Uz-mYM"/>
+                            <constraint firstItem="35W-68-8hh" firstAttribute="leading" secondItem="0nf-0v-sVb" secondAttribute="leading" id="gfh-1b-8Ms"/>
+                            <constraint firstItem="35W-68-8hh" firstAttribute="trailing" secondItem="0nf-0v-sVb" secondAttribute="trailing" id="uYS-Qx-7ry"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="0nf-0v-sVb"/>
                     </view>
                     <navigationItem key="navigationItem" id="LNP-Sc-XmH">
@@ -360,12 +472,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="headerCollectionView" destination="hSf-D8-IEg" id="7ur-ID-Zyy"/>
+                        <outlet property="randomPlantsCollectionView" destination="nPn-sK-hMo" id="Rpd-wR-WyA"/>
                         <segue destination="D70-pD-YSJ" kind="show" identifier="modalLoginSegue" id="ljm-TO-acv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XcG-NZ-eEV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5155" y="218"/>
+            <point key="canvasLocation" x="-5155.072463768116" y="217.66304347826087"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="dxt-IM-GZj">
@@ -401,7 +515,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YIP-Gw-skX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -420,7 +534,7 @@
                     <tabBarItem key="tabBarItem" title="" image="heart" catalog="system" selectedImage="heart.fill" id="4CM-AE-yjL"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Fv5-JF-ZDK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -439,7 +553,7 @@
                     <tabBarItem key="tabBarItem" title="" image="house" catalog="system" selectedImage="house.fill" id="Zjg-PP-kOj"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wo3-zC-EPS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -458,7 +572,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="YGT-HJ-ZQm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wnW-d5-aGs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -472,8 +586,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Create-account-ico" width="341.33334350585938" height="341.33334350585938"/>
-        <image name="FindMyPlant-icon" width="341.33334350585938" height="341.33334350585938"/>
+        <image name="Create-account-ico" width="341" height="341"/>
+        <image name="FindMyPlant-icon" width="341" height="341"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="house" catalog="system" width="128" height="110"/>

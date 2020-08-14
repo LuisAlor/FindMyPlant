@@ -50,7 +50,7 @@ class SignupViewController: UIViewController {
     }
     
     fileprivate func configDB() {
-           db = Firestore.firestore()
+        db = Firestore.firestore()
     }
     
     @IBAction func registerAccount(_ sender: Any) {

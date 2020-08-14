@@ -16,6 +16,9 @@
 		BD3C777424C794F70006D16C /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C777324C794F70006D16C /* FavoritesViewController.swift */; };
 		BD3C777624C795350006D16C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C777524C795350006D16C /* LoginViewController.swift */; };
 		BD3C777824C8BE1F0006D16C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C777724C8BE1F0006D16C /* ProfileViewController.swift */; };
+		BD516BB624E5B0A0005840EF /* HeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD516BB524E5B0A0005840EF /* HeaderCollectionViewCell.swift */; };
+		BD516BB924E5B114005840EF /* RandomPlantsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD516BB824E5B114005840EF /* RandomPlantsCollectionViewCell.swift */; };
+		BD516BBB24E5BE28005840EF /* HomeViewController + CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD516BBA24E5BE28005840EF /* HomeViewController + CollectionView.swift */; };
 		BD6262D524D57C19000AE569 /* L1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6262D424D57C19000AE569 /* L1.swift */; };
 		BD6262D924D6BF56000AE569 /* PlantsSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6262D824D6BF56000AE569 /* PlantsSearchResponse.swift */; };
 		BD6262DB24D80888000AE569 /* PlantInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6262DA24D80888000AE569 /* PlantInfo.swift */; };
@@ -48,6 +51,9 @@
 		BD3C777324C794F70006D16C /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		BD3C777524C795350006D16C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BD3C777724C8BE1F0006D16C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BD516BB524E5B0A0005840EF /* HeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionViewCell.swift; sourceTree = "<group>"; };
+		BD516BB824E5B114005840EF /* RandomPlantsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomPlantsCollectionViewCell.swift; sourceTree = "<group>"; };
+		BD516BBA24E5BE28005840EF /* HomeViewController + CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController + CollectionView.swift"; sourceTree = "<group>"; };
 		BD6262D424D57C19000AE569 /* L1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L1.swift; sourceTree = "<group>"; };
 		BD6262D824D6BF56000AE569 /* PlantsSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsSearchResponse.swift; sourceTree = "<group>"; };
 		BD6262DA24D80888000AE569 /* PlantInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantInfo.swift; sourceTree = "<group>"; };
@@ -116,6 +122,23 @@
 				BD2D14F724D88B7700758710 /* DetailsViewController.swift */,
 			);
 			path = DetailsViewController;
+			sourceTree = "<group>";
+		};
+		BD516BB424E5AFFD005840EF /* Custom Collection View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BD516BB724E5B0ED005840EF /* HomeViewController */,
+			);
+			path = "Custom Collection View Cells";
+			sourceTree = "<group>";
+		};
+		BD516BB724E5B0ED005840EF /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BD516BB524E5B0A0005840EF /* HeaderCollectionViewCell.swift */,
+				BD516BB824E5B114005840EF /* RandomPlantsCollectionViewCell.swift */,
+			);
+			path = HomeViewController;
 			sourceTree = "<group>";
 		};
 		BD6262D224D57BCC000AE569 /* WGSRPD Levels */ = {
@@ -209,6 +232,7 @@
 		BD99614124C4CF24001369D0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BD516BB424E5AFFD005840EF /* Custom Collection View Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -274,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				BD99612F24C4CE85001369D0 /* HomeViewController.swift */,
+				BD516BBA24E5BE28005840EF /* HomeViewController + CollectionView.swift */,
 			);
 			path = HomeViewController;
 			sourceTree = "<group>";
@@ -432,6 +457,7 @@
 			files = (
 				BD6262D524D57C19000AE569 /* L1.swift in Sources */,
 				BD2D14F824D88B7700758710 /* DetailsViewController.swift in Sources */,
+				BD516BBB24E5BE28005840EF /* HomeViewController + CollectionView.swift in Sources */,
 				BD3C777624C795350006D16C /* LoginViewController.swift in Sources */,
 				BD15087424D2AA880067AE81 /* TrefleAPiClient.swift in Sources */,
 				BD15087724D560F20067AE81 /* TrefleDistributionLevels.swift in Sources */,
@@ -439,12 +465,14 @@
 				BD6262DB24D80888000AE569 /* PlantInfo.swift in Sources */,
 				BD6262E324D83C9F000AE569 /* SearchViewController + UITableView.swift in Sources */,
 				BD68CA9524C983750055F45F /* SignupViewController.swift in Sources */,
+				BD516BB624E5B0A0005840EF /* HeaderCollectionViewCell.swift in Sources */,
 				BD9FE3AE24CCB7830014FC96 /* UIViewController+Alert.swift in Sources */,
 				BD6262D924D6BF56000AE569 /* PlantsSearchResponse.swift in Sources */,
 				BD99612C24C4CE85001369D0 /* AppDelegate.swift in Sources */,
 				BD3C777224C794D70006D16C /* SearchViewController.swift in Sources */,
 				BD17658424CC41A6006CE73E /* Constants.swift in Sources */,
 				BDA594A124CCB1EC00295C9B /* Alert.swift in Sources */,
+				BD516BB924E5B114005840EF /* RandomPlantsCollectionViewCell.swift in Sources */,
 				BD3C777824C8BE1F0006D16C /* ProfileViewController.swift in Sources */,
 				BD6262DD24D80917000AE569 /* PlantLinks.swift in Sources */,
 				BDE6A74424CA03BD00F3CE6F /* Utilities.swift in Sources */,
