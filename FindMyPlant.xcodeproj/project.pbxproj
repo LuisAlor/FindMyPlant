@@ -16,9 +16,7 @@
 		BD3C777424C794F70006D16C /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C777324C794F70006D16C /* FavoritesViewController.swift */; };
 		BD3C777624C795350006D16C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C777524C795350006D16C /* LoginViewController.swift */; };
 		BD3C777824C8BE1F0006D16C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C777724C8BE1F0006D16C /* ProfileViewController.swift */; };
-		BD516BB624E5B0A0005840EF /* HeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD516BB524E5B0A0005840EF /* HeaderCollectionViewCell.swift */; };
 		BD516BB924E5B114005840EF /* RandomPlantsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD516BB824E5B114005840EF /* RandomPlantsCollectionViewCell.swift */; };
-		BD516BBB24E5BE28005840EF /* HomeViewController + CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD516BBA24E5BE28005840EF /* HomeViewController + CollectionView.swift */; };
 		BD6262D524D57C19000AE569 /* L1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6262D424D57C19000AE569 /* L1.swift */; };
 		BD6262D924D6BF56000AE569 /* PlantsSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6262D824D6BF56000AE569 /* PlantsSearchResponse.swift */; };
 		BD6262DB24D80888000AE569 /* PlantInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6262DA24D80888000AE569 /* PlantInfo.swift */; };
@@ -28,6 +26,7 @@
 		BD6262E324D83C9F000AE569 /* SearchViewController + UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6262E224D83C9F000AE569 /* SearchViewController + UITableView.swift */; };
 		BD637B3C24C786AB0052FA3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD637B3B24C786AB0052FA3A /* Assets.xcassets */; };
 		BD68CA9524C983750055F45F /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD68CA9424C983750055F45F /* SignupViewController.swift */; };
+		BD8CD85724E81B5E00600919 /* HomeViewController + UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8CD85624E81B5E00600919 /* HomeViewController + UICollectionView.swift */; };
 		BD99612C24C4CE85001369D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD99612B24C4CE85001369D0 /* AppDelegate.swift */; };
 		BD99612E24C4CE85001369D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD99612D24C4CE85001369D0 /* SceneDelegate.swift */; };
 		BD99613024C4CE85001369D0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD99612F24C4CE85001369D0 /* HomeViewController.swift */; };
@@ -51,9 +50,7 @@
 		BD3C777324C794F70006D16C /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		BD3C777524C795350006D16C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BD3C777724C8BE1F0006D16C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		BD516BB524E5B0A0005840EF /* HeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		BD516BB824E5B114005840EF /* RandomPlantsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomPlantsCollectionViewCell.swift; sourceTree = "<group>"; };
-		BD516BBA24E5BE28005840EF /* HomeViewController + CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController + CollectionView.swift"; sourceTree = "<group>"; };
 		BD6262D424D57C19000AE569 /* L1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L1.swift; sourceTree = "<group>"; };
 		BD6262D824D6BF56000AE569 /* PlantsSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsSearchResponse.swift; sourceTree = "<group>"; };
 		BD6262DA24D80888000AE569 /* PlantInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantInfo.swift; sourceTree = "<group>"; };
@@ -63,6 +60,7 @@
 		BD6262E224D83C9F000AE569 /* SearchViewController + UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchViewController + UITableView.swift"; sourceTree = "<group>"; };
 		BD637B3B24C786AB0052FA3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD68CA9424C983750055F45F /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		BD8CD85624E81B5E00600919 /* HomeViewController + UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController + UICollectionView.swift"; sourceTree = "<group>"; };
 		BD99612824C4CE85001369D0 /* FindMyPlant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyPlant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD99612B24C4CE85001369D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD99612D24C4CE85001369D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,7 +133,6 @@
 		BD516BB724E5B0ED005840EF /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
-				BD516BB524E5B0A0005840EF /* HeaderCollectionViewCell.swift */,
 				BD516BB824E5B114005840EF /* RandomPlantsCollectionViewCell.swift */,
 			);
 			path = HomeViewController;
@@ -298,7 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				BD99612F24C4CE85001369D0 /* HomeViewController.swift */,
-				BD516BBA24E5BE28005840EF /* HomeViewController + CollectionView.swift */,
+				BD8CD85624E81B5E00600919 /* HomeViewController + UICollectionView.swift */,
 			);
 			path = HomeViewController;
 			sourceTree = "<group>";
@@ -457,7 +454,6 @@
 			files = (
 				BD6262D524D57C19000AE569 /* L1.swift in Sources */,
 				BD2D14F824D88B7700758710 /* DetailsViewController.swift in Sources */,
-				BD516BBB24E5BE28005840EF /* HomeViewController + CollectionView.swift in Sources */,
 				BD3C777624C795350006D16C /* LoginViewController.swift in Sources */,
 				BD15087424D2AA880067AE81 /* TrefleAPiClient.swift in Sources */,
 				BD15087724D560F20067AE81 /* TrefleDistributionLevels.swift in Sources */,
@@ -465,7 +461,6 @@
 				BD6262DB24D80888000AE569 /* PlantInfo.swift in Sources */,
 				BD6262E324D83C9F000AE569 /* SearchViewController + UITableView.swift in Sources */,
 				BD68CA9524C983750055F45F /* SignupViewController.swift in Sources */,
-				BD516BB624E5B0A0005840EF /* HeaderCollectionViewCell.swift in Sources */,
 				BD9FE3AE24CCB7830014FC96 /* UIViewController+Alert.swift in Sources */,
 				BD6262D924D6BF56000AE569 /* PlantsSearchResponse.swift in Sources */,
 				BD99612C24C4CE85001369D0 /* AppDelegate.swift in Sources */,
@@ -478,6 +473,7 @@
 				BDE6A74424CA03BD00F3CE6F /* Utilities.swift in Sources */,
 				BD6262DF24D81748000AE569 /* PlantMeta.swift in Sources */,
 				BDD057B224CCC1F900A21CEB /* UIViewController+TextFieldDelegate.swift in Sources */,
+				BD8CD85724E81B5E00600919 /* HomeViewController + UICollectionView.swift in Sources */,
 				BD6262E124D83C48000AE569 /* SearchViewController + UISearchBar.swift in Sources */,
 				BD3C777424C794F70006D16C /* FavoritesViewController.swift in Sources */,
 				BD99612E24C4CE85001369D0 /* SceneDelegate.swift in Sources */,

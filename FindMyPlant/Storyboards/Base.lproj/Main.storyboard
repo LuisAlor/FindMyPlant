@@ -350,46 +350,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hSf-D8-IEg" userLabel="Header Collection View">
-                                <rect key="frame" x="0.0" y="44" width="375" height="200"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="dFc-Hs-t9j"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8TI-98-YOk">
-                                    <size key="itemSize" width="0.0" height="0.0"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="HeaderCell" id="Kbz-aZ-S4E" customClass="HeaderCollectionViewCell" customModule="FindMyPlant" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="shC-Pk-ROE">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JZh-jj-Lbg">
-                                                    <rect key="frame" x="8" y="8" width="359" height="184"/>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="JZh-jj-Lbg" firstAttribute="leading" secondItem="shC-Pk-ROE" secondAttribute="leading" constant="8" id="Aj2-8u-pfD"/>
-                                                <constraint firstAttribute="bottom" secondItem="JZh-jj-Lbg" secondAttribute="bottom" constant="8" id="KtJ-RP-Y7j"/>
-                                                <constraint firstItem="JZh-jj-Lbg" firstAttribute="top" secondItem="shC-Pk-ROE" secondAttribute="top" constant="8" id="QHl-n1-9X0"/>
-                                                <constraint firstAttribute="trailing" secondItem="JZh-jj-Lbg" secondAttribute="trailing" constant="8" id="wy4-JO-5LD"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="375" height="200"/>
-                                        <connections>
-                                            <outlet property="imageView" destination="JZh-jj-Lbg" id="3tV-y2-Zm7"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nPn-sK-hMo" userLabel="Random Plants Collection View">
-                                <rect key="frame" x="0.0" y="252" width="375" height="366"/>
+                                <rect key="frame" x="8" y="91" width="359" height="527"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KK9-gu-y78">
                                     <size key="itemSize" width="200" height="250"/>
@@ -398,27 +360,24 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="RandomPlantCell" id="J3W-Hc-iyR" customClass="RandomPlantsCollectionViewCell" customModule="FindMyPlant" customModuleProvider="target">
-                                        <rect key="frame" x="87.5" y="0.0" width="200" height="250"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="RandomPlantsCollectionViewCell" id="J3W-Hc-iyR" customClass="RandomPlantsCollectionViewCell" customModule="FindMyPlant" customModuleProvider="target">
+                                        <rect key="frame" x="79.5" y="0.0" width="200" height="250"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="YaD-Rx-IPc">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fH5-wa-LqY">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fH5-wa-LqY">
                                                     <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="200" id="Afc-dn-sQF"/>
-                                                        <constraint firstAttribute="width" constant="200" id="BRS-4d-PPO"/>
-                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hkW-9T-lKD">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hkW-9T-lKD">
                                                     <rect key="frame" x="0.0" y="200" width="200" height="50"/>
+                                                    <color key="backgroundColor" red="0.1803921568627451" green="0.41176470588235292" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="lQx-8s-8Ge"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -440,16 +399,26 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zTN-sW-SAB">
+                                <rect key="frame" x="8" y="52" width="359" height="32"/>
+                                <segments>
+                                    <segment title="Random"/>
+                                    <segment title="Edible"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="hSf-D8-IEg" firstAttribute="leading" secondItem="0nf-0v-sVb" secondAttribute="leading" id="7zR-4Y-Qq6"/>
-                            <constraint firstItem="hSf-D8-IEg" firstAttribute="top" secondItem="0nf-0v-sVb" secondAttribute="top" id="Gef-Td-jRE"/>
-                            <constraint firstItem="nPn-sK-hMo" firstAttribute="top" secondItem="hSf-D8-IEg" secondAttribute="bottom" constant="8" id="KKM-cS-uZb"/>
-                            <constraint firstItem="nPn-sK-hMo" firstAttribute="leading" secondItem="0nf-0v-sVb" secondAttribute="leading" id="Tkm-wa-lWm"/>
-                            <constraint firstItem="nPn-sK-hMo" firstAttribute="trailing" secondItem="0nf-0v-sVb" secondAttribute="trailing" id="ZgR-JV-hT6"/>
-                            <constraint firstItem="nPn-sK-hMo" firstAttribute="bottom" secondItem="0nf-0v-sVb" secondAttribute="bottom" id="jar-ey-nmU"/>
-                            <constraint firstItem="hSf-D8-IEg" firstAttribute="trailing" secondItem="0nf-0v-sVb" secondAttribute="trailing" id="lDj-Pn-MsL"/>
+                            <constraint firstItem="nPn-sK-hMo" firstAttribute="top" secondItem="zTN-sW-SAB" secondAttribute="bottom" constant="8" id="HgW-WI-Ksd"/>
+                            <constraint firstItem="nPn-sK-hMo" firstAttribute="bottom" secondItem="0nf-0v-sVb" secondAttribute="bottom" id="LIH-UW-f2I"/>
+                            <constraint firstItem="nPn-sK-hMo" firstAttribute="leading" secondItem="0nf-0v-sVb" secondAttribute="leading" constant="8" id="PmE-AM-5jV"/>
+                            <constraint firstItem="0nf-0v-sVb" firstAttribute="trailing" secondItem="zTN-sW-SAB" secondAttribute="trailing" constant="8" id="PvJ-2V-7q6"/>
+                            <constraint firstItem="zTN-sW-SAB" firstAttribute="top" secondItem="0nf-0v-sVb" secondAttribute="top" constant="8" id="dac-8m-K0f"/>
+                            <constraint firstItem="0nf-0v-sVb" firstAttribute="trailing" secondItem="nPn-sK-hMo" secondAttribute="trailing" constant="8" id="jV4-jE-ceK"/>
+                            <constraint firstItem="0nf-0v-sVb" firstAttribute="bottom" secondItem="nPn-sK-hMo" secondAttribute="bottom" id="l8G-m7-AtR"/>
+                            <constraint firstItem="zTN-sW-SAB" firstAttribute="leading" secondItem="0nf-0v-sVb" secondAttribute="leading" constant="8" id="uCZ-1u-Itb"/>
+                            <constraint firstItem="nPn-sK-hMo" firstAttribute="leading" secondItem="0nf-0v-sVb" secondAttribute="leading" constant="8" id="vVN-zb-BCl"/>
+                            <constraint firstItem="0nf-0v-sVb" firstAttribute="trailing" secondItem="nPn-sK-hMo" secondAttribute="trailing" constant="8" id="wbi-ww-kEP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0nf-0v-sVb"/>
                     </view>
@@ -462,8 +431,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="headerCollectionView" destination="hSf-D8-IEg" id="7ur-ID-Zyy"/>
                         <outlet property="randomPlantsCollectionView" destination="nPn-sK-hMo" id="Rpd-wR-WyA"/>
+                        <outlet property="segmentedControl" destination="zTN-sW-SAB" id="JHP-ya-5q2"/>
                         <segue destination="D70-pD-YSJ" kind="show" identifier="modalLoginSegue" id="ljm-TO-acv"/>
                     </connections>
                 </viewController>
@@ -542,8 +511,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="cYO-df-2gV" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="house" catalog="system" selectedImage="house.fill" id="Zjg-PP-kOj"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="wo3-zC-EPS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wo3-zC-EPS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

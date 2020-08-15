@@ -52,4 +52,27 @@ class Utilities {
         return emailPredicate.evaluate(with: email)
     }
     
+    //Creates the style for the cell with border, rounded corners and shadow
+    static func configureCellStyle(_ cell: RandomPlantsCollectionViewCell) {
+        cell.layer.cornerRadius = 10.0
+        cell.layer.borderWidth = 2
+        cell.layer.borderColor = Constants.UICustomColors.darkGreen.color.cgColor
+       
+        cell.contentView.layer.cornerRadius = 10.0
+        cell.contentView.layer.borderWidth = 1.0
+        cell.contentView.layer.borderColor = UIColor.clear.cgColor
+       
+        cell.layer.shadowColor = UIColor.lightGray.cgColor
+        cell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        cell.layer.shadowRadius = 2.0
+        cell.layer.shadowOpacity = 1.0
+        cell.layer.masksToBounds = false
+        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
+        cell.layer.backgroundColor = UIColor.clear.cgColor
+    }
+    
+    static func generateRandomNumber(maxRange: Int) -> Int{
+        return Int.random(in: 1...maxRange)
+    }
+    
 }

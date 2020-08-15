@@ -10,17 +10,23 @@ import UIKit
 
 struct Constants{
     
+    enum UICustomColors {
+        case darkGreen
+        var color: UIColor{
+            switch self {
+            case .darkGreen:
+                return UIColor(red: 46/255, green: 105/255, blue: 47/255, alpha: 1)
+            }
+        }
+    }
+
     enum ReuseCellID {
         
         case searchCell
-        case homeHeaderCell
-        case homeRandomPlantsCell
         
         var identifier: String{
             switch self {
             case .searchCell: return "SearchResultsCell"
-            case .homeHeaderCell: return "HeaderCell"
-            case .homeRandomPlantsCell: return "RandomPlantCell"
             }
         }
     }

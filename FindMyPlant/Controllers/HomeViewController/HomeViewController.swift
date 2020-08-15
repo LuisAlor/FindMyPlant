@@ -13,8 +13,8 @@ import FirebaseAuth
 
 class HomeViewController: UIViewController {
     
-    @IBOutlet weak var headerCollectionView: UICollectionView!
     @IBOutlet weak var randomPlantsCollectionView: UICollectionView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     var handle: AuthStateDidChangeListenerHandle!
     var userLoggedUponLaunch = true
@@ -23,11 +23,29 @@ class HomeViewController: UIViewController {
     var db: Firestore!
     var ref: DocumentReference? = nil
     
+    var plantsData: [PlantInfo] = []
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         configureDB()
         setupCollectionViews()
         handle = Auth.auth().addStateDidChangeListener(authListenerHandler(auth:user:))
+        
+        TrefleAPiClient.getTotalPlantsPages(completionHandler: handleTotalPlantsPages(totalPages:error:))
+    }
+    
+    func handleTotalPlantsPages(totalPages: Int, error: Error?){
+        if error == nil, totalPages != 0 {
+            TrefleAPiClient.getRandomPlants(fromPage: Utilities.generateRandomNumber(maxRange: totalPages), completionHandler: handleGetRandomPlants(plantInfo:error:))
+        }
+    }
+    
+    func handleGetRandomPlants(plantInfo: [PlantInfo]?, error: Error?){
+        if let plantInfo = plantInfo {
+            self.plantsData = plantInfo
+            randomPlantsCollectionView.reloadData()
+        }
     }
     
     fileprivate func configureDB() {
@@ -49,27 +67,24 @@ class HomeViewController: UIViewController {
    
     //Configures the CollectionFlowLayout and sets delegation and datasource for the CollectionViews
     fileprivate func setupCollectionViews() {
-        
-        headerCollectionView.delegate = self
-        headerCollectionView.dataSource = self
-        setCollectionFlowLayout(headerCollectionView, items: 1, scrollDirectionType: .horizontal)
-        
+
         randomPlantsCollectionView.delegate = self
         randomPlantsCollectionView.dataSource = self
         setCollectionFlowLayout(randomPlantsCollectionView, items: 2, scrollDirectionType: .vertical)
+        
     }
-    
+
     //Configures the CollectionView Flow layout for our items to fit accoarding to its content.
     func setCollectionFlowLayout(_ collectionView: UICollectionView, items: CGFloat, scrollDirectionType: UICollectionView.ScrollDirection) {
 
-        let space: CGFloat = 5
-        let dimension = (view.frame.size.width - ((items - 1) * space)) / items
+        let space: CGFloat = 8
+        let dimensions = (view.frame.size.width - ((items + 1) * space)) / items
 
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets.zero
-        layout.minimumLineSpacing = 5
+        layout.minimumLineSpacing = 8
         layout.minimumInteritemSpacing = space
-        layout.itemSize = CGSize(width: dimension, height: dimension)
+        layout.itemSize = CGSize(width: dimensions, height: dimensions)
         layout.scrollDirection = scrollDirectionType
 
         collectionView.collectionViewLayout = layout
