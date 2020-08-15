@@ -23,7 +23,7 @@ struct PlantInfo: Codable {
     let imageURL: String?
     let synonyms: [String]
     let genus: String
-    let family: String
+    let family: String?
     
     enum CodingKeys: String, CodingKey{
         case id

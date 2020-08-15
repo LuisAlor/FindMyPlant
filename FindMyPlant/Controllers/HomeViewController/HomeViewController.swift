@@ -42,9 +42,11 @@ class HomeViewController: UIViewController {
     }
     
     func handleGetRandomPlants(plantInfo: [PlantInfo]?, error: Error?){
-        if let plantInfo = plantInfo {
-            self.plantsData = plantInfo
-            randomPlantsCollectionView.reloadData()
+        if error == nil {
+            if let plantInfo = plantInfo {
+                self.plantsData = plantInfo
+                randomPlantsCollectionView.reloadData()
+            }
         }
     }
     
@@ -81,7 +83,7 @@ class HomeViewController: UIViewController {
         let dimensions = (view.frame.size.width - ((items + 1) * space)) / items
 
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets.zero
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 8, right: 0)
         layout.minimumLineSpacing = 8
         layout.minimumInteritemSpacing = space
         layout.itemSize = CGSize(width: dimensions, height: dimensions)

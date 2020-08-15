@@ -371,7 +371,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hkW-9T-lKD">
-                                                    <rect key="frame" x="0.0" y="200" width="200" height="50"/>
+                                                    <rect key="frame" x="8" y="200" width="184" height="50"/>
                                                     <color key="backgroundColor" red="0.1803921568627451" green="0.41176470588235292" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="lQx-8s-8Ge"/>
@@ -381,12 +381,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.18039215689999999" green="0.41176470590000003" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="hkW-9T-lKD" secondAttribute="trailing" id="4O7-WE-3vr"/>
+                                                <constraint firstAttribute="trailing" secondItem="hkW-9T-lKD" secondAttribute="trailing" constant="8" id="4O7-WE-3vr"/>
                                                 <constraint firstItem="fH5-wa-LqY" firstAttribute="leading" secondItem="YaD-Rx-IPc" secondAttribute="leading" id="DYc-Ty-Nq9"/>
                                                 <constraint firstItem="hkW-9T-lKD" firstAttribute="top" secondItem="fH5-wa-LqY" secondAttribute="bottom" id="DsY-Pf-dPY"/>
                                                 <constraint firstAttribute="bottom" secondItem="hkW-9T-lKD" secondAttribute="bottom" id="GoZ-7k-kqt"/>
-                                                <constraint firstItem="hkW-9T-lKD" firstAttribute="leading" secondItem="YaD-Rx-IPc" secondAttribute="leading" id="KkV-nx-lR2"/>
+                                                <constraint firstItem="hkW-9T-lKD" firstAttribute="leading" secondItem="YaD-Rx-IPc" secondAttribute="leading" constant="8" id="KkV-nx-lR2"/>
                                                 <constraint firstAttribute="trailing" secondItem="fH5-wa-LqY" secondAttribute="trailing" id="TvC-B3-uh9"/>
                                                 <constraint firstItem="fH5-wa-LqY" firstAttribute="top" secondItem="YaD-Rx-IPc" secondAttribute="top" id="ZNt-4a-oKA"/>
                                             </constraints>
