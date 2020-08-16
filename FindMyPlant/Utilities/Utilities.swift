@@ -23,7 +23,6 @@ class Utilities {
         textfield.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         textfield.textColor = UIColor.darkGray
         textfield.clearButtonMode = .whileEditing
-
     }
 
     //Fills round corner style to button
@@ -71,6 +70,7 @@ class Utilities {
         cell.layer.backgroundColor = UIColor.clear.cgColor
     }
     
+    //Generates a random Int number between [1...maxRange]
     static func generateRandomNumber(maxRange: Int) -> Int{
         return Int.random(in: 1...maxRange)
     }

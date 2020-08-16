@@ -25,20 +25,21 @@ class HomeViewController: UIViewController {
     var ref: DocumentReference? = nil
     
     var plantsData: [PlantInfo] = []
-    var didPullDownToRefresh = false
+    var didPlantDataChanged = false
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupFireBaseFeatures()
         setupCollectionViews()
         setupRefreshControl()
-        getPlantsTotalPages()
+        getAllPlantsInfo()
+        
+        segmentedControl.addTarget(self, action: #selector(didIndexChanged), for: .valueChanged)
     }
     
     deinit {
-          //Removes auth listener during deinitialization
-          Auth.auth().removeStateDidChangeListener(handle)
+        //Removes auth listener during deinitialization
+        Auth.auth().removeStateDidChangeListener(handle)
     }
     
     fileprivate func configureDB() {
@@ -57,8 +58,28 @@ class HomeViewController: UIViewController {
     }
     
     @objc private func pullToRefresh() {
-        TrefleAPiClient.getTotalPlantsPages(completionHandler: handleTotalPlantsPages(totalPages:error:))
-           didPullDownToRefresh = true
+        //TrefleAPiClient.getTotalPlantsPages(completionHandler: handleTotalPlantsPages(totalPages:error:))
+           didPlantDataChanged = true
+    }
+    
+    @objc private func didIndexChanged(){
+        didPlantDataChanged = true
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            //Generate random page for all type of plants
+            plantsData.removeAll()
+            randomPlantsCollectionView.reloadData()
+            getAllPlantsInfo()
+
+        case 1:
+            //Generates random page for all edible plants only
+            plantsData.removeAll()
+            randomPlantsCollectionView.reloadData()
+            getAllPlantsInfo()
+
+        default:
+            return
+        }
     }
     
     //Checks if user is still in db if not removes session by logging out
@@ -68,21 +89,32 @@ class HomeViewController: UIViewController {
         }
     }
    
-    //Configures the CollectionFlowLayout, sets delegation and datasource for the CollectionViews and starts animating it indicator view
+    //Configures the CollectionFlowLayout, sets delegation and datasource for the CollectionView
     fileprivate func setupCollectionViews() {
         randomPlantsCollectionView.delegate = self
         randomPlantsCollectionView.dataSource = self
         setCollectionFlowLayout(randomPlantsCollectionView, items: 2, scrollDirectionType: .vertical)
-        dataLoadingIndicatorView.startAnimating()
     }
     
-    fileprivate func getPlantsTotalPages() {
-        TrefleAPiClient.getTotalPlantsPages(completionHandler: handleTotalPlantsPages(totalPages:error:))
+    fileprivate func getAllPlantsInfo() {
+        dataLoadingIndicatorView.startAnimating()
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            TrefleAPiClient.getTotalPlantsPages(by: .all, completionHandler: handleTotalPlantsPages(totalPages:error:))
+        case 1:
+            TrefleAPiClient.getTotalPlantsPages(by: .onlyEdible, completionHandler: handleTotalPlantsPages(totalPages:error:))
+        default:
+            return
+        }
     }
     
     func handleTotalPlantsPages(totalPages: Int, error: Error?){
         if error == nil, totalPages != 0 {
-            TrefleAPiClient.getRandomPlants(fromPage: Utilities.generateRandomNumber(maxRange: totalPages), completionHandler: handleGetRandomPlants(plantInfo:error:))
+            if segmentedControl.selectedSegmentIndex == 0{
+                TrefleAPiClient.getRandomPlants(fromPage: Utilities.generateRandomNumber(maxRange: totalPages), completionHandler: handleGetRandomPlants(plantInfo:error:))
+            } else{
+                TrefleAPiClient.getRandomEdiblePlants(fromPage: Utilities.generateRandomNumber(maxRange: totalPages), completionHandler: handleGetRandomPlants(plantInfo:error:))
+            }
         }
     }
     
@@ -90,11 +122,8 @@ class HomeViewController: UIViewController {
         if error == nil {
             if let plantInfo = plantInfo {
                 self.plantsData = plantInfo
-                if didPullDownToRefresh {
-                    randomPlantsCollectionView.refreshControl?.endRefreshing()
-                } else {
-                    dataLoadingIndicatorView.stopAnimating()
-                }
+                randomPlantsCollectionView.refreshControl?.endRefreshing()
+                dataLoadingIndicatorView.stopAnimating()
                 randomPlantsCollectionView.reloadData()
             }
         }

@@ -16,7 +16,7 @@ struct PlantInfo: Codable {
     let yearRegistered: Int?
     let bibliography: String?
     let author: String?
-    let status: String
+    let status: String?
     let rank: String
     let familyCommonName: String?
     let genusID: Int

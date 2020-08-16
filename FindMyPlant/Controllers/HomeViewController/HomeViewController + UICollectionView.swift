@@ -20,7 +20,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RandomPlantsCollectionViewCell.reuseIdentifier, for: indexPath) as! RandomPlantsCollectionViewCell
         
         //Removes any previous image making it nil when user swipes down in order to not see previous plus loading indicator
-        if didPullDownToRefresh {
+        if didPlantDataChanged {
             cell.imageView.image = nil
         }
         
