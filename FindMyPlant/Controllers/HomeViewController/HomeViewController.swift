@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var randomPlantsCollectionView: UICollectionView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var dataLoadingIndicatorView: UIActivityIndicatorView!
     
     var handle: AuthStateDidChangeListenerHandle!
     var userLoggedUponLaunch = true
@@ -24,14 +25,58 @@ class HomeViewController: UIViewController {
     var ref: DocumentReference? = nil
     
     var plantsData: [PlantInfo] = []
+    var didPullDownToRefresh = false
+
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        configureDB()
+        setupFireBaseFeatures()
         setupCollectionViews()
+        setupRefreshControl()
+        getPlantsTotalPages()
+    }
+    
+    deinit {
+          //Removes auth listener during deinitialization
+          Auth.auth().removeStateDidChangeListener(handle)
+    }
+    
+    fileprivate func configureDB() {
+        db = Firestore.firestore()
+        usersRef = db.collection("users")
+    }
+    
+    fileprivate func setupFireBaseFeatures() {
+        configureDB()
         handle = Auth.auth().addStateDidChangeListener(authListenerHandler(auth:user:))
-        
+    }
+    
+    fileprivate func setupRefreshControl() {
+        randomPlantsCollectionView.refreshControl = UIRefreshControl()
+        randomPlantsCollectionView.refreshControl?.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
+    }
+    
+    @objc private func pullToRefresh() {
+        TrefleAPiClient.getTotalPlantsPages(completionHandler: handleTotalPlantsPages(totalPages:error:))
+           didPullDownToRefresh = true
+    }
+    
+    //Checks if user is still in db if not removes session by logging out
+    fileprivate func isUserSessionValid(user: User?){
+        if let currentUserUID = user?.uid {
+            usersRef.whereField("uid", isEqualTo: currentUserUID).getDocuments(completion: handleUserQuery(querySnapshot:error:))
+        }
+    }
+   
+    //Configures the CollectionFlowLayout, sets delegation and datasource for the CollectionViews and starts animating it indicator view
+    fileprivate func setupCollectionViews() {
+        randomPlantsCollectionView.delegate = self
+        randomPlantsCollectionView.dataSource = self
+        setCollectionFlowLayout(randomPlantsCollectionView, items: 2, scrollDirectionType: .vertical)
+        dataLoadingIndicatorView.startAnimating()
+    }
+    
+    fileprivate func getPlantsTotalPages() {
         TrefleAPiClient.getTotalPlantsPages(completionHandler: handleTotalPlantsPages(totalPages:error:))
     }
     
@@ -45,35 +90,14 @@ class HomeViewController: UIViewController {
         if error == nil {
             if let plantInfo = plantInfo {
                 self.plantsData = plantInfo
+                if didPullDownToRefresh {
+                    randomPlantsCollectionView.refreshControl?.endRefreshing()
+                } else {
+                    dataLoadingIndicatorView.stopAnimating()
+                }
                 randomPlantsCollectionView.reloadData()
             }
         }
-    }
-    
-    fileprivate func configureDB() {
-        db = Firestore.firestore()
-        usersRef = db.collection("users")
-    }
-    
-    deinit {
-        //Removes auth listener during deinitialization
-        Auth.auth().removeStateDidChangeListener(handle)
-    }
-    
-    //Check if user is still in db if not remove session by logging out
-    fileprivate func isUserSessionValid(user: User?){
-        if let currentUserUID = user?.uid {
-            usersRef.whereField("uid", isEqualTo: currentUserUID).getDocuments(completion: handleUserQuery(querySnapshot:error:))
-        }
-    }
-   
-    //Configures the CollectionFlowLayout and sets delegation and datasource for the CollectionViews
-    fileprivate func setupCollectionViews() {
-
-        randomPlantsCollectionView.delegate = self
-        randomPlantsCollectionView.dataSource = self
-        setCollectionFlowLayout(randomPlantsCollectionView, items: 2, scrollDirectionType: .vertical)
-        
     }
 
     //Configures the CollectionView Flow layout for our items to fit accoarding to its content.

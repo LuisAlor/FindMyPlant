@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search View Controller-->
+        <!--Search-->
         <scene sceneID="7Vf-1c-hIp">
             <objects>
                 <viewController storyboardIdentifier="SearchVC" modalPresentationStyle="fullScreen" id="aBt-42-1DG" customClass="SearchViewController" customModule="FindMyPlant" customModuleProvider="target" sceneMemberID="viewController">
@@ -49,7 +49,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FeF-lt-u3Y"/>
                     </view>
-                    <navigationItem key="navigationItem" id="uPB-rW-Z3l"/>
+                    <navigationItem key="navigationItem" title="Search" id="uPB-rW-Z3l"/>
                     <connections>
                         <outlet property="searchBar" destination="quf-im-dWd" id="Vv8-2G-LJS"/>
                         <outlet property="tableView" destination="6WZ-NT-1M6" id="W9r-iC-AvW"/>
@@ -76,7 +76,7 @@
             </objects>
             <point key="canvasLocation" x="-2426.0869565217395" y="217.66304347826087"/>
         </scene>
-        <!--Favorites View Controller-->
+        <!--Favorites-->
         <scene sceneID="YV7-7U-Erc">
             <objects>
                 <viewController storyboardIdentifier="FavoritesVC" modalPresentationStyle="fullScreen" id="K5A-lV-pUB" customClass="FavoritesViewController" customModule="FindMyPlant" customModuleProvider="target" sceneMemberID="viewController">
@@ -86,7 +86,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Zwz-qk-ZVm"/>
                     </view>
-                    <navigationItem key="navigationItem" id="rcp-XH-tsx"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="rcp-XH-tsx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jjN-8J-Mdd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -359,6 +359,11 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <activityIndicatorView key="backgroundView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" id="MTW-Ns-MW0" userLabel="Container Activity Indicator">
+                                    <rect key="frame" x="0.0" y="0.0" width="359" height="527"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="color" red="0.18039215689999999" green="0.41176470590000003" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                </activityIndicatorView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="RandomPlantsCollectionViewCell" id="J3W-Hc-iyR" customClass="RandomPlantsCollectionViewCell" customModule="FindMyPlant" customModuleProvider="target">
                                         <rect key="frame" x="79.5" y="0.0" width="200" height="250"/>
@@ -380,20 +385,27 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="DgU-bs-qUc">
+                                                    <rect key="frame" x="81.5" y="81.5" width="37" height="37"/>
+                                                    <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <color key="backgroundColor" red="0.18039215689999999" green="0.41176470590000003" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="hkW-9T-lKD" secondAttribute="trailing" constant="8" id="4O7-WE-3vr"/>
                                                 <constraint firstItem="fH5-wa-LqY" firstAttribute="leading" secondItem="YaD-Rx-IPc" secondAttribute="leading" id="DYc-Ty-Nq9"/>
                                                 <constraint firstItem="hkW-9T-lKD" firstAttribute="top" secondItem="fH5-wa-LqY" secondAttribute="bottom" id="DsY-Pf-dPY"/>
+                                                <constraint firstItem="DgU-bs-qUc" firstAttribute="centerY" secondItem="fH5-wa-LqY" secondAttribute="centerY" id="EYo-JN-Rpn"/>
                                                 <constraint firstAttribute="bottom" secondItem="hkW-9T-lKD" secondAttribute="bottom" id="GoZ-7k-kqt"/>
                                                 <constraint firstItem="hkW-9T-lKD" firstAttribute="leading" secondItem="YaD-Rx-IPc" secondAttribute="leading" constant="8" id="KkV-nx-lR2"/>
                                                 <constraint firstAttribute="trailing" secondItem="fH5-wa-LqY" secondAttribute="trailing" id="TvC-B3-uh9"/>
                                                 <constraint firstItem="fH5-wa-LqY" firstAttribute="top" secondItem="YaD-Rx-IPc" secondAttribute="top" id="ZNt-4a-oKA"/>
+                                                <constraint firstItem="DgU-bs-qUc" firstAttribute="centerX" secondItem="fH5-wa-LqY" secondAttribute="centerX" id="sLj-PJ-niz"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="200" height="250"/>
                                         <connections>
+                                            <outlet property="imageLoadingIndicator" destination="DgU-bs-qUc" id="ULL-vR-33i"/>
                                             <outlet property="imageView" destination="fH5-wa-LqY" id="MKh-Sg-G2O"/>
                                             <outlet property="titleLabel" destination="hkW-9T-lKD" id="gbx-gE-4dm"/>
                                         </connections>
@@ -432,6 +444,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="dataLoadingIndicatorView" destination="MTW-Ns-MW0" id="08P-tf-cSd"/>
                         <outlet property="randomPlantsCollectionView" destination="nPn-sK-hMo" id="Rpd-wR-WyA"/>
                         <outlet property="segmentedControl" destination="zTN-sW-SAB" id="JHP-ya-5q2"/>
                         <segue destination="D70-pD-YSJ" kind="show" identifier="modalLoginSegue" id="ljm-TO-acv"/>
