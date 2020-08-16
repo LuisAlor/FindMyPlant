@@ -29,12 +29,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         //If an image exists (mostly this field is null) then download the image
         if let plantImage = plantsData[indexPath.row].imageURL {
-            TrefleAPiClient.downloadImage(imageURL: URL(string: plantImage)!) { (data, error) in
-                if let data = data {
+            TrefleAPiClient.downloadImage(imageURL: URL(string: plantImage)!) { (image, error) in
+                if let image = image {
                     //Stops animating
                     cell.imageLoadingIndicator.stopAnimating()
                     //Sets the current image to the one downloaded
-                    cell.imageView.image = UIImage(data: data)
+                    cell.imageView.image = image
                 }
             }
         } else {

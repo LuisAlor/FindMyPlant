@@ -63,7 +63,6 @@ class HomeViewController: UIViewController {
     }
     
     @objc private func didIndexChanged(){
-        didPlantDataChanged = true
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             //Generate random page for all type of plants
@@ -124,6 +123,7 @@ class HomeViewController: UIViewController {
                 self.plantsData = plantInfo
                 randomPlantsCollectionView.refreshControl?.endRefreshing()
                 dataLoadingIndicatorView.stopAnimating()
+                didPlantDataChanged = true
                 randomPlantsCollectionView.reloadData()
             }
         }

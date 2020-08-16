@@ -6,11 +6,13 @@
 //  Copyright © 2020 Luis Angel Vazquez Alor. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class TrefleAPiClient {
     
     static let apiKey = "U8Aaxsf22v1B7wPWnjhafMj6WddhXzb1WkdNJYjz7rM"
+    //Setup my NSCache for images
+    static let imageCache = NSCache<NSString, UIImage>()
     
     enum Endpoints{
         
@@ -156,21 +158,34 @@ class TrefleAPiClient {
         }
     }
     
-    //MARK: - downloadImage: Downloads the image from the server into our device
-    public class func downloadImage(imageURL: URL, completionHandler: @escaping (Data?, Error?) -> Void ){
-                  
-        let task = URLSession.shared.dataTask(with: imageURL) { (data, response, error) in
-            guard let data = data else {
-                DispatchQueue.main.async {
-                    completionHandler(nil, error)
+    //MARK: - downloadImage: Downloads the image from the server into our device or load from Cache
+    class func downloadImage(imageURL: URL, completionHandler: @escaping (UIImage?, Error?) -> Void ){
+                
+        //If image exists in cache the return it, if not download from server and then save to cache
+        if let cachedImage = imageCache.object(forKey: imageURL.absoluteString as NSString) {
+            completionHandler(cachedImage, nil)
+        } else {
+            let task = URLSession.shared.dataTask(with: imageURL) { (data, response, error) in
+                guard let data = data else {
+                    DispatchQueue.main.async {
+                        completionHandler(nil, error)
+                    }
+                return
                 }
-            return
+                guard let image = UIImage(data: data) else {
+                    DispatchQueue.main.async {
+                        completionHandler(nil, error)
+                    }
+                    return
+                }
+                
+                self.imageCache.setObject(image, forKey: imageURL.absoluteString as NSString)
+
+                DispatchQueue.main.async {
+                    completionHandler(image,nil)
+                }
             }
-            DispatchQueue.main.async {
-                completionHandler(data,nil)
-            }
+            task.resume()
         }
-        task.resume()
     }
-    
 }
