@@ -16,7 +16,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var randomPlantsCollectionView: UICollectionView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var dataLoadingIndicatorView: UIActivityIndicatorView!
-    @IBOutlet weak var logoutButton: UIBarButtonItem!
+    @IBOutlet weak var logoutButton: UIButton!
+    
     
     var handle: AuthStateDidChangeListenerHandle!
     var userLoggedUponLaunch = true
@@ -198,10 +199,8 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func logout(_ sender: Any) {
-           
         //We do not care about error handling for user during logout.
         try? Auth.auth().signOut()
-        performSegue(withIdentifier: "modalLoginSegue", sender: nil)
    }
     
 }
