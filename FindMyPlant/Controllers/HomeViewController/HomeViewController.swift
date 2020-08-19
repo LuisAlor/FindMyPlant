@@ -32,6 +32,7 @@ class HomeViewController: UIViewController {
         setupFireBaseFeatures()
         setupCollectionViews()
         setupRefreshControl()
+        dataLoadingIndicatorView.startAnimating() // Refactor
         getAllPlantsInfo()
         
         segmentedControl.addTarget(self, action: #selector(didIndexChanged), for: .valueChanged)
@@ -58,21 +59,36 @@ class HomeViewController: UIViewController {
     }
     
     @objc private func pullToRefresh() {
-        //TrefleAPiClient.getTotalPlantsPages(completionHandler: handleTotalPlantsPages(totalPages:error:))
-           didPlantDataChanged = true
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            //Generate random page for all type of plants
+            getAllPlantsInfo()
+            TrefleAPiClient.imageCache.removeAllObjects()
+
+        case 1:
+            //Generates random page for all edible plants only
+            getAllPlantsInfo()
+            TrefleAPiClient.imageCache.removeAllObjects()
+
+        default:
+            return
+        }
     }
     
     @objc private func didIndexChanged(){
+        dataLoadingIndicatorView.startAnimating()
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             //Generate random page for all type of plants
             plantsData.removeAll()
+            TrefleAPiClient.imageCache.removeAllObjects()
             randomPlantsCollectionView.reloadData()
             getAllPlantsInfo()
 
         case 1:
             //Generates random page for all edible plants only
             plantsData.removeAll()
+            TrefleAPiClient.imageCache.removeAllObjects()
             randomPlantsCollectionView.reloadData()
             getAllPlantsInfo()
 
@@ -96,7 +112,6 @@ class HomeViewController: UIViewController {
     }
     
     fileprivate func getAllPlantsInfo() {
-        dataLoadingIndicatorView.startAnimating()
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             TrefleAPiClient.getTotalPlantsPages(by: .all, completionHandler: handleTotalPlantsPages(totalPages:error:))
@@ -120,6 +135,7 @@ class HomeViewController: UIViewController {
     func handleGetRandomPlants(plantInfo: [PlantInfo]?, error: Error?){
         if error == nil {
             if let plantInfo = plantInfo {
+                plantsData.removeAll()
                 self.plantsData = plantInfo
                 randomPlantsCollectionView.refreshControl?.endRefreshing()
                 dataLoadingIndicatorView.stopAnimating()

@@ -18,14 +18,6 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
-    
     @IBAction func logout(_ sender: Any) {
         
         //We do not care about error handling for user during logout.
