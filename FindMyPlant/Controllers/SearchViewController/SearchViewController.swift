@@ -26,7 +26,6 @@ class SearchViewController: UIViewController {
           tableView.delegate = self
           tableView.dataSource = self
           searchBar.delegate = self
-          
           searchBar.autocapitalizationType = .none
     }
 

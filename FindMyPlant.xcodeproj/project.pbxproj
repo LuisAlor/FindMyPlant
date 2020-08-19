@@ -17,6 +17,9 @@
 		BD3C777624C795350006D16C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C777524C795350006D16C /* LoginViewController.swift */; };
 		BD3C777824C8BE1F0006D16C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3C777724C8BE1F0006D16C /* ProfileViewController.swift */; };
 		BD516BB924E5B114005840EF /* RandomPlantsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD516BB824E5B114005840EF /* RandomPlantsCollectionViewCell.swift */; };
+		BD53C8CA24ED8A7C00A18B34 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD53C8C924ED8A7C00A18B34 /* SearchTableViewCell.swift */; };
+		BD53C8CC24ED8A9100A18B34 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD53C8CB24ED8A9100A18B34 /* FavoritesTableViewCell.swift */; };
+		BD53C8CE24EDB21F00A18B34 /* String + SentenceCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD53C8CD24EDB21F00A18B34 /* String + SentenceCase.swift */; };
 		BD6262D524D57C19000AE569 /* L1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6262D424D57C19000AE569 /* L1.swift */; };
 		BD6262D924D6BF56000AE569 /* PlantsSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6262D824D6BF56000AE569 /* PlantsSearchResponse.swift */; };
 		BD6262DB24D80888000AE569 /* PlantInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6262DA24D80888000AE569 /* PlantInfo.swift */; };
@@ -33,9 +36,9 @@
 		BD99613324C4CE85001369D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD99613124C4CE85001369D0 /* Main.storyboard */; };
 		BD99613824C4CE86001369D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD99613624C4CE86001369D0 /* LaunchScreen.storyboard */; };
 		BD99614624C72379001369D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD99614524C72379001369D0 /* GoogleService-Info.plist */; };
-		BD9FE3AE24CCB7830014FC96 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FE3AD24CCB7830014FC96 /* UIViewController+Alert.swift */; };
+		BD9FE3AE24CCB7830014FC96 /* UIViewController + Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FE3AD24CCB7830014FC96 /* UIViewController + Alert.swift */; };
 		BDA594A124CCB1EC00295C9B /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA594A024CCB1EC00295C9B /* Alert.swift */; };
-		BDD057B224CCC1F900A21CEB /* UIViewController+TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD057B124CCC1F900A21CEB /* UIViewController+TextFieldDelegate.swift */; };
+		BDD057B224CCC1F900A21CEB /* UIViewController + TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD057B124CCC1F900A21CEB /* UIViewController + TextFieldDelegate.swift */; };
 		BDE6A74424CA03BD00F3CE6F /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE6A74324CA03BD00F3CE6F /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +54,9 @@
 		BD3C777524C795350006D16C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BD3C777724C8BE1F0006D16C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BD516BB824E5B114005840EF /* RandomPlantsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomPlantsCollectionViewCell.swift; sourceTree = "<group>"; };
+		BD53C8C924ED8A7C00A18B34 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		BD53C8CB24ED8A9100A18B34 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
+		BD53C8CD24EDB21F00A18B34 /* String + SentenceCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + SentenceCase.swift"; sourceTree = "<group>"; };
 		BD6262D424D57C19000AE569 /* L1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L1.swift; sourceTree = "<group>"; };
 		BD6262D824D6BF56000AE569 /* PlantsSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsSearchResponse.swift; sourceTree = "<group>"; };
 		BD6262DA24D80888000AE569 /* PlantInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantInfo.swift; sourceTree = "<group>"; };
@@ -69,9 +75,9 @@
 		BD99613724C4CE86001369D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD99613924C4CE86001369D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD99614524C72379001369D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		BD9FE3AD24CCB7830014FC96 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		BD9FE3AD24CCB7830014FC96 /* UIViewController + Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Alert.swift"; sourceTree = "<group>"; };
 		BDA594A024CCB1EC00295C9B /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
-		BDD057B124CCC1F900A21CEB /* UIViewController+TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+TextFieldDelegate.swift"; sourceTree = "<group>"; };
+		BDD057B124CCC1F900A21CEB /* UIViewController + TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + TextFieldDelegate.swift"; sourceTree = "<group>"; };
 		BDE6A74324CA03BD00F3CE6F /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		E83B4F4E3B29D1413C0A6CD7 /* Pods-FindMyPlant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyPlant.release.xcconfig"; path = "Target Support Files/Pods-FindMyPlant/Pods-FindMyPlant.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,6 +142,31 @@
 				BD516BB824E5B114005840EF /* RandomPlantsCollectionViewCell.swift */,
 			);
 			path = HomeViewController;
+			sourceTree = "<group>";
+		};
+		BD53C8C624ED8A2400A18B34 /* Custom Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BD53C8C824ED8A5000A18B34 /* FavoritesViewController */,
+				BD53C8C724ED8A3200A18B34 /* SearchViewController */,
+			);
+			path = "Custom Table View Cells";
+			sourceTree = "<group>";
+		};
+		BD53C8C724ED8A3200A18B34 /* SearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BD53C8C924ED8A7C00A18B34 /* SearchTableViewCell.swift */,
+			);
+			path = SearchViewController;
+			sourceTree = "<group>";
+		};
+		BD53C8C824ED8A5000A18B34 /* FavoritesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BD53C8CB24ED8A9100A18B34 /* FavoritesTableViewCell.swift */,
+			);
+			path = FavoritesViewController;
 			sourceTree = "<group>";
 		};
 		BD6262D224D57BCC000AE569 /* WGSRPD Levels */ = {
@@ -229,6 +260,7 @@
 		BD99614124C4CF24001369D0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BD53C8C624ED8A2400A18B34 /* Custom Table View Cells */,
 				BD516BB424E5AFFD005840EF /* Custom Collection View Cells */,
 			);
 			path = Views;
@@ -262,8 +294,9 @@
 		BD9FE3AC24CCB7690014FC96 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				BD9FE3AD24CCB7830014FC96 /* UIViewController+Alert.swift */,
-				BDD057B124CCC1F900A21CEB /* UIViewController+TextFieldDelegate.swift */,
+				BD9FE3AD24CCB7830014FC96 /* UIViewController + Alert.swift */,
+				BDD057B124CCC1F900A21CEB /* UIViewController + TextFieldDelegate.swift */,
+				BD53C8CD24EDB21F00A18B34 /* String + SentenceCase.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -453,6 +486,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD6262D524D57C19000AE569 /* L1.swift in Sources */,
+				BD53C8CC24ED8A9100A18B34 /* FavoritesTableViewCell.swift in Sources */,
 				BD2D14F824D88B7700758710 /* DetailsViewController.swift in Sources */,
 				BD3C777624C795350006D16C /* LoginViewController.swift in Sources */,
 				BD15087424D2AA880067AE81 /* TrefleAPiClient.swift in Sources */,
@@ -461,7 +495,7 @@
 				BD6262DB24D80888000AE569 /* PlantInfo.swift in Sources */,
 				BD6262E324D83C9F000AE569 /* SearchViewController + UITableView.swift in Sources */,
 				BD68CA9524C983750055F45F /* SignupViewController.swift in Sources */,
-				BD9FE3AE24CCB7830014FC96 /* UIViewController+Alert.swift in Sources */,
+				BD9FE3AE24CCB7830014FC96 /* UIViewController + Alert.swift in Sources */,
 				BD6262D924D6BF56000AE569 /* PlantsSearchResponse.swift in Sources */,
 				BD99612C24C4CE85001369D0 /* AppDelegate.swift in Sources */,
 				BD3C777224C794D70006D16C /* SearchViewController.swift in Sources */,
@@ -469,10 +503,12 @@
 				BDA594A124CCB1EC00295C9B /* Alert.swift in Sources */,
 				BD516BB924E5B114005840EF /* RandomPlantsCollectionViewCell.swift in Sources */,
 				BD3C777824C8BE1F0006D16C /* ProfileViewController.swift in Sources */,
+				BD53C8CE24EDB21F00A18B34 /* String + SentenceCase.swift in Sources */,
 				BD6262DD24D80917000AE569 /* PlantLinks.swift in Sources */,
 				BDE6A74424CA03BD00F3CE6F /* Utilities.swift in Sources */,
 				BD6262DF24D81748000AE569 /* PlantMeta.swift in Sources */,
-				BDD057B224CCC1F900A21CEB /* UIViewController+TextFieldDelegate.swift in Sources */,
+				BDD057B224CCC1F900A21CEB /* UIViewController + TextFieldDelegate.swift in Sources */,
+				BD53C8CA24ED8A7C00A18B34 /* SearchTableViewCell.swift in Sources */,
 				BD8CD85724E81B5E00600919 /* HomeViewController + UICollectionView.swift in Sources */,
 				BD6262E124D83C48000AE569 /* SearchViewController + UISearchBar.swift in Sources */,
 				BD3C777424C794F70006D16C /* FavoritesViewController.swift in Sources */,

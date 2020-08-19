@@ -16,6 +16,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var randomPlantsCollectionView: UICollectionView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var dataLoadingIndicatorView: UIActivityIndicatorView!
+    @IBOutlet weak var logoutButton: UIBarButtonItem!
     
     var handle: AuthStateDidChangeListenerHandle!
     var userLoggedUponLaunch = true
@@ -26,6 +27,8 @@ class HomeViewController: UIViewController {
     
     var plantsData: [PlantInfo] = []
     var didPlantDataChanged = false
+    
+    var selectedIndex: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +39,14 @@ class HomeViewController: UIViewController {
         getAllPlantsInfo()
         
         segmentedControl.addTarget(self, action: #selector(didIndexChanged), for: .valueChanged)
+    }
+    
+    //Prepares the data of the plant who is going to be previewed in the DetailsViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "HomeToDetailsSegue"{
+            let detailsVC = segue.destination as! DetailsViewController
+            detailsVC.plantSelectedData = plantsData[selectedIndex]
+        }
     }
     
     deinit {
@@ -185,6 +196,13 @@ class HomeViewController: UIViewController {
         }
 
     }
+    
+    @IBAction func logout(_ sender: Any) {
+           
+        //We do not care about error handling for user during logout.
+        try? Auth.auth().signOut()
+        performSegue(withIdentifier: "modalLoginSegue", sender: nil)
+   }
     
 }
 

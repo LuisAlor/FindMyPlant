@@ -20,13 +20,13 @@ struct Constants{
         }
     }
 
-    enum ReuseCellID {
+    enum Segues {
         
-        case searchCell
+        case sth
         
         var identifier: String{
             switch self {
-            case .searchCell: return "SearchResultsCell"
+            case .sth: return "SearchResultsCell"
             }
         }
     }

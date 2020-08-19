@@ -15,7 +15,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.ReuseCellID.searchCell.identifier)!
+        //TO-DO Change to contant Reuseid
+        let cell = tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.reuseIdentifier)!
         cell.textLabel?.text = plantsSearchResult.data[indexPath.row].scientificName
         return cell
     }

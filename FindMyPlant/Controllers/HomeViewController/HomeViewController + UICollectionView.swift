@@ -52,5 +52,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return cell
     }
     
+    //Saves the selected item and performs the segue to DetailsViewController
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedIndex = indexPath.row
+        performSegue(withIdentifier: "HomeToDetailsSegue", sender: nil)
+        collectionView.deselectItem(at: indexPath, animated: true)
+    }
+    
     
 }

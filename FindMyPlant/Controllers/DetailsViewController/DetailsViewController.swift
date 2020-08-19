@@ -10,8 +10,39 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var likeButton: UIBarButtonItem!
+    @IBOutlet weak var commonNameLabel: UILabel!
+    @IBOutlet weak var scientificNameLabel: UILabel!
+    @IBOutlet weak var yearRegisteredLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var bibliographyLabel: UILabel!
+    @IBOutlet weak var familyLabel: UILabel!
+    @IBOutlet weak var genusLabel: UILabel!
+    
+    var plantSelectedData: PlantInfo!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        TrefleAPiClient.downloadImage(imageURL: URL(string: plantSelectedData.imageURL!)!, completionHandler: downloadImageHandler(image:error:))
+        commonNameLabel.text = plantSelectedData.commonName?.sentenceCase() ?? "Unknown"
+        scientificNameLabel.text = plantSelectedData.scientificName
+        if let year = plantSelectedData.yearRegistered {
+            yearRegisteredLabel.text = String(year)
+        }
+        authorLabel.text = plantSelectedData.author ?? "Unknown"
+        bibliographyLabel.text = plantSelectedData.bibliography ?? "Unknown"
+        familyLabel.text = plantSelectedData.family ?? "Unknown"
+        genusLabel.text = plantSelectedData.genus
+        
+        
+    }
+    
+    func downloadImageHandler(image: UIImage?, error: Error?){
+        if error == nil, image != nil {
+            imageView.image = image
+        }
     }
 
 }
