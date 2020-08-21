@@ -11,14 +11,37 @@ import UIKit
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        currentSearchTask?.cancel()
-        currentSearchTask = TrefleAPiClient.searchForPlant(searchText, completionHandler: searchPlantResultHandler(response:error:))
+        
+        tableView.isHidden = true
+        
+        if searchText == "" {
+            plantsSearchResult = nil
+            TrefleAPiClient.imageCache.removeAllObjects()
+             
+            tableView.reloadData()
+            
+            statusSearchLabel.isHidden = false
+            statusSearchLabel.text = Constants.SearchStatus.noSearch.message
+        } else {
+            statusSearchLabel.isHidden = true
+            currentSearchTask?.cancel()
+            activityViewIndicator.startAnimating()
+            currentSearchTask = TrefleAPiClient.searchForPlant(searchText, completionHandler: searchPlantResultHandler(response:error:))
+        }
     }
     
     func searchPlantResultHandler(response: PlantsSearchResponse?, error: Error?){
         if let response =  response {
-            self.plantsSearchResult = response
-            self.tableView.reloadData()
+            if response.data.count == 0 {
+                statusSearchLabel.isHidden = false
+                activityViewIndicator.stopAnimating()
+                statusSearchLabel.text = Constants.SearchStatus.noResults.message
+            } else {
+                activityViewIndicator.stopAnimating()
+                self.plantsSearchResult = response
+                self.tableView.reloadData()
+                tableView.isHidden = false
+            }
         }
     }
     
@@ -37,4 +60,5 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
+    
 }

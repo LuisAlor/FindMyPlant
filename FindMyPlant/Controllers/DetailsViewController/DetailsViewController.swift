@@ -24,8 +24,11 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        TrefleAPiClient.downloadImage(imageURL: URL(string: plantSelectedData.imageURL!)!, completionHandler: downloadImageHandler(image:error:))
+        if let imageStringURL = plantSelectedData.imageURL{
+            TrefleAPiClient.downloadImage(imageURL: URL(string: imageStringURL)!, completionHandler: downloadImageHandler(image:error:))
+        } else {
+            imageView.image = #imageLiteral(resourceName: "NoImageFound")
+        }
         commonNameLabel.text = plantSelectedData.commonName?.sentenceCase() ?? "Unknown"
         scientificNameLabel.text = plantSelectedData.scientificName
         if let year = plantSelectedData.yearRegistered {
@@ -36,13 +39,24 @@ class DetailsViewController: UIViewController {
         familyLabel.text = plantSelectedData.family ?? "Unknown"
         genusLabel.text = plantSelectedData.genus
         
+        if isPlantFavorited(){
+            likeButton.image = UIImage(systemName: "heart.fill")
+        }
         
     }
     
     func downloadImageHandler(image: UIImage?, error: Error?){
-        if error == nil, image != nil {
-            imageView.image = image
+        if error == nil {
+            if let image = image {
+                imageView.image = image
+            }
         }
+    }
+    
+    func isPlantFavorited() -> Bool {
+        let number = Int.random(in: 0...1)
+        let isFavorite = number == 1 ? true : false
+        return isFavorite
     }
 
 }

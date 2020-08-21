@@ -25,24 +25,112 @@
                                 <rect key="frame" x="0.0" y="100" width="375" height="518"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchTableViewCell" id="FMQ-Rt-rs2" customClass="SearchTableViewCell" customModule="FindMyPlant" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchTableViewCell" rowHeight="150.5" id="FMQ-Rt-rs2" customClass="SearchTableViewCell" customModule="FindMyPlant" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="150.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FMQ-Rt-rs2" id="Owm-eK-iKG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="150.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oRQ-r6-Bed">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" priority="999" constant="150" id="dcY-wg-hVB"/>
+                                                        <constraint firstAttribute="width" constant="150" id="j0c-xQ-Piw"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zHG-bK-cIq" userLabel="Common Name Stack View">
+                                                    <rect key="frame" x="158" y="0.0" width="217" height="75"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Common Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bhe-Rp-LgO">
+                                                            <rect key="frame" x="0.0" y="0.0" width="217" height="37.5"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unknown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLQ-yq-6Yu" userLabel="Common Name Label">
+                                                            <rect key="frame" x="0.0" y="37.5" width="217" height="37.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="75" id="ON5-R7-1la"/>
+                                                    </constraints>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hdp-ev-70k" userLabel="Scientific Name Stack View">
+                                                    <rect key="frame" x="158" y="75" width="202" height="64.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scientific Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZz-3B-6DQ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="202" height="32.5"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unknown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmc-Hi-h2K" userLabel="Scientific Name Text Label">
+                                                            <rect key="frame" x="0.0" y="32.5" width="202" height="32"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="HZt-gc-fqU">
+                                                    <rect key="frame" x="56.5" y="57" width="37" height="37"/>
+                                                    <color key="color" red="0.18039215689999999" green="0.41176470590000003" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="HZt-gc-fqU" firstAttribute="centerX" secondItem="oRQ-r6-Bed" secondAttribute="centerX" id="1xJ-rl-cWK"/>
+                                                <constraint firstItem="hdp-ev-70k" firstAttribute="top" secondItem="zHG-bK-cIq" secondAttribute="bottom" id="EfB-UT-Hqx"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="hdp-ev-70k" secondAttribute="bottom" id="I8k-gj-7QE"/>
+                                                <constraint firstItem="HZt-gc-fqU" firstAttribute="centerY" secondItem="oRQ-r6-Bed" secondAttribute="centerY" id="ITG-Xm-AjF"/>
+                                                <constraint firstItem="oRQ-r6-Bed" firstAttribute="top" secondItem="Owm-eK-iKG" secondAttribute="top" id="epH-da-LPv"/>
+                                                <constraint firstItem="oRQ-r6-Bed" firstAttribute="leading" secondItem="Owm-eK-iKG" secondAttribute="leading" id="fic-IQ-AZB"/>
+                                                <constraint firstAttribute="trailing" secondItem="zHG-bK-cIq" secondAttribute="trailing" id="iBz-e0-wO5"/>
+                                                <constraint firstItem="hdp-ev-70k" firstAttribute="leading" secondItem="oRQ-r6-Bed" secondAttribute="trailing" constant="8" id="km0-9Y-hAN"/>
+                                                <constraint firstAttribute="bottom" secondItem="oRQ-r6-Bed" secondAttribute="bottom" id="oow-g9-WFo"/>
+                                                <constraint firstItem="zHG-bK-cIq" firstAttribute="leading" secondItem="oRQ-r6-Bed" secondAttribute="trailing" constant="8" id="s70-kg-8YC"/>
+                                                <constraint firstItem="zHG-bK-cIq" firstAttribute="top" secondItem="Owm-eK-iKG" secondAttribute="top" id="vau-2m-CJX"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="hdp-ev-70k" secondAttribute="trailing" id="zH7-tK-pkM"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="commonNameTextLabel" destination="bLQ-yq-6Yu" id="frw-oZ-exE"/>
+                                            <outlet property="imageActivityViewIndicator" destination="HZt-gc-fqU" id="626-hr-QvD"/>
+                                            <outlet property="scientificNameLabel" destination="vmc-Hi-h2K" id="OEk-lC-0ze"/>
+                                            <outlet property="thumbnailImage" destination="oRQ-r6-Bed" id="Jxn-PO-vve"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="pra-oL-WE1" userLabel="Search Activity View Indicator">
+                                <rect key="frame" x="162.5" y="334" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="3bd-VC-qTr"/>
+                                    <constraint firstAttribute="width" constant="50" id="OeL-ZK-gww"/>
+                                </constraints>
+                                <color key="color" red="0.18039215689999999" green="0.41176470590000003" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enk-i1-Sm7" userLabel="Status Label">
+                                <rect key="frame" x="163" y="349" width="49.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.18039215689999999" green="0.41176470590000003" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="pra-oL-WE1" firstAttribute="centerX" secondItem="6WZ-NT-1M6" secondAttribute="centerX" id="3FE-2y-O5V"/>
                             <constraint firstItem="6WZ-NT-1M6" firstAttribute="leading" secondItem="FeF-lt-u3Y" secondAttribute="leading" id="3Go-MA-Zf9"/>
                             <constraint firstItem="quf-im-dWd" firstAttribute="leading" secondItem="FeF-lt-u3Y" secondAttribute="leading" id="4CR-GH-2ph"/>
                             <constraint firstItem="quf-im-dWd" firstAttribute="trailing" secondItem="FeF-lt-u3Y" secondAttribute="trailing" id="K11-La-33O"/>
+                            <constraint firstItem="enk-i1-Sm7" firstAttribute="centerX" secondItem="6WZ-NT-1M6" secondAttribute="centerX" id="KoJ-xa-4Gk"/>
                             <constraint firstItem="FeF-lt-u3Y" firstAttribute="bottom" secondItem="6WZ-NT-1M6" secondAttribute="bottom" id="YfH-zE-d2o"/>
+                            <constraint firstItem="pra-oL-WE1" firstAttribute="centerY" secondItem="6WZ-NT-1M6" secondAttribute="centerY" id="ZEB-y3-42b"/>
+                            <constraint firstItem="enk-i1-Sm7" firstAttribute="centerY" secondItem="6WZ-NT-1M6" secondAttribute="centerY" id="ldZ-Om-uEb"/>
                             <constraint firstItem="quf-im-dWd" firstAttribute="top" secondItem="FeF-lt-u3Y" secondAttribute="top" id="tFr-YJ-WNb"/>
                             <constraint firstItem="6WZ-NT-1M6" firstAttribute="top" secondItem="quf-im-dWd" secondAttribute="bottom" id="tpc-EW-y3Q"/>
                             <constraint firstItem="6WZ-NT-1M6" firstAttribute="trailing" secondItem="FeF-lt-u3Y" secondAttribute="trailing" id="vvk-2r-A4M"/>
@@ -51,14 +139,16 @@
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="uPB-rW-Z3l"/>
                     <connections>
+                        <outlet property="activityViewIndicator" destination="pra-oL-WE1" id="b8J-X6-3x8"/>
                         <outlet property="searchBar" destination="quf-im-dWd" id="Vv8-2G-LJS"/>
+                        <outlet property="statusSearchLabel" destination="enk-i1-Sm7" id="i6f-ea-vDD"/>
                         <outlet property="tableView" destination="6WZ-NT-1M6" id="W9r-iC-AvW"/>
                         <segue destination="18o-2r-pTc" kind="show" identifier="SearchToDetailsSegue" id="fo7-hX-l1F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vYX-5F-ByW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3184.057971014493" y="217.66304347826087"/>
+            <point key="canvasLocation" x="-3184.8000000000002" y="217.24137931034485"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="rSJ-YZ-rxV">
@@ -83,11 +173,11 @@
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="cYF-d1-FZI"/>
                                     <barButtonItem image="heart" catalog="system" id="gqa-M4-9Cz">
-                                        <color key="tintColor" red="0.71524507705479456" green="0.15319991438356165" blue="0.24497003424657535" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="9wd-lx-jFV"/>
                                 </items>
-                                <color key="barTintColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </toolbar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="TuB-wD-Ckz" userLabel="Root Stack View">
                                 <rect key="frame" x="8" y="394" width="359" height="216"/>
@@ -730,7 +820,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="miR-Qu-llu"/>
+        <segue reference="g1r-TI-PVc"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Create-account-ico" width="341" height="341"/>

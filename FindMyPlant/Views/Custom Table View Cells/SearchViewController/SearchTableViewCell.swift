@@ -11,8 +11,10 @@ import UIKit
 class SearchTableViewCell: UITableViewCell {
     
     static let reuseIdentifier = "SearchTableViewCell"
+    
     @IBOutlet weak var thumbnailImage: UIImageView!
     @IBOutlet weak var scientificNameLabel: UILabel!
     @IBOutlet weak var commonNameTextLabel: UILabel!
-
+    @IBOutlet weak var imageActivityViewIndicator: UIActivityIndicatorView!
+    
 }

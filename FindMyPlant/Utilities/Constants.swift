@@ -22,11 +22,27 @@ struct Constants{
 
     enum Segues {
         
-        case sth
+        case homeToDetails
+        case searchToDetails
+        case favoritesToDetails
         
         var identifier: String{
             switch self {
-            case .sth: return "SearchResultsCell"
+            case .homeToDetails: return "HomeToDetailsSegue"
+            case .searchToDetails: return "SearchToDetailsSegue"
+            case .favoritesToDetails: return "FavoritesToDetailsSegue"
+            }
+        }
+    }
+    
+    enum SearchStatus {
+        case noResults
+        case noSearch
+        
+        var message: String {
+            switch self {
+            case .noResults: return "No Results Found"
+            case .noSearch: return "Type in the search bar to start"
             }
         }
     }

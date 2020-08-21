@@ -18,7 +18,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var dataLoadingIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var logoutButton: UIButton!
     
-    
     var handle: AuthStateDidChangeListenerHandle!
     var userLoggedUponLaunch = true
     var usersRef: CollectionReference!
@@ -71,20 +70,8 @@ class HomeViewController: UIViewController {
     }
     
     @objc private func pullToRefresh() {
-        switch segmentedControl.selectedSegmentIndex {
-        case 0:
-            //Generate random page for all type of plants
-            getAllPlantsInfo()
-            TrefleAPiClient.imageCache.removeAllObjects()
-
-        case 1:
-            //Generates random page for all edible plants only
-            getAllPlantsInfo()
-            TrefleAPiClient.imageCache.removeAllObjects()
-
-        default:
-            return
-        }
+        getAllPlantsInfo()
+        TrefleAPiClient.imageCache.removeAllObjects()
     }
     
     @objc private func didIndexChanged(){
