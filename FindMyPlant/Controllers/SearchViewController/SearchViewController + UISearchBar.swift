@@ -25,6 +25,9 @@ extension SearchViewController: UISearchBarDelegate {
         } else {
             statusSearchLabel.isHidden = true
             currentSearchTask?.cancel()
+            for task in downloadImgURLSessionTasks{
+                task.cancel()
+            }
             activityViewIndicator.startAnimating()
             currentSearchTask = TrefleAPiClient.searchForPlant(searchText, completionHandler: searchPlantResultHandler(response:error:))
         }

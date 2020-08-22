@@ -159,11 +159,12 @@ class TrefleAPiClient {
     }
     
     //MARK: - downloadImage: Downloads the image from the server into our device or load from Cache
-    class func downloadImage(imageURL: URL, completionHandler: @escaping (UIImage?, Error?) -> Void ){
+    class func downloadImage(imageURL: URL, completionHandler: @escaping (UIImage?, Error?) -> Void) -> URLSessionTask?{
                 
         //If image exists in cache the return it, if not download from server and then save to cache
         if let cachedImage = imageCache.object(forKey: imageURL.absoluteString as NSString) {
             completionHandler(cachedImage, nil)
+            return nil
         } else {
             let task = URLSession.shared.dataTask(with: imageURL) { (data, response, error) in
                 guard let data = data else {
@@ -186,6 +187,7 @@ class TrefleAPiClient {
                 }
             }
             task.resume()
+            return task
         }
     }
 }

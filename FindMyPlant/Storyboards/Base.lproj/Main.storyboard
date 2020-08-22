@@ -174,6 +174,9 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="cYF-d1-FZI"/>
                                     <barButtonItem image="heart" catalog="system" id="gqa-M4-9Cz">
                                         <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="favoritePlant:" destination="18o-2r-pTc" id="jYQ-Ke-cuw"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="9wd-lx-jFV"/>
                                 </items>

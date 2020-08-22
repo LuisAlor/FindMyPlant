@@ -20,14 +20,9 @@ class HomeViewController: UIViewController {
     
     var handle: AuthStateDidChangeListenerHandle!
     var userLoggedUponLaunch = true
-    var usersRef: CollectionReference!
-    
-    var db: Firestore!
-    var ref: DocumentReference? = nil
-    
+        
     var plantsData: [PlantInfo] = []
     var didPlantDataChanged = false
-    
     var selectedIndex: Int = 0
 
     override func viewDidLoad() {
@@ -54,13 +49,7 @@ class HomeViewController: UIViewController {
         Auth.auth().removeStateDidChangeListener(handle)
     }
     
-    fileprivate func configureDB() {
-        db = Firestore.firestore()
-        usersRef = db.collection("users")
-    }
-    
     fileprivate func setupFireBaseFeatures() {
-        configureDB()
         handle = Auth.auth().addStateDidChangeListener(authListenerHandler(auth:user:))
     }
     
@@ -99,7 +88,7 @@ class HomeViewController: UIViewController {
     //Checks if user is still in db if not removes session by logging out
     fileprivate func isUserSessionValid(user: User?){
         if let currentUserUID = user?.uid {
-            usersRef.whereField("uid", isEqualTo: currentUserUID).getDocuments(completion: handleUserQuery(querySnapshot:error:))
+            FirebaseFMP.shared.usersRef.whereField("uid", isEqualTo: currentUserUID).getDocuments(completion: handleUserQuery(querySnapshot:error:))
         }
     }
    
@@ -169,9 +158,11 @@ class HomeViewController: UIViewController {
     
     //Handles addStateDidChangeListener and sets a new Root View as Key
     func authListenerHandler(auth: Auth, user: User?){
-        if user != nil {
+        if let user = user {
             
             isUserSessionValid(user: user)
+            FirebaseFMP.shared.saveUser(user)
+            //FirebaseFMP.shared.user = user
             
             //Check if user was logged in upon launch if not dismiss after successful login
             if !userLoggedUponLaunch {

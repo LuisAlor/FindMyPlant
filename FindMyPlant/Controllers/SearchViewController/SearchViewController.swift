@@ -13,6 +13,8 @@ class SearchViewController: UIViewController {
     var plantsSearchResult: PlantsSearchResponse!
     var currentSearchTask: URLSessionTask?
     var selectedPlantIndex: Int = 0
+    var downloadImgURLSessionTasks: [URLSessionTask] = []
+    var currentDownloadImageTask: URLSessionTask!
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!

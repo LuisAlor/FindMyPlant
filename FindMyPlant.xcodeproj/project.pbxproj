@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		12E7B18109B83749E0BD13CA /* Pods_FindMyPlant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B677525490ADA32B1C6861D /* Pods_FindMyPlant.framework */; };
+		BD00323724F16E840059758A /* FirebaseFMP.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD00323624F16E840059758A /* FirebaseFMP.swift */; };
 		BD15087424D2AA880067AE81 /* TrefleAPiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15087324D2AA880067AE81 /* TrefleAPiClient.swift */; };
 		BD15087724D560F20067AE81 /* TrefleDistributionLevels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15087624D560F20067AE81 /* TrefleDistributionLevels.swift */; };
 		BD17658424CC41A6006CE73E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD17658324CC41A6006CE73E /* Constants.swift */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		6DFF79FF6341A7F7A5746D3E /* Pods-FindMyPlant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyPlant.debug.xcconfig"; path = "Target Support Files/Pods-FindMyPlant/Pods-FindMyPlant.debug.xcconfig"; sourceTree = "<group>"; };
 		8B677525490ADA32B1C6861D /* Pods_FindMyPlant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindMyPlant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD00323624F16E840059758A /* FirebaseFMP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFMP.swift; sourceTree = "<group>"; };
 		BD15087324D2AA880067AE81 /* TrefleAPiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrefleAPiClient.swift; sourceTree = "<group>"; };
 		BD15087624D560F20067AE81 /* TrefleDistributionLevels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrefleDistributionLevels.swift; sourceTree = "<group>"; };
 		BD17658324CC41A6006CE73E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -222,7 +224,6 @@
 				BD99613F24C4CF12001369D0 /* Models */,
 				BD99614124C4CF24001369D0 /* Views */,
 				BD99614024C4CF1C001369D0 /* Controllers */,
-				BDA5949524CC6C9F00295C9B /* Protocols */,
 				BDE6A74224CA038800F3CE6F /* Utilities */,
 				BD99614324C4CF6B001369D0 /* Assets */,
 				BD99614224C4CF43001369D0 /* Storyboards */,
@@ -298,13 +299,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		BDA5949524CC6C9F00295C9B /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		BDA5949824CCA8BF00295C9B /* LoginViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -354,6 +348,7 @@
 				BDE6A74324CA03BD00F3CE6F /* Utilities.swift */,
 				BD17658324CC41A6006CE73E /* Constants.swift */,
 				BDA594A024CCB1EC00295C9B /* Alert.swift */,
+				BD00323624F16E840059758A /* FirebaseFMP.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -500,6 +495,7 @@
 				BD8CD85724E81B5E00600919 /* HomeViewController + UICollectionView.swift in Sources */,
 				BD6262E124D83C48000AE569 /* SearchViewController + UISearchBar.swift in Sources */,
 				BD3C777424C794F70006D16C /* FavoritesViewController.swift in Sources */,
+				BD00323724F16E840059758A /* FirebaseFMP.swift in Sources */,
 				BD99612E24C4CE85001369D0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

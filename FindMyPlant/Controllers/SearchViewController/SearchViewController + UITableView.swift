@@ -25,7 +25,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         cell.imageActivityViewIndicator.startAnimating()
         
         if let imageURLString = plantsSearchResult.data[indexPath.row].imageURL{
-            TrefleAPiClient.downloadImage(imageURL: URL(string: imageURLString)!) { (image, error) in
+            currentDownloadImageTask = TrefleAPiClient.downloadImage(imageURL: URL(string: imageURLString)!) { (image, error) in
                 if error == nil{
                     if let image = image{
                         DispatchQueue.main.async {
@@ -41,6 +41,12 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             cell.imageActivityViewIndicator.stopAnimating()
             cell.thumbnailImage.image = #imageLiteral(resourceName: "NoImageFound")
         }
+        
+        //If there is a current image download task append it
+        if let currentDownloadImageTask = currentDownloadImageTask {
+            downloadImgURLSessionTasks.append(currentDownloadImageTask)
+        }
+        
         return cell
     }
     

@@ -20,14 +20,10 @@ class SignupViewController: UIViewController {
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var registerButton: UIButton!
-    
-    var db: Firestore!
-    var ref: DocumentReference? = nil
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInterface()
-        configDB()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,10 +44,6 @@ class SignupViewController: UIViewController {
         lastNameTextField.delegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
-    }
-    
-    fileprivate func configDB() {
-        db = Firestore.firestore()
     }
     
     @IBAction func registerAccount(_ sender: Any) {
@@ -93,11 +85,12 @@ class SignupViewController: UIViewController {
             activityIndicator.stopAnimating()
             registerButton.isEnabled = true
         }else{
-            ref = db.collection("users").addDocument(data: [
+            _ = FirebaseFMP.shared.db.collection("users").addDocument(data: [
                 "uid": authResult!.user.uid,
                 "firstName": firstNameTextField.text!,
                 "lastName": lastNameTextField.text!,
                 "email": emailTextField.text!,
+                "favoritePlants": [],
             ], completion: userSaveToDBHandler(error:))
         }
     }
