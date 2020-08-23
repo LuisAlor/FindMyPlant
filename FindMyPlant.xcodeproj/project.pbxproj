@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		12E7B18109B83749E0BD13CA /* Pods_FindMyPlant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B677525490ADA32B1C6861D /* Pods_FindMyPlant.framework */; };
 		BD00323724F16E840059758A /* FirebaseFMP.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD00323624F16E840059758A /* FirebaseFMP.swift */; };
+		BD00324024F275700059758A /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD00323F24F275700059758A /* UIViewController.swift */; };
 		BD15087424D2AA880067AE81 /* TrefleAPiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15087324D2AA880067AE81 /* TrefleAPiClient.swift */; };
 		BD15087724D560F20067AE81 /* TrefleDistributionLevels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD15087624D560F20067AE81 /* TrefleDistributionLevels.swift */; };
 		BD17658424CC41A6006CE73E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD17658324CC41A6006CE73E /* Constants.swift */; };
@@ -36,9 +37,7 @@
 		BD99613324C4CE85001369D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD99613124C4CE85001369D0 /* Main.storyboard */; };
 		BD99613824C4CE86001369D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD99613624C4CE86001369D0 /* LaunchScreen.storyboard */; };
 		BD99614624C72379001369D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD99614524C72379001369D0 /* GoogleService-Info.plist */; };
-		BD9FE3AE24CCB7830014FC96 /* UIViewController + Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FE3AD24CCB7830014FC96 /* UIViewController + Alert.swift */; };
 		BDA594A124CCB1EC00295C9B /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA594A024CCB1EC00295C9B /* Alert.swift */; };
-		BDD057B224CCC1F900A21CEB /* UIViewController + TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD057B124CCC1F900A21CEB /* UIViewController + TextFieldDelegate.swift */; };
 		BDE6A74424CA03BD00F3CE6F /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE6A74324CA03BD00F3CE6F /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +45,7 @@
 		6DFF79FF6341A7F7A5746D3E /* Pods-FindMyPlant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyPlant.debug.xcconfig"; path = "Target Support Files/Pods-FindMyPlant/Pods-FindMyPlant.debug.xcconfig"; sourceTree = "<group>"; };
 		8B677525490ADA32B1C6861D /* Pods_FindMyPlant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindMyPlant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD00323624F16E840059758A /* FirebaseFMP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFMP.swift; sourceTree = "<group>"; };
+		BD00323F24F275700059758A /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		BD15087324D2AA880067AE81 /* TrefleAPiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrefleAPiClient.swift; sourceTree = "<group>"; };
 		BD15087624D560F20067AE81 /* TrefleDistributionLevels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrefleDistributionLevels.swift; sourceTree = "<group>"; };
 		BD17658324CC41A6006CE73E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -75,9 +75,7 @@
 		BD99613724C4CE86001369D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD99613924C4CE86001369D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD99614524C72379001369D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		BD9FE3AD24CCB7830014FC96 /* UIViewController + Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Alert.swift"; sourceTree = "<group>"; };
 		BDA594A024CCB1EC00295C9B /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
-		BDD057B124CCC1F900A21CEB /* UIViewController + TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + TextFieldDelegate.swift"; sourceTree = "<group>"; };
 		BDE6A74324CA03BD00F3CE6F /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		E83B4F4E3B29D1413C0A6CD7 /* Pods-FindMyPlant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyPlant.release.xcconfig"; path = "Target Support Files/Pods-FindMyPlant/Pods-FindMyPlant.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -292,8 +290,7 @@
 		BD9FE3AC24CCB7690014FC96 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				BD9FE3AD24CCB7830014FC96 /* UIViewController + Alert.swift */,
-				BDD057B124CCC1F900A21CEB /* UIViewController + TextFieldDelegate.swift */,
+				BD00323F24F275700059758A /* UIViewController.swift */,
 				BD53C8CD24EDB21F00A18B34 /* String + SentenceCase.swift */,
 			);
 			path = Extensions;
@@ -469,6 +466,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD00324024F275700059758A /* UIViewController.swift in Sources */,
 				BD6262D524D57C19000AE569 /* L1.swift in Sources */,
 				BD53C8CC24ED8A9100A18B34 /* FavoritesTableViewCell.swift in Sources */,
 				BD2D14F824D88B7700758710 /* DetailsViewController.swift in Sources */,
@@ -479,7 +477,6 @@
 				BD6262DB24D80888000AE569 /* PlantInfo.swift in Sources */,
 				BD6262E324D83C9F000AE569 /* SearchViewController + UITableView.swift in Sources */,
 				BD68CA9524C983750055F45F /* SignupViewController.swift in Sources */,
-				BD9FE3AE24CCB7830014FC96 /* UIViewController + Alert.swift in Sources */,
 				BD6262D924D6BF56000AE569 /* PlantsSearchResponse.swift in Sources */,
 				BD99612C24C4CE85001369D0 /* AppDelegate.swift in Sources */,
 				BD3C777224C794D70006D16C /* SearchViewController.swift in Sources */,
@@ -490,7 +487,6 @@
 				BD6262DD24D80917000AE569 /* PlantLinks.swift in Sources */,
 				BDE6A74424CA03BD00F3CE6F /* Utilities.swift in Sources */,
 				BD6262DF24D81748000AE569 /* PlantMeta.swift in Sources */,
-				BDD057B224CCC1F900A21CEB /* UIViewController + TextFieldDelegate.swift in Sources */,
 				BD53C8CA24ED8A7C00A18B34 /* SearchTableViewCell.swift in Sources */,
 				BD8CD85724E81B5E00600919 /* HomeViewController + UICollectionView.swift in Sources */,
 				BD6262E124D83C48000AE569 /* SearchViewController + UISearchBar.swift in Sources */,

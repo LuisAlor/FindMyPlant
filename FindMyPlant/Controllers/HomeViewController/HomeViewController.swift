@@ -18,13 +18,16 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var dataLoadingIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var logoutButton: UIButton!
     
+    //Auth State Listener Handle
     var handle: AuthStateDidChangeListenerHandle!
+    //Flag for checking user session upon launch
     var userLoggedUponLaunch = true
-        
+     
+    //Array of plants data
     var plantsData: [PlantInfo] = []
-    var didPlantDataChanged = false
+    //Selected index from collection view
     var selectedIndex: Int = 0
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupFireBaseFeatures()
@@ -32,7 +35,6 @@ class HomeViewController: UIViewController {
         setupRefreshControl()
         dataLoadingIndicatorView.startAnimating() // Refactor
         getAllPlantsInfo()
-        
         segmentedControl.addTarget(self, action: #selector(didIndexChanged), for: .valueChanged)
     }
     
@@ -127,7 +129,6 @@ class HomeViewController: UIViewController {
                 self.plantsData = plantInfo
                 randomPlantsCollectionView.refreshControl?.endRefreshing()
                 dataLoadingIndicatorView.stopAnimating()
-                didPlantDataChanged = true
                 randomPlantsCollectionView.reloadData()
             }
         }

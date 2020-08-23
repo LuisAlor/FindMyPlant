@@ -10,16 +10,21 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
-    var plantsSearchResult: PlantsSearchResponse!
-    var currentSearchTask: URLSessionTask?
-    var selectedPlantIndex: Int = 0
-    var downloadImgURLSessionTasks: [URLSessionTask] = []
-    var currentDownloadImageTask: URLSessionTask!
-    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityViewIndicator: UIActivityIndicatorView!
     @IBOutlet weak var statusSearchLabel: UILabel!
+    
+    //Search Response var from Trefle.io
+    var plantsSearchResult: PlantsSearchResponse!
+    //Current URL Search Session Task
+    var currentSearchTask: URLSessionTask?
+    //Selected Plant index from tableview
+    var selectedIndex: Int = 0
+    //Array of URL Download Session Tasks
+    var downloadImgURLSessionTasks: [URLSessionTask] = []
+    //The current Download Image Task
+    var currentDownloadImageTask: URLSessionTask!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +46,7 @@ class SearchViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SearchToDetailsSegue"{
             let detailsVC = segue.destination as! DetailsViewController
-            detailsVC.plantSelectedData = plantsSearchResult.data[selectedPlantIndex]
+            detailsVC.plantSelectedData = plantsSearchResult.data[selectedIndex]
         }
     }
     

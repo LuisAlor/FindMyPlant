@@ -32,5 +32,4 @@ class FirebaseFMP{
     func saveUser(_ user: User){
         self.user = user
     }
-
 }

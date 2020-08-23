@@ -19,10 +19,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         //Dequees a reusable cell and sets it as type "RandomPlantsCollectionViewCell"
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RandomPlantsCollectionViewCell.reuseIdentifier, for: indexPath) as! RandomPlantsCollectionViewCell
         
-        //Removes any previous image making it nil when user swipes down in order to not see previous plus loading indicator
-        if didPlantDataChanged {
-            cell.imageView.image = nil
-        }
+        cell.tag = indexPath.row
+        cell.imageView.image = nil
         
         //Starts animating indicator
         cell.imageLoadingIndicator.startAnimating()
@@ -34,7 +32,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                     //Stops animating
                     cell.imageLoadingIndicator.stopAnimating()
                     //Sets the current image to the one downloaded
-                    cell.imageView.image = image
+                    DispatchQueue.main.async {
+                        if cell.tag == indexPath.row {
+                            cell.imageView.image = image
+                        }
+                    }
                 }
             }
         } else {
@@ -57,7 +59,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         selectedIndex = indexPath.row
         collectionView.deselectItem(at: indexPath, animated: true)
         performSegue(withIdentifier: Constants.Segues.homeToDetails.identifier, sender: nil)
-    }
-    
+    }    
     
 }

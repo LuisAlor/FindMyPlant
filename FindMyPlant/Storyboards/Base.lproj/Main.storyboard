@@ -172,8 +172,8 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="cYF-d1-FZI"/>
-                                    <barButtonItem image="heart" catalog="system" id="gqa-M4-9Cz">
-                                        <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <barButtonItem image="star" catalog="system" id="gqa-M4-9Cz">
+                                        <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="favoritePlant:" destination="18o-2r-pTc" id="jYQ-Ke-cuw"/>
                                         </connections>
@@ -306,11 +306,24 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Rzw-Dc-iIl" userLabel="Loading Activity Indicator">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" red="0.18039215689999999" green="0.41176470590000003" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fj4-Rt-i8N" userLabel="Loading Label">
+                                <rect key="frame" x="157" y="360" width="61" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="fj4-Rt-i8N" firstAttribute="centerX" secondItem="SeI-bz-c5e" secondAttribute="centerX" id="05S-kD-iFh"/>
+                            <constraint firstItem="fj4-Rt-i8N" firstAttribute="top" secondItem="Rzw-Dc-iIl" secondAttribute="bottom" constant="8" id="3GF-Mo-hL7"/>
                             <constraint firstItem="cTh-Ia-sw5" firstAttribute="leading" secondItem="2tp-vM-kb9" secondAttribute="leading" id="B0a-9c-o9P"/>
                             <constraint firstItem="TuB-wD-Ckz" firstAttribute="leading" secondItem="2tp-vM-kb9" secondAttribute="leading" constant="8" id="Gc0-gr-PGA"/>
+                            <constraint firstItem="Rzw-Dc-iIl" firstAttribute="centerY" secondItem="SeI-bz-c5e" secondAttribute="centerY" id="NJR-02-sl7"/>
                             <constraint firstItem="cTh-Ia-sw5" firstAttribute="top" secondItem="Iip-Ia-Duc" secondAttribute="bottom" id="NnS-Wc-iAJ"/>
                             <constraint firstItem="Iip-Ia-Duc" firstAttribute="top" secondItem="2tp-vM-kb9" secondAttribute="top" id="Nr6-M2-lMa"/>
                             <constraint firstItem="cTh-Ia-sw5" firstAttribute="trailing" secondItem="2tp-vM-kb9" secondAttribute="trailing" id="WaY-D2-Eck"/>
@@ -319,6 +332,7 @@
                             <constraint firstItem="Iip-Ia-Duc" firstAttribute="leading" secondItem="SeI-bz-c5e" secondAttribute="leading" id="aEf-pX-pxf"/>
                             <constraint firstItem="TuB-wD-Ckz" firstAttribute="top" secondItem="cTh-Ia-sw5" secondAttribute="bottom" id="kwS-E0-THT"/>
                             <constraint firstItem="2tp-vM-kb9" firstAttribute="bottom" secondItem="TuB-wD-Ckz" secondAttribute="bottom" constant="8" id="mRq-dh-ZFe"/>
+                            <constraint firstItem="Rzw-Dc-iIl" firstAttribute="centerX" secondItem="SeI-bz-c5e" secondAttribute="centerX" id="pO5-ye-GeI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2tp-vM-kb9"/>
                     </view>
@@ -331,6 +345,10 @@
                         <outlet property="genusLabel" destination="9N0-vX-S3j" id="Ewx-3C-Iak"/>
                         <outlet property="imageView" destination="Iip-Ia-Duc" id="KpU-Fv-V6k"/>
                         <outlet property="likeButton" destination="gqa-M4-9Cz" id="ufN-hg-a9R"/>
+                        <outlet property="likeToolbar" destination="cTh-Ia-sw5" id="9Q3-Ts-p1K"/>
+                        <outlet property="loadingActivityViewIndicator" destination="Rzw-Dc-iIl" id="JGN-Gi-agv"/>
+                        <outlet property="loadingLabel" destination="fj4-Rt-i8N" id="NCu-vT-MSV"/>
+                        <outlet property="rootStackView" destination="TuB-wD-Ckz" id="Ezx-pn-94e"/>
                         <outlet property="scientificNameLabel" destination="N0L-ur-urb" id="NzE-Gk-dn4"/>
                         <outlet property="yearRegisteredLabel" destination="KdZ-l4-ZFu" id="I1j-a5-Pob"/>
                     </connections>
@@ -834,5 +852,6 @@
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="star" catalog="system" width="128" height="116"/>
     </resources>
 </document>

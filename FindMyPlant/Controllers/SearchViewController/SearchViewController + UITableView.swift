@@ -51,12 +51,9 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedPlantIndex = indexPath.row
+        selectedIndex = indexPath.row
         tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: Constants.Segues.searchToDetails.identifier, sender: nil)
     }
-    
-    
-    
     
 }

@@ -19,6 +19,20 @@ struct Constants{
             }
         }
     }
+    
+    enum SystemIcons {
+        case favoriteIcon
+        case favoriteIconFill
+        
+        var image: UIImage{
+            switch self {
+            case .favoriteIcon:
+                return UIImage(systemName: "star")!
+            case .favoriteIconFill:
+                return UIImage(systemName: "star.fill")!
+            }
+        }
+    }
 
     enum Segues {
         
