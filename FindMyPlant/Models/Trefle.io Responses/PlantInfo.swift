@@ -6,8 +6,6 @@
 //  Copyright © 2020 Luis Angel Vazquez Alor. All rights reserved.
 //
 
-import Foundation
-
 struct PlantInfo: Codable {
     let id: Int
     let slug: String
@@ -21,7 +19,6 @@ struct PlantInfo: Codable {
     let familyCommonName: String?
     let genusID: Int
     let imageURL: String?
-    let synonyms: [String]
     let genus: String
     let family: String?
     
@@ -38,12 +35,7 @@ struct PlantInfo: Codable {
         case familyCommonName = "family_common_name"
         case genusID = "genus_id"
         case imageURL = "image_url"
-        case synonyms
         case genus
         case family
     }
 }
-
-/*
- 
- */

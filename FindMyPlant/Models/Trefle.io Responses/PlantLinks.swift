@@ -6,8 +6,6 @@
 //  Copyright © 2020 Luis Angel Vazquez Alor. All rights reserved.
 //
 
-import Foundation
-
 struct PlantLinks: Codable {
     let current: String
     let first: String

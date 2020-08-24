@@ -39,6 +39,9 @@
 		BD99614624C72379001369D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD99614524C72379001369D0 /* GoogleService-Info.plist */; };
 		BDA594A124CCB1EC00295C9B /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA594A024CCB1EC00295C9B /* Alert.swift */; };
 		BDE6A74424CA03BD00F3CE6F /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE6A74324CA03BD00F3CE6F /* Utilities.swift */; };
+		BDE7D58924F2FF8100724BB5 /* FavoritesViewController + UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE7D58824F2FF8100724BB5 /* FavoritesViewController + UITableView.swift */; };
+		BDE7D58B24F3C8DD00724BB5 /* PlantByIDResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE7D58A24F3C8DD00724BB5 /* PlantByIDResponse.swift */; };
+		BDE7D58D24F3CA9000724BB5 /* PlantSpeciesInfoByID.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE7D58C24F3CA9000724BB5 /* PlantSpeciesInfoByID.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +80,9 @@
 		BD99614524C72379001369D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BDA594A024CCB1EC00295C9B /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		BDE6A74324CA03BD00F3CE6F /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		BDE7D58824F2FF8100724BB5 /* FavoritesViewController + UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesViewController + UITableView.swift"; sourceTree = "<group>"; };
+		BDE7D58A24F3C8DD00724BB5 /* PlantByIDResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantByIDResponse.swift; sourceTree = "<group>"; };
+		BDE7D58C24F3CA9000724BB5 /* PlantSpeciesInfoByID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantSpeciesInfoByID.swift; sourceTree = "<group>"; };
 		E83B4F4E3B29D1413C0A6CD7 /* Pods-FindMyPlant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyPlant.release.xcconfig"; path = "Target Support Files/Pods-FindMyPlant/Pods-FindMyPlant.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,6 +197,8 @@
 				BD6262DA24D80888000AE569 /* PlantInfo.swift */,
 				BD6262DC24D80917000AE569 /* PlantLinks.swift */,
 				BD6262DE24D81748000AE569 /* PlantMeta.swift */,
+				BDE7D58A24F3C8DD00724BB5 /* PlantByIDResponse.swift */,
+				BDE7D58C24F3CA9000724BB5 /* PlantSpeciesInfoByID.swift */,
 			);
 			path = "Trefle.io Responses";
 			sourceTree = "<group>";
@@ -335,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				BD3C777324C794F70006D16C /* FavoritesViewController.swift */,
+				BDE7D58824F2FF8100724BB5 /* FavoritesViewController + UITableView.swift */,
 			);
 			path = FavoritesViewController;
 			sourceTree = "<group>";
@@ -466,8 +475,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDE7D58924F2FF8100724BB5 /* FavoritesViewController + UITableView.swift in Sources */,
+				BDE7D58D24F3CA9000724BB5 /* PlantSpeciesInfoByID.swift in Sources */,
 				BD00324024F275700059758A /* UIViewController.swift in Sources */,
 				BD6262D524D57C19000AE569 /* L1.swift in Sources */,
+				BDE7D58B24F3C8DD00724BB5 /* PlantByIDResponse.swift in Sources */,
 				BD53C8CC24ED8A9100A18B34 /* FavoritesTableViewCell.swift in Sources */,
 				BD2D14F824D88B7700758710 /* DetailsViewController.swift in Sources */,
 				BD3C777624C795350006D16C /* LoginViewController.swift in Sources */,

@@ -13,8 +13,8 @@ class FavoritesTableViewCell: UITableViewCell {
     static let reuseIdentifier = "FavoritesTableViewCell"
     
     @IBOutlet weak var thumbnailImage: UIImageView!
-    @IBOutlet weak var scientificTextLabel: UILabel!
     @IBOutlet weak var commonNameTextLabel: UILabel!
-    @IBOutlet weak var dateFavoritedTextLabel: UILabel!
+    @IBOutlet weak var scientificTextLabel: UILabel!
+    @IBOutlet weak var imageActivityViewIndicator: UIActivityIndicatorView!
 
 }

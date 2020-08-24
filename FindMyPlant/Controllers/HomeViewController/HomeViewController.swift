@@ -125,7 +125,6 @@ class HomeViewController: UIViewController {
     func handleGetRandomPlants(plantInfo: [PlantInfo]?, error: Error?){
         if error == nil {
             if let plantInfo = plantInfo {
-                plantsData.removeAll()
                 self.plantsData = plantInfo
                 randomPlantsCollectionView.refreshControl?.endRefreshing()
                 dataLoadingIndicatorView.stopAnimating()

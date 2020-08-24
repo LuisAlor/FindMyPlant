@@ -29,11 +29,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if let plantImage = plantsData[indexPath.row].imageURL {
             _ = TrefleAPiClient.downloadImage(imageURL: URL(string: plantImage)!) { (image, error) in
                 if let image = image {
-                    //Stops animating
-                    cell.imageLoadingIndicator.stopAnimating()
                     //Sets the current image to the one downloaded
                     DispatchQueue.main.async {
                         if cell.tag == indexPath.row {
+                            cell.imageLoadingIndicator.stopAnimating()
                             cell.imageView.image = image
                         }
                     }

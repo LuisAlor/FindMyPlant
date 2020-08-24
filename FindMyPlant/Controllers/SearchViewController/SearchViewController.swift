@@ -49,7 +49,4 @@ class SearchViewController: UIViewController {
             detailsVC.plantSelectedData = plantsSearchResult.data[selectedIndex]
         }
     }
-    
-    
-
 }

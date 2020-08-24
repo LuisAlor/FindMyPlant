@@ -22,6 +22,7 @@ class TrefleAPiClient {
         //URL All Plants = https://trefle.io/api/v1/plants?token=YOUR_TREFLE_TOKEN
         //URL All Edible Plants = "https://trefle.io/api/v1/plants?&filter_not%5Bedible_part%5D=null&token=YOUR_TREFLE_TOKEN"
         //URL Edible Plants by Page = "https://trefle.io/api/v1/plants?page=1&filter_not%5Bedible_part%5D=null&token=YOUR_TREFLE_TOKEN"
+        //URL Plant by ID = "https://trefle.io/api/v1/plants/ID_OF_PLANT?token=YOUR_TREFLE_TOKEN"
         
         static let baseURL = "https://trefle.io/api/v1/"
         static let myToken = "token=" + TrefleAPiClient.apiKey
@@ -37,6 +38,7 @@ class TrefleAPiClient {
         case getAllPlants
         case getAllEdiblePlants
         case getRandomeEdiblePlants(plantsPage: Int)
+        case getPlantByID(id: Int)
         
         var stringURL: String {
             switch self {
@@ -52,6 +54,8 @@ class TrefleAPiClient {
                 return Endpoints.baseURL + Endpoints.allPlants + Endpoints.filterEdible + Endpoints.myToken
             case let .getRandomeEdiblePlants(plantsPage):
                 return Endpoints.baseURL + Endpoints.allPlants + Endpoints.page + String(plantsPage) + Endpoints.filterEdible + Endpoints.myToken
+            case let .getPlantByID(id):
+                return Endpoints.baseURL + Endpoints.plantPath + String(id) + "?" + Endpoints.myToken
             }
         }
         var url: URL {
@@ -155,6 +159,23 @@ class TrefleAPiClient {
             }else {
                 completionHandler(0, error)
             }
+        }
+    }
+    
+    //MARK: - getPlantsByID: Get the info from the plants requested by ID number
+    class func getPlantsByID(_ ids:[Int], completionHandler: @escaping ([PlantInfo], Error?) -> Void) {
+        
+        var plantsInfo: [PlantInfo] = []
+        
+        for id in ids {
+            _ = sendGETRequest(url: Endpoints.getPlantByID(id: id).url, response: PlantByIDResponse.self, completionHandler: { (response, error) in
+                guard let response = response else {
+                    completionHandler([], error)
+                    return
+                }
+                plantsInfo.append(response.data.mainSpecies)
+                completionHandler(plantsInfo, nil)
+            })
         }
     }
     

@@ -31,10 +31,10 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
                         DispatchQueue.main.async {
                             if cell.tag == indexPath.row {
                                 cell.thumbnailImage.image = image
+                                cell.imageActivityViewIndicator.stopAnimating()
                             }
                         }
-                        cell.imageActivityViewIndicator.stopAnimating()
-                    } 
+                    }
                 }
             }
         } else {
