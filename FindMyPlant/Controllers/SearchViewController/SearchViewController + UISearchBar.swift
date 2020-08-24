@@ -21,7 +21,7 @@ extension SearchViewController: UISearchBarDelegate {
             tableView.reloadData()
             
             statusSearchLabel.isHidden = false
-            statusSearchLabel.text = Constants.SearchStatus.noSearch.message
+            statusSearchLabel.text = Constants.LabelTextStatus.noSearchDone.message
         } else {
             statusSearchLabel.isHidden = true
             currentSearchTask?.cancel()
@@ -38,7 +38,7 @@ extension SearchViewController: UISearchBarDelegate {
             if response.data.count == 0 {
                 statusSearchLabel.isHidden = false
                 activityViewIndicator.stopAnimating()
-                statusSearchLabel.text = Constants.SearchStatus.noResults.message
+                statusSearchLabel.text = Constants.LabelTextStatus.noSearchResults.message
             } else {
                 activityViewIndicator.stopAnimating()
                 self.plantsSearchResult = response

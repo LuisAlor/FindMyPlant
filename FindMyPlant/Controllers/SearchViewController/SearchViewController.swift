@@ -40,7 +40,7 @@ class SearchViewController: UIViewController {
         searchBar.delegate = self
         searchBar.autocapitalizationType = .none
         
-        statusSearchLabel.text = Constants.SearchStatus.noSearch.message
+        statusSearchLabel.text = Constants.LabelTextStatus.noSearchDone.message
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

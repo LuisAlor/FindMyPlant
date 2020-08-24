@@ -592,11 +592,6 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <activityIndicatorView key="backgroundView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" id="MTW-Ns-MW0" userLabel="Container Activity Indicator">
-                                    <rect key="frame" x="0.0" y="0.0" width="359" height="527"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="color" red="0.18039215689999999" green="0.41176470590000003" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
-                                </activityIndicatorView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="RandomPlantsCollectionViewCell" id="J3W-Hc-iyR" customClass="RandomPlantsCollectionViewCell" customModule="FindMyPlant" customModuleProvider="target">
                                         <rect key="frame" x="79.5" y="0.0" width="200" height="250"/>
@@ -652,10 +647,15 @@
                                     <segment title="Edible"/>
                                 </segments>
                             </segmentedControl>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="qNu-fb-RS9" userLabel="Loading Activity Indicator">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" red="0.18039215689999999" green="0.41176470590000003" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="nPn-sK-hMo" firstAttribute="top" secondItem="zTN-sW-SAB" secondAttribute="bottom" constant="8" id="HgW-WI-Ksd"/>
+                            <constraint firstItem="qNu-fb-RS9" firstAttribute="centerY" secondItem="nBR-4p-oOH" secondAttribute="centerY" id="Hpj-KR-lzc"/>
                             <constraint firstItem="nPn-sK-hMo" firstAttribute="bottom" secondItem="0nf-0v-sVb" secondAttribute="bottom" id="LIH-UW-f2I"/>
                             <constraint firstItem="nPn-sK-hMo" firstAttribute="leading" secondItem="0nf-0v-sVb" secondAttribute="leading" constant="8" id="PmE-AM-5jV"/>
                             <constraint firstItem="0nf-0v-sVb" firstAttribute="trailing" secondItem="zTN-sW-SAB" secondAttribute="trailing" constant="8" id="PvJ-2V-7q6"/>
@@ -663,6 +663,7 @@
                             <constraint firstItem="0nf-0v-sVb" firstAttribute="trailing" secondItem="nPn-sK-hMo" secondAttribute="trailing" constant="8" id="jV4-jE-ceK"/>
                             <constraint firstItem="0nf-0v-sVb" firstAttribute="bottom" secondItem="nPn-sK-hMo" secondAttribute="bottom" id="l8G-m7-AtR"/>
                             <constraint firstItem="zTN-sW-SAB" firstAttribute="leading" secondItem="0nf-0v-sVb" secondAttribute="leading" constant="8" id="uCZ-1u-Itb"/>
+                            <constraint firstItem="qNu-fb-RS9" firstAttribute="centerX" secondItem="nBR-4p-oOH" secondAttribute="centerX" id="v6E-cd-uLT"/>
                             <constraint firstItem="nPn-sK-hMo" firstAttribute="leading" secondItem="0nf-0v-sVb" secondAttribute="leading" constant="8" id="vVN-zb-BCl"/>
                             <constraint firstItem="0nf-0v-sVb" firstAttribute="trailing" secondItem="nPn-sK-hMo" secondAttribute="trailing" constant="8" id="wbi-ww-kEP"/>
                         </constraints>
@@ -681,9 +682,20 @@
                                 </connections>
                             </button>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" id="2n5-Qh-Eiw" userLabel="Refresh Bar Button Item">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ojY-vW-rNf" userLabel="Refresh Button">
+                                <rect key="frame" x="341" y="11" width="18" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.18039215689999999" green="0.41176470590000003" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="arrow.clockwise" catalog="system"/>
+                                <connections>
+                                    <action selector="refreshData:" destination="Waf-iW-avr" eventType="touchUpInside" id="68e-ex-vrd"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="dataLoadingIndicatorView" destination="MTW-Ns-MW0" id="08P-tf-cSd"/>
+                        <outlet property="dataLoadingIndicatorView" destination="qNu-fb-RS9" id="QUl-Zr-fCI"/>
                         <outlet property="logoutButton" destination="66o-39-NDL" id="txE-sC-rBP"/>
                         <outlet property="randomPlantsCollectionView" destination="nPn-sK-hMo" id="Rpd-wR-WyA"/>
                         <outlet property="segmentedControl" destination="zTN-sW-SAB" id="JHP-ya-5q2"/>
@@ -745,7 +757,7 @@
         <scene sceneID="rxm-D1-y1p">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="TzA-ZG-Y8i" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="heart" catalog="system" selectedImage="heart.fill" id="4CM-AE-yjL"/>
+                    <tabBarItem key="tabBarItem" title="" image="star" catalog="system" selectedImage="star.fill" id="4CM-AE-yjL"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Fv5-JF-ZDK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -806,7 +818,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5XJ-3C-Z0Z">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5XJ-3C-Z0Z">
                                 <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
@@ -899,11 +911,19 @@
                                 </constraints>
                                 <color key="color" red="0.18039215689999999" green="0.41176470590000003" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUw-rx-xih" userLabel="Status Label">
+                                <rect key="frame" x="163" y="323.5" width="49.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.18039215689999999" green="0.41176470590000003" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="BUw-rx-xih" firstAttribute="centerX" secondItem="YBQ-KP-4QM" secondAttribute="centerX" id="EtS-Fv-o5W"/>
                             <constraint firstItem="5XJ-3C-Z0Z" firstAttribute="leading" secondItem="0c5-u4-PC6" secondAttribute="leading" id="FzM-WQ-eoN"/>
                             <constraint firstItem="5XJ-3C-Z0Z" firstAttribute="top" secondItem="0c5-u4-PC6" secondAttribute="top" id="Tfa-wp-drX"/>
+                            <constraint firstItem="BUw-rx-xih" firstAttribute="centerY" secondItem="YBQ-KP-4QM" secondAttribute="centerY" id="f2z-oK-QUD"/>
                             <constraint firstItem="5XJ-3C-Z0Z" firstAttribute="bottom" secondItem="0c5-u4-PC6" secondAttribute="bottom" id="gSQ-LX-NQg"/>
                             <constraint firstItem="g7r-22-7W5" firstAttribute="centerY" secondItem="YBQ-KP-4QM" secondAttribute="centerY" id="qzV-Hz-FAa"/>
                             <constraint firstItem="5XJ-3C-Z0Z" firstAttribute="trailing" secondItem="0c5-u4-PC6" secondAttribute="trailing" id="rGF-as-EUz"/>
@@ -911,9 +931,22 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0c5-u4-PC6"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Favorites" id="oKd-gd-ax5"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="oKd-gd-ax5">
+                        <barButtonItem key="rightBarButtonItem" id="kRs-dW-VSn" userLabel="Refresh Bar Button Item">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SLH-bq-sDD" userLabel="Refresh Button">
+                                <rect key="frame" x="341" y="11" width="18" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.18039215689999999" green="0.41176470590000003" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="arrow.clockwise" catalog="system"/>
+                                <connections>
+                                    <action selector="refreshFavorites:" destination="yjr-9z-5ZZ" eventType="touchUpInside" id="dca-5a-dtW"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="loadingActivityViewIndicator" destination="g7r-22-7W5" id="HjE-sq-jwN"/>
+                        <outlet property="statusLabel" destination="BUw-rx-xih" id="LOy-Cw-Uma"/>
                         <outlet property="tableView" destination="5XJ-3C-Z0Z" id="RLX-Vd-9g3"/>
                         <segue destination="18o-2r-pTc" kind="show" identifier="FavoritesToDetailsSegue" id="rPQ-5o-48U"/>
                     </connections>
@@ -924,17 +957,17 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rPQ-5o-48U"/>
+        <segue reference="miR-Qu-llu"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Create-account-ico" width="341" height="341"/>
         <image name="FindMyPlant-icon" width="341" height="341"/>
-        <image name="heart" catalog="system" width="128" height="109"/>
-        <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="house" catalog="system" width="128" height="110"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="star" catalog="system" width="128" height="116"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
     </resources>
 </document>

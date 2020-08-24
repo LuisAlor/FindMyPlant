@@ -126,9 +126,12 @@ class HomeViewController: UIViewController {
         if error == nil {
             if let plantInfo = plantInfo {
                 self.plantsData = plantInfo
+                
                 randomPlantsCollectionView.refreshControl?.endRefreshing()
                 dataLoadingIndicatorView.stopAnimating()
+                
                 randomPlantsCollectionView.reloadData()
+                randomPlantsCollectionView.isHidden = false
             }
         }
     }
@@ -173,13 +176,20 @@ class HomeViewController: UIViewController {
             //User was not logged when app launched, set as false
             userLoggedUponLaunch = false
         }
-
     }
     
     @IBAction func logout(_ sender: Any) {
         //We do not care about error handling for user during logout.
         try? Auth.auth().signOut()
    }
+    
+    @IBAction func refreshData(_ sender: Any) {
+        dataLoadingIndicatorView.startAnimating()
+        TrefleAPiClient.imageCache.removeAllObjects()
+        randomPlantsCollectionView.isHidden = true
+        getAllPlantsInfo()
+    }
+    
     
 }
 

@@ -49,14 +49,16 @@ struct Constants{
         }
     }
     
-    enum SearchStatus {
-        case noResults
-        case noSearch
+    enum LabelTextStatus {
+        case noSearchResults
+        case noSearchDone
+        case noFavorites
         
         var message: String {
             switch self {
-            case .noResults: return "No Results Found"
-            case .noSearch: return "Type in the search bar to start"
+            case .noSearchResults: return "No Results Found"
+            case .noSearchDone: return "Type in the search bar to start"
+            case .noFavorites: return "You have no favorite plants yet!"
             }
         }
     }
