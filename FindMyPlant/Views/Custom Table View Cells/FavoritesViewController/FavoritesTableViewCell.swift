@@ -16,5 +16,11 @@ class FavoritesTableViewCell: UITableViewCell {
     @IBOutlet weak var commonNameTextLabel: UILabel!
     @IBOutlet weak var scientificTextLabel: UILabel!
     @IBOutlet weak var imageActivityViewIndicator: UIActivityIndicatorView!
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+    }
+    
 
 }

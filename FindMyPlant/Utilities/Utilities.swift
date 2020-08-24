@@ -52,7 +52,7 @@ class Utilities {
     }
     
     //Creates the style for the cell with border, rounded corners and shadow
-    static func configureCellStyle(_ cell: RandomPlantsCollectionViewCell) {
+    static func configureCellStyle(_ cell: UICollectionViewCell) {
         cell.layer.cornerRadius = 10.0
         cell.layer.borderWidth = 2
         cell.layer.borderColor = Constants.UICustomColors.darkGreen.color.cgColor

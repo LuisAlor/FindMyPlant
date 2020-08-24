@@ -20,7 +20,8 @@ class SignupViewController: UIViewController {
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var registerButton: UIButton!
-        
+    @IBOutlet weak var backButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInterface()
@@ -34,6 +35,7 @@ class SignupViewController: UIViewController {
     fileprivate func setupInterface(){
         
         Utilities.styleFilledButton(registerButton)
+        Utilities.styleFilledButton(backButton)
         
         Utilities.styleFormTextField(firstNameTextField, placeholder: "First name")
         Utilities.styleFormTextField(lastNameTextField, placeholder: "Last name")
@@ -77,6 +79,11 @@ class SignupViewController: UIViewController {
         }
         
     }
+    
+    @IBAction func goBack(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     
     //Handle Firebase user creation from completionHandler
     func createUserHandler(authResult: AuthDataResult?, error: Error?){

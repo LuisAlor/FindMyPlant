@@ -24,16 +24,6 @@ class LoginViewController: UIViewController {
         setupInterface()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
-    }
-    
     //Configures interface upon launch
     fileprivate func setupInterface(){
         //Setup TextField's and Button's Style

@@ -19,6 +19,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.reuseIdentifier) as! SearchTableViewCell
         cell.tag = indexPath.row
         cell.thumbnailImage.image = nil
+        cell.thumbnailImage.layer.cornerRadius = 10
         
         cell.commonNameTextLabel.text = plantsSearchResult.data[indexPath.row].commonName?.sentenceCase() ?? "Unknown"
         cell.scientificNameLabel.text = plantsSearchResult.data[indexPath.row].scientificName.sentenceCase()

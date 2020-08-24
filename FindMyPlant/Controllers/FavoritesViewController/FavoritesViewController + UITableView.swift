@@ -19,6 +19,7 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: FavoritesTableViewCell.reuseIdentifier) as! FavoritesTableViewCell
         cell.tag = indexPath.row
         cell.thumbnailImage.image = nil
+        cell.thumbnailImage.layer.cornerRadius = 10
         
         cell.commonNameTextLabel.text = favoritePlantsInfo[indexPath.row].commonName?.sentenceCase() ?? "Unknown"
         cell.scientificTextLabel.text = favoritePlantsInfo[indexPath.row].scientificName.sentenceCase()
@@ -41,7 +42,7 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
             cell.imageActivityViewIndicator.stopAnimating()
             cell.thumbnailImage.image = #imageLiteral(resourceName: "NoImageFound")
         }
-        
+                
         return cell
     }
     
