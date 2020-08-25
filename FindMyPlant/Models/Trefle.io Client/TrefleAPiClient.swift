@@ -10,7 +10,7 @@ import UIKit
 
 class TrefleAPiClient {
     
-    static let apiKey = "U8Aaxsf22v1B7wPWnjhafMj6WddhXzb1WkdNJYjz7rM"
+    static let apiKey = FirebaseFMP.shared.TrefleAPIKey
     //Setup my NSCache for images
     static let imageCache = NSCache<NSString, UIImage>()
     

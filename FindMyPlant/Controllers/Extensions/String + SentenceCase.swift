@@ -8,11 +8,12 @@
 
 extension String {
     
-    //Create a sentence case function extending String
+    //MARK: - sentenceCase: Create a sentence case function extending String
     func sentenceCase() -> String {
         return prefix(1).capitalized + dropFirst()
     }
-
+    
+    //MARK: - capitalizeFirstLetter: Mutating function to save the capitalized sentence
     mutating func capitalizeFirstLetter() {
         self = self.sentenceCase()
     }

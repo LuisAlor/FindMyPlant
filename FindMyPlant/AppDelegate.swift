@@ -12,8 +12,9 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate { 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Use Firebase library to configure APIs
+        //Setup Firebase Framework
         FirebaseFMP.shared.configureFramework()
+        //Initialize Firestore Database
         FirebaseFMP.shared.configureFirestoreDB()
         return true
     }

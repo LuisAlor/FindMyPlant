@@ -10,8 +10,10 @@ import UIKit
 
 struct Constants{
     
+    //Custom UI Colors for easy access thru the project
     enum UICustomColors {
         case darkGreen
+        //Get color of type UIColor
         var color: UIColor{
             switch self {
             case .darkGreen:
@@ -19,7 +21,7 @@ struct Constants{
             }
         }
     }
-    
+    //System icons needed for the app already returned as UIImage
     enum SystemIcons {
         case favoriteIcon
         case favoriteIconFill
@@ -33,13 +35,14 @@ struct Constants{
             }
         }
     }
-
+    //Segue identifiers for the app
     enum Segues {
         
         case homeToDetails
         case searchToDetails
         case favoritesToDetails
         
+        //Returns the identifier for each segue
         var identifier: String{
             switch self {
             case .homeToDetails: return "HomeToDetailsSegue"

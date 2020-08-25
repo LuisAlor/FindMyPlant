@@ -30,6 +30,7 @@ extension UIViewController{
         }
     }
     
+    //MARK: - isFavorite: Returns true if id of the plant is in the array of favorites
     func isFavorite(favoritePlants: Array<Int>, id: Int) -> Bool {
         if favoritePlants.contains(id){
             return true
@@ -38,7 +39,7 @@ extension UIViewController{
         }
         
     }
-    
+    //MARK: - selectFavButtonImage: Returns the UIImage that should be loaded to favorite button from System Icons
     func selectFavButtonImage(status: Bool) -> UIImage {
         if status {
             return Constants.SystemIcons.favoriteIconFill.image
@@ -47,7 +48,7 @@ extension UIViewController{
         }
     }
     
-    //MARK: - showAlert: Create an alert
+    //MARK: - showAlert: Create a custom alert
     func presentAlert(_ type: Alert.ofType, message: String){
         let alertVC = UIAlertController(title: type.getTitles.ofController, message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: type.getTitles.ofAction, style: .default, handler: nil))
@@ -55,7 +56,9 @@ extension UIViewController{
     }
 }
 
+//MARK: - UITextFieldDelegate
 extension UIViewController: UITextFieldDelegate{
+    
     //MARK: - textFieldShouldReturn: Dismiss keyboard if return was pressed
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

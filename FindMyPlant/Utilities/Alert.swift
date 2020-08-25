@@ -8,21 +8,24 @@
 
 // Alert class to customize the titles of our alertview
 
-import Foundation
-
 class Alert{
     
+    //Titles for the custom alerts
     struct Titles {
         let ofController: String
         let ofAction: String
     }
     
+    //Type of alerts in the app
     enum ofType {
         case loginFailed
         case accCreationFailed
         case passwordBadFormat
         case emptyFields
+        case failedToRetrieveDataFromServer
+        case failedToSetDataToServer
 
+        //Get the title for the alert and action text
         var getTitles: Titles{
             switch self {
             case .loginFailed:
@@ -33,6 +36,10 @@ class Alert{
                 return Titles(ofController: "Wrong Password Format", ofAction: "Try Again")
             case .emptyFields:
                 return Titles(ofController: "Empty Fields", ofAction: "Try Again")
+            case .failedToRetrieveDataFromServer:
+                return Titles(ofController: "Failed to Retrieve Data", ofAction: "Dismiss")
+            case .failedToSetDataToServer:
+                return Titles(ofController: "Failed to Set Data", ofAction: "Dismiss")
             }
         }
     }

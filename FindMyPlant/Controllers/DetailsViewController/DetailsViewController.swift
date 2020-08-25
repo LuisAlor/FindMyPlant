@@ -13,6 +13,7 @@ import FirebaseFirestore
 
 class DetailsViewController: UIViewController {
 
+    //IBOutlets
     @IBOutlet weak var rootStackView: UIStackView!
     @IBOutlet weak var likeToolbar: UIToolbar!
     @IBOutlet weak var imageView: UIImageView!
@@ -24,10 +25,10 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var bibliographyLabel: UILabel!
     @IBOutlet weak var familyLabel: UILabel!
     @IBOutlet weak var genusLabel: UILabel!
-    
     @IBOutlet weak var loadingActivityViewIndicator: UIActivityIndicatorView!
     @IBOutlet weak var loadingLabel: UILabel!
     
+    //Properties
     var plantSelectedData: PlantInfo!
     var userDocumentID: String!
     var isPlantFavorite: Bool!
@@ -35,12 +36,15 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Set selected objects from interface to hidden
         setInterfaceItemsVisible(false)
+        //Set Loading Items to visible
         setLoadingItemsVisible(true)
         //Get user favorite list to verify if the plant selected is there and update the favorite image
         getUserFavoritePlants(completionHandler: getUserFavoritePlantsHandler(documentID:plantsId:error:))
     }
     
+    //MARK: - setInterfaceItemsVisible: Sets visible or hidden the necessary items for the interface
     func setInterfaceItemsVisible(_ itemsVisible: Bool) {
         if itemsVisible {
             rootStackView.isHidden = false
@@ -53,6 +57,7 @@ class DetailsViewController: UIViewController {
         }
     }
     
+    //MARK: - setLoadingItemsVisible: Sets visible or hidden the loading items for the interface
     func setLoadingItemsVisible(_ itemsVisible: Bool){
         if itemsVisible{
             loadingActivityViewIndicator.startAnimating()
@@ -63,6 +68,7 @@ class DetailsViewController: UIViewController {
         }
     }
     
+    //MARK: - setFavoritePlant: Sends request to server to add selected plant to the user's fav list
     func setFavoritePlant(){
         likeButton.image = Constants.SystemIcons.favoriteIconFill.image
         isPlantFavorite = true
@@ -71,6 +77,7 @@ class DetailsViewController: UIViewController {
             ], completion: setFavoritePlantHandler(error:))
     }
     
+    //MARK: - unsetFavoritePlant: Sends request to server to remove selected plant from the user's fav list
     func unsetFavoritePlant(){
         likeButton.image = Constants.SystemIcons.favoriteIcon.image
         isPlantFavorite = false
@@ -79,9 +86,11 @@ class DetailsViewController: UIViewController {
         ], completion: unsetFavoritePlantHandler(error:))
     }
     
+    //MARK: - getUserFavoritePlantsHandler: Handles the data from user's fav list and documentID
     func getUserFavoritePlantsHandler(documentID: String, plantsId: [Int], error: Error?){
         if let error = error{
-            print(error)
+            //Present custom alert if the request failed to retreive user's fav list
+            presentAlert(Alert.ofType.failedToRetrieveDataFromServer, message: error.localizedDescription)
         } else {
             //Set the document id for setting/unsetting favorite plant
             self.userDocumentID = documentID
@@ -100,6 +109,7 @@ class DetailsViewController: UIViewController {
         }
     }
     
+    //MARK: - setupPlantDetails: Sets the plant's corresponding data to all our objects.
     fileprivate func setupPlantDetails() {
         //Set the likeButton image to the corresponding one
         likeButton.image = selectFavButtonImage(status: isPlantFavorite)
@@ -123,18 +133,21 @@ class DetailsViewController: UIViewController {
         genusLabel.text = plantSelectedData.genus
     }
     
+    //MARK: - setFavoritePlantHandler: Handles error alert in case there was an error while trying to set from server
     func setFavoritePlantHandler(error:Error?){
-        if error != nil {
-            print(error!)
+        if let error = error {
+            presentAlert(Alert.ofType.failedToSetDataToServer, message: error.localizedDescription)
         }
     }
     
+    //MARK: - unsetFavoritePlantHandler: Handles error alert in case there was an error while trying to unset from server
     func unsetFavoritePlantHandler(error:Error?){
-        if error != nil {
-            print(error!)
+        if let error = error {
+            presentAlert(Alert.ofType.failedToSetDataToServer, message: error.localizedDescription)
         }
     }
     
+    //MARK: - downloadImageHandler: Handles image download or cache retrieval
     func downloadImageHandler(image: UIImage?, error: Error?){
         if error == nil {
             if let image = image {
@@ -147,8 +160,9 @@ class DetailsViewController: UIViewController {
         }
     }
     
-    
+    //MARK: - favoritePlant: Sets or Unsets selected plant to user's favorite list
     @IBAction func favoritePlant(_ sender: Any) {
+
         if isPlantFavorite {
             unsetFavoritePlant()
         } else {

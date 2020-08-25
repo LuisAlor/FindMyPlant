@@ -10,7 +10,7 @@ import UIKit
 
 class Utilities {
     
-    //Creates the TextField's style
+    //MARK: - styleFormTextField: Creates the TextField's style
     static func styleFormTextField(_ textfield:UITextField, placeholder: String) {
         // Create the bottom line
         let bottomLine = CALayer()
@@ -25,7 +25,7 @@ class Utilities {
         textfield.clearButtonMode = .whileEditing
     }
 
-    //Fills round corner style to button
+    //MARK: - styleFilledButton: Fills round corner style to button
     static func styleFilledButton(_ button:UIButton) {
         button.layer.cornerRadius = 15.0
         button.tintColor = UIColor.white
@@ -33,7 +33,7 @@ class Utilities {
         button.titleLabel!.font = UIFont.boldSystemFont(ofSize: 15)
     }
     
-    //Verifies password that matches the pattern.
+    //MARK: - isPasswordValid: Verifies password that matches the pattern.
     static func isPasswordValid(_ password : String) -> Bool {
         // (?=.*[A-Z]) Ensures string has one capital letter.
         // {6,} - Ensures password length is 6.
@@ -43,7 +43,7 @@ class Utilities {
         return passwordPredicate.evaluate(with: password)
     }
     
-    //Verifies that email is in the correct format and mathes the RegEx pattern
+    //MARK: - isEmailValid: Verifies that email is in the correct format and mathes the RegEx pattern
     static func isEmailValid(_ email: String) -> Bool {
         
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -51,7 +51,7 @@ class Utilities {
         return emailPredicate.evaluate(with: email)
     }
     
-    //Creates the style for the cell with border, rounded corners and shadow
+    //MARK: - configureCellStyle: Creates the style for the cell with border, rounded corners and shadow
     static func configureCellStyle(_ cell: UICollectionViewCell) {
         cell.layer.cornerRadius = 10.0
         cell.layer.borderWidth = 2
@@ -70,7 +70,7 @@ class Utilities {
         cell.layer.backgroundColor = UIColor.clear.cgColor
     }
     
-    //Generates a random Int number between [1...maxRange]
+    //MARK: - generateRandomNumber: Generates a random Int number between [1...maxRange]
     static func generateRandomNumber(maxRange: Int) -> Int{
         return Int.random(in: 1...maxRange)
     }
