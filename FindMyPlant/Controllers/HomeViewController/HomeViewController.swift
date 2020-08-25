@@ -121,6 +121,8 @@ class HomeViewController: UIViewController {
     
     //MARK: - handleTotalPlantsPages: Selects which request should be processed Random or Edible Plants
     @objc private func didIndexChanged(){
+        //Hide collectionView while new data is getting ready
+        randomPlantsCollectionView.isHidden = true
         //Start animating the dataLoadingIndicatorView
         dataLoadingIndicatorView.startAnimating()
         //Remove all old data
