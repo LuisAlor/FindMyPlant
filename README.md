@@ -36,9 +36,9 @@ Trefle API Key is not stored in the app for security purposes, in order to setup
 5. The rest the app will do by itself.
 
 **Detailed Firestore setup:**
-![Image of Firestore Setup](https://github.com/LuisAlor/FindMyPlant/blob/master/gitImages/firestore-apikey-setup.png)
+![Image of Firestore Setup](https://github.com/LuisAlor/FindMyPlant/blob/master/gitImages/firestore_apikey_setup.png)
 
 ## Setup Firebase to FindMyPlant
 For Firebase to connect to the app, you must download the file named: **GoogleService-Info.plist** that was generated after you created your application project in Firebase console. This file contains configuration details such as keys and identifiers, for the services you just enabled. Without this file the project will not work. 
 
-**Recommendation:** The file GoogleService-Info.plist can be added to Support Files folder in FindMyPlant project
+**Recommendation:** The file **GoogleService-Info.plist** can be added to Support Files folder in FindMyPlant project
