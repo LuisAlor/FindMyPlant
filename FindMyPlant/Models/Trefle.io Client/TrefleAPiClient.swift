@@ -10,10 +10,12 @@ import UIKit
 
 class TrefleAPiClient {
     
+    //Get apiKey from our FirebaseFMP Singleton instance
     static let apiKey = FirebaseFMP.shared.TrefleAPIKey
     //Setup my NSCache for images
     static let imageCache = NSCache<NSString, UIImage>()
     
+    //Endpoints list for Trefle API
     enum Endpoints{
         
         //URL Search Format =  https://trefle.io/api/v1/plants/search?token=YOUR_TREFLE_TOKEN&q=PLANT
@@ -24,13 +26,21 @@ class TrefleAPiClient {
         //URL Edible Plants by Page = "https://trefle.io/api/v1/plants?page=1&filter_not%5Bedible_part%5D=null&token=YOUR_TREFLE_TOKEN"
         //URL Plant by ID = "https://trefle.io/api/v1/plants/ID_OF_PLANT?token=YOUR_TREFLE_TOKEN"
         
+        //Main path for API
         static let baseURL = "https://trefle.io/api/v1/"
+        //Trefle TokenAPIKey Path
         static let myToken = "token=" + TrefleAPiClient.apiKey
+        //Plants path
         static let plantPath = "plants/"
+        //Argument for plant name
         static let plantParam = "&q="
+        //Argument for searching
         static let search = "search?"
+        //Argument for retrieving a plant
         static let allPlants = "plants?"
+        //Argument to specify a page to load
         static let page = "page="
+        //Argument to filter by edible plants only
         static let filterEdible = "&filter_not%5Bedible_part%5D=null&"
         
         case searchForPlant(name: String)
@@ -58,11 +68,12 @@ class TrefleAPiClient {
                 return Endpoints.baseURL + Endpoints.plantPath + String(id) + "?" + Endpoints.myToken
             }
         }
+        //Returns the URL from the a URL in string type
         var url: URL {
             return URL(string: stringURL)!
         }
     }
-    
+    //Plant type to specify which request to send in HomeVC with segmented control
     enum PlantType{
         case all
         case onlyEdible

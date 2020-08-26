@@ -13,11 +13,11 @@ import FirebaseFirestore
 
 class SignupViewController: UIViewController {
     
+    //IBOutlets
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
@@ -27,27 +27,27 @@ class SignupViewController: UIViewController {
         setupInterface()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.backItem?.title = ""
-    }
-    
+    //MARK: - setupInterface: Configures all UI Elements after view loaded to memory
     fileprivate func setupInterface(){
         
+        //Style buttons
         Utilities.styleFilledButton(registerButton)
         Utilities.styleFilledButton(backButton)
         
+        //Set style for textfields and placeholders
         Utilities.styleFormTextField(firstNameTextField, placeholder: "First name")
         Utilities.styleFormTextField(lastNameTextField, placeholder: "Last name")
         Utilities.styleFormTextField(emailTextField, placeholder: "Email")
         Utilities.styleFormTextField(passwordTextField, placeholder: "Password")
         
+        //Set textfields delegates
         firstNameTextField.delegate = self
         lastNameTextField.delegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
     }
     
+    //MARK:- registerAccount: Verifies fields and sends requeste to Firestore to save user and login
     @IBAction func registerAccount(_ sender: Any) {
         
         var firstName = firstNameTextField.text ?? ""
@@ -80,12 +80,13 @@ class SignupViewController: UIViewController {
         
     }
     
+    //MARK: - goBack: Pops view back to login view
     @IBAction func goBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     
     
-    //Handle Firebase user creation from completionHandler
+    //MARK:- createUserHandler: Handles Firebase user creation from completionHandler
     func createUserHandler(authResult: AuthDataResult?, error: Error?){
         if error != nil {
             self.presentAlert(Alert.ofType.accCreationFailed, message: error!.localizedDescription)
@@ -102,20 +103,24 @@ class SignupViewController: UIViewController {
         }
     }
     
+    //MARK:- userSaveToDBHandler: If user was correctly saved to Firestore then autologin the user
     func userSaveToDBHandler(error: Error?) {
         if error != nil {
+            //Present custom alert if something went wrong while saving user
             self.presentAlert(Alert.ofType.accCreationFailed, message: "Something went wrong while saving data!")
             activityIndicator.stopAnimating()
             registerButton.isEnabled = true
 
         } else{
+            //Sign in automatically the user
             Auth.auth().signIn(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!, completion: signinHandler(result:error:))
         }
     }
     
-    //Handles user signin and verifies in Firebase servers.
+    //MARK: - signinHandler: Handles user signin and verifies in Firebase servers.
      func signinHandler(result: AuthDataResult?, error: Error?){
         if error != nil {
+            //If sign in wasn't successful show custom error to user
             self.presentAlert(Alert.ofType.loginFailed, message: error!.localizedDescription)
             activityIndicator.stopAnimating()
             registerButton.isEnabled = true

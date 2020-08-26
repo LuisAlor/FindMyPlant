@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
         setupInterface()
     }
     
-    //Configures interface upon launch
+    //MARK: - setupInterface: Configures interface upon launch
     fileprivate func setupInterface(){
         //Setup TextField's and Button's Style
         Utilities.styleFormTextField(emailTextField, placeholder: "Email")
@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
         passwordTextField.delegate = self
     }
         
-    //Logins user with credentials (verifies fields are filled and correct).
+    //MARK: - login: Logins user with credentials (verifies fields are filled and correct).
     @IBAction func login(_ sender: Any) {
         
         var email = emailTextField.text ?? ""
@@ -61,7 +61,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    //Handles user signin and verifies in Firebase servers.
+    //MARK: - signinHandler: Handles user signin and verifies in Firebase servers.
     func signinHandler(result: AuthDataResult?, error: Error?){
         if error != nil {
             self.presentAlert(Alert.ofType.loginFailed, message: error!.localizedDescription)
